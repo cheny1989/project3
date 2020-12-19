@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import $ from "jquery"
+
 
 class CrateVacation extends Component {
     constructor(props) {
@@ -26,9 +28,20 @@ class CrateVacation extends Component {
         const picture = document.getElementById("picture").value;
         const StartDate = document.getElementById("StartDate").value;
         const EndDate = document.getElementById("EndDate").value;
+
+        $('#description').val('')
+        $('#price').val('')
+        $('#picture').val('')
+        $('#StartDate').val('')
+        $('#EndDate').val('')
+
+        if(description.length<1 || price.length<1 || picture.length<1 || StartDate.length<1 || EndDate.length<1){
+            alert("Error")
+        }else{
+            alert("ok")
+        }
     }
 
-    
 
     render() {
         return (
