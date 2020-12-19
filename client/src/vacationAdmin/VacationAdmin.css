@@ -1,0 +1,66 @@
+
+.gridVacationListStyle{
+    display: grid;
+    grid-template-columns: 430px 430px 430px;
+    background-color: #0099FF;
+    padding-top: 27px;
+    justify-content: space-evenly;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding-bottom: 5px;
+}
+
+.vacationListStyle{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+  .createVacationStyle{
+    background-color: #0099FF;
+    text-align: center;
+    width: 500px;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: #0e003f solid 1px;
+    border-radius: 10px;
+    box-shadow: rgb(160, 160, 160) 2px 1px 10px 2px;
+    color: white;
+    font-weight: 900px;
+  }
+
+  input{
+    width: 250px;
+    height: 30px;
+  }
+
+  .btnAddVacationStyle{
+    width: 208px;
+    height: 30px;
+    background-color: #0e003f;
+    color: white;
+    font-size: 15px;
+  }
+
+  .btnAddVacationStyle:hover{
+    background-color: #2400a8;
+  }
+
+  .deleteVacationStyle{
+      background: #FFCC00;
+      width: 300px;
+      height: 30px;
+      box-shadow: rgb(73, 73, 73) 1px 1px 1px 1px;
+  }
+
+  .editVacationStyle{
+      background-color: #d3d3d3;
+      color: black;
+      width: 70px;
+      height: 30px;
+      box-shadow: rgb(73, 73, 73) 1px 1px 1px 1px;
+  }

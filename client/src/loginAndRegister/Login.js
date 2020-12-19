@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InputRegister from "./InputRegister";
 // import thailand from "../images/thailand.jpg";
-import Register from "./Register"
+// import Register from "./Register"
 
 
 class Login extends Component {
