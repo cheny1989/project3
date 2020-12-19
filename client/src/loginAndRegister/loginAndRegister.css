@@ -1,0 +1,99 @@
+
+.firstTitle{
+    font-weight: bolder;
+  }
+  
+  ul.header li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+  }
+  
+  ul.header {
+    background-color: #0e003f;
+    padding: 0;
+    border-radius: 10px;
+  }
+  
+  ul.header li a {
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+  }
+  
+  ul.header li a:hover{
+    color: #FFCC00;
+  }
+  
+  .content {
+    background-color: #FFF;
+    padding: 20px;
+    /* background-image: url(../images/thailand.jpg);
+    height: 1000px; */
+  }
+  .content h2 {
+    padding: 0;
+    margin: 0;
+  }
+  .content li {
+    margin-bottom: 10px;
+  }
+  
+  .active {
+    background-color: #0099FF;
+    border: white solid 1px;
+    border-radius: 10px;
+  }
+  
+  .buttonHeader{
+    border-right: black solid 1.5px;
+  }
+
+  .widowRegisterAndLogin{
+    background-color: #0099FF;
+    text-align: center;
+    width: 350px;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: #0e003f solid 1px;
+    border-radius: 10px;
+    box-shadow: rgb(160, 160, 160) 2px 1px 10px 2px;
+  }
+
+  input{
+    width: 200px;
+    height: 30px;
+  }
+
+  .button_style{
+    width: 208px;
+    height: 30px;
+    background-color: #0e003f;
+    color: white;
+    font-size: 15px;
+  }
+
+  .button_style:hover{
+    background-color: #2400a8;
+  }
+
+  .notRegister{
+    border-radius: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #ffc422;
+    color: black;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: rgb(73, 73, 73) 1px 1px 2px 1px;
+  }
+
+  .notRegister:hover{
+    background-color: #ecad00;
+    color: black;
+  }
