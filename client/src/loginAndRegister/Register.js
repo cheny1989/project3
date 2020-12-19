@@ -16,27 +16,32 @@ class Register extends Component {
         return (
             <form className="input_style">
                 <div className="widowRegisterAndLogin">
+                    <div className="enjoyTitle">Register and Enjoy</div>
+                    <label>First Name</label>
+                    <br />
                     <InputRegister
                         type="text"
-                        placeholder="First Name"
                         id="firstName"
                     />
                     <br />
+                    <label>Last Name</label>
+                    <br />
                     <InputRegister
                         type="text"
-                        placeholder="Last Name"
                         id="lastName"
                     />
                     <br />
+                    <label>User Name</label>
+                    <br />
                     <InputRegister
                         type="text"
-                        placeholder="User Name"
                         id="userName"
                     />
                     <br />
+                    <label>Password</label>
+                    <br />
                     <InputRegister
                         type="password"
-                        placeholder="password"
                         id="password"
                     />
                     <br />

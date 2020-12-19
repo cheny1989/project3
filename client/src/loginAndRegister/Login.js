@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import InputRegister from "./InputRegister";
+import { Route, NavLink, HashRouter } from "react-router-dom";
 // import thailand from "../images/thailand.jpg";
-// import Register from "./Register"
+import Register from "./Register"
 
 
 class Login extends Component {
@@ -19,20 +20,28 @@ class Login extends Component {
         return (
             <form className="input_style">
                 <div className="widowRegisterAndLogin">
+                <div className="enjoyTitle">Login and Enjoy</div>
+                <label>Username</label>
+                <br />
                     <InputRegister
                         type="text"
-                        placeholder="Username"
                         id="userName"
                     />
-                    <br />
+                <br />
+                <label>Passoword</label>
+                <br />
                     <InputRegister
                         type="password"
-                        placeholder="password"
                         id="password"
                     />
                     <br />
                     <button onClick={this.functionOfValidation} className="button_style" type="submit">Login</button>
-                    <div className="notRegister">not register? Click Here!</div>
+
+                    <HashRouter>
+                        <br />
+                    <div className="notRegister"><NavLink to="/Register">Not Register? Click Here</NavLink></div>
+                    <Route path="/Register" component={Register} />
+                    </ HashRouter>
                 </div>
             </form>
         )

@@ -39,11 +39,13 @@
   }
 
   .btnAddVacationStyle{
-    width: 208px;
-    height: 30px;
+    width: 255px;
+    height: 40px;
     background-color: #0e003f;
     color: white;
     font-size: 15px;
+    border-radius: 15px;
+    margin-top: 13px;
   }
 
   .btnAddVacationStyle:hover{
@@ -51,16 +53,32 @@
   }
 
   .deleteVacationStyle{
-      background: #FFCC00;
-      width: 300px;
+      background-color: #FFCC00;
+      width: 120px;
       height: 30px;
       box-shadow: rgb(73, 73, 73) 1px 1px 1px 1px;
+      border-radius: 5px;
+  }
+  
+  .deleteVacationStyle:hover{
+    background-color: #ecad00;
   }
 
   .editVacationStyle{
-      background-color: #d3d3d3;
+      background-color: #dadada;
       color: black;
-      width: 70px;
+      width: 120px;
       height: 30px;
       box-shadow: rgb(73, 73, 73) 1px 1px 1px 1px;
+      border-radius: 5px;
   }
+
+  .editVacationStyle:hover{
+    background-color: #b8b8b8;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

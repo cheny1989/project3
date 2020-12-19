@@ -47,9 +47,6 @@
     border-radius: 10px;
   }
   
-  .buttonHeader{
-    border-right: black solid 1.5px;
-  }
 
   .widowRegisterAndLogin{
     background-color: #0099FF;
@@ -61,6 +58,7 @@
     border: #0e003f solid 1px;
     border-radius: 10px;
     box-shadow: rgb(160, 160, 160) 2px 1px 10px 2px;
+    color: white;
   }
 
   input{
@@ -69,11 +67,13 @@
   }
 
   .button_style{
-    width: 208px;
-    height: 30px;
+    width: 255px;
+    height: 40px;
     background-color: #0e003f;
     color: white;
-    font-size: 15px;
+    font-size: 17px;
+    border-radius: 15px;
+    margin-top: 10px;
   }
 
   .button_style:hover{
@@ -91,9 +91,26 @@
     text-align: center;
     margin-top: 20px;
     box-shadow: rgb(73, 73, 73) 1px 1px 2px 1px;
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
   }
 
   .notRegister:hover{
     background-color: #ecad00;
     color: black;
+  }
+  
+  .enjoyTitle{
+    color: #0e003f;
+    font-size: 22px;
+    font-weight: 700;
+    padding-bottom: 15px;
   }
