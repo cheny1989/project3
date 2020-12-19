@@ -11,13 +11,13 @@ class MainVacation extends Component {
                 { id: 1, description: "WOW1", price: "100", picture: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", StartDate: "date1", EndDate: "date1" },
                 { id: 2, description: "WOW2", price: "200", picture: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", StartDate: "date2", EndDate: "date2" },
                 { id: 3, description: "WOW3", price: "300", picture: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", StartDate: "date3", EndDate: "date3" }
-            ]
+            ],
         }
     }
 
     crateVacation = (singleVacation) => {
-        const test = singleVacation.id = Math.random();
-        console.log(test);
+        const rendomNum = singleVacation.id = Math.random();
+        console.log(rendomNum);
         let newVacation = [...this.state.vacation, singleVacation];
         this.setState({
             vacation: newVacation
@@ -36,10 +36,8 @@ class MainVacation extends Component {
     render() {
         return (
             <div>
-                <div className="flexBackgroundImageAndBox">
-                    <div className="backgroundImage">
-                        <CrateVacation crateVacation={this.crateVacation} />
-                    </div>
+                <div className="imageBackground">
+                    <CrateVacation crateVacation={this.crateVacation} />
                 </div>
                 <hr />
                 <MapVacation deleteVacation={this.deleteVacation} vacation={this.state.vacation} />

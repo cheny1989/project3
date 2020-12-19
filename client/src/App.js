@@ -1,5 +1,6 @@
 import './index.css';
 import MainPage from "./mainPage/MainPage"
+// import $ from "jquery"
 
 function App() {
   return (

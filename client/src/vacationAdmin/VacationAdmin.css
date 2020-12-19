@@ -38,6 +38,7 @@
     box-shadow: rgb(160, 160, 160) 2px 1px 10px 2px;
     color: white;
     font-weight: 900px;
+    z-index: 0;
   }
 
   input{

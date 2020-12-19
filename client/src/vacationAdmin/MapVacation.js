@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 const MapVacation = ({ vacation, deleteVacation }) => {
     const vacationList = vacation.map(singleVacation => {  

@@ -21,13 +21,14 @@ class CrateVacation extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.crateVacation(this.state);
-        document.getElementById("description").value = '';
-        document.getElementById("price").value = '';
-        document.getElementById("picture").value = '';
-        document.getElementById("StartDate").value = '';
-        document.getElementById("EndDate").value = '';
+        const description = document.getElementById("description").value;
+        const price = document.getElementById("price").value;
+        const picture = document.getElementById("picture").value;
+        const StartDate = document.getElementById("StartDate").value;
+        const EndDate = document.getElementById("EndDate").value;
     }
 
+    
 
     render() {
         return (
@@ -44,7 +45,7 @@ class CrateVacation extends Component {
                         <br />
                         <input type="number" id="price" onChange={this.handleChange} />
                         <br />
-                        <label htmlFor="picture">Picture: </label>
+                        <label htmlFor="picture">Picture (URL): </label>
                         <br />
                         <input type="link" id="picture" onChange={this.handleChange} />
                         <br />
