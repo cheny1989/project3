@@ -34,7 +34,7 @@ class CrateVacation extends Component {
             <div>
                 <form onSubmit={this.handleSubmit} className="fromStyle">
                     <div className="createVacationStyle">
-                        <h2>ADD VACATION</h2>
+                        <div className="addVacationTitle">ADD VACATION</div>
                         <br />
                         <label htmlFor="description">Description: </label>
                         <br />

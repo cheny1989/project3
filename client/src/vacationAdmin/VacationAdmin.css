@@ -19,6 +19,13 @@
     padding-bottom: 20px;
 }
 
+.addVacationTitle{
+  color: #0e003f;
+  font-size: 22px;
+  font-weight: 700;
+  padding-bottom: 15px;
+}
+
   .createVacationStyle{
     background-color: #0099FF;
     text-align: center;

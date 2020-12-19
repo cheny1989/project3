@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import InputRegister from "./InputRegister";
 import { Route, NavLink, HashRouter } from "react-router-dom";
-// import thailand from "../images/thailand.jpg";
 import Register from "./Register"
 
 
