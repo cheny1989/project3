@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import UseStyles from "../UseStyles"
+
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Typography from '@material-ui/core/Typography';
 
 class AboutME extends Component {
     constructor(props) {
@@ -10,9 +14,17 @@ class AboutME extends Component {
         return (
             <div>
                 Hello My name is Chen Yaacov
-
+                {/* <Accordion>
+                    <AccordionSummary>
+                        <Typography>Show / Hide - Create Vacation</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                     Hello My name is Chen Yaacov
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion> */}
                 {/* change to Accordion */}
-                <UseStyles />
             </div>
           );
     }

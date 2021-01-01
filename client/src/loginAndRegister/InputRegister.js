@@ -1,3 +1,5 @@
+// can delete this component
+
 import React from 'react';
 
 function InputRegister(props) {

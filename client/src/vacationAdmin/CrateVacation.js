@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import $ from "jquery"
-
+import $ from "jquery";
 
 class CrateVacation extends Component {
     constructor(props) {
@@ -73,8 +72,17 @@ class CrateVacation extends Component {
     }
 
     render() {
+
+        function showAndHide() {
+            $(".showAndHide").click(function () {
+                $(".createVacationStyle").toggle();
+            });
+        }
+        
+
         return (
             <div>
+                <button className="showAndHide" onClick={() => showAndHide()}>Show/Hide</button>
                 <form onSubmit={this.handleSubmit} className="fromStyle">
                     <div className="createVacationStyle">
                         <div className="addVacationTitle">ADD VACATION</div>

@@ -5,6 +5,7 @@ import Register from "./Register";
 import MainVacation from "../vacationAdmin/MainVacation"
 import AboutMe from "../aboutMe/AboutMe"
 import { Route, NavLink, HashRouter } from "react-router-dom";
+import Footer from "../footer/Footer"
 
 
 
@@ -33,6 +34,7 @@ class MainOnePageApplication extends Component {
                         </div>
                     </div>
                 </HashRouter>
+                <Footer />
             </div>
         );
     }

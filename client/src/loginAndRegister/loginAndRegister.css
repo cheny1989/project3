@@ -29,7 +29,7 @@
   
   .content {
     background-color: #FFF;
-    padding: 20px;
+    /* padding: 20px; */
     /* background-image: url(../images/thailand.jpg);
     height: 1000px; */
   }
@@ -47,7 +47,6 @@
     border-radius: 10px;
   }
   
-
   .widowRegisterAndLogin{
     background-color: #0099FF;
     text-align: center;
@@ -64,6 +63,7 @@
   input{
     width: 200px;
     height: 30px;
+    border-radius: 5px;
   }
 
   .button_style{
@@ -103,6 +103,10 @@
     text-decoration: none;
   }
 
+  a:active{
+    color: black;
+  }
+
   .notRegister:hover{
     background-color: #ecad00;
     color: black;
@@ -117,5 +121,5 @@
 
   .input_style{
     background-image: url(../images/image3.png);
-    padding: 30px;
+    padding: 22px;
   }
