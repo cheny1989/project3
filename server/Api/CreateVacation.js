@@ -1,20 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose")
 
-const Vacation = require("../DB/Vacation_Schema")
+const Vacation = require("../DB/CreateVacation")
 const route = express.Router();
 
 route.post('/', async (req, res)=>{
-    const { destination, description, userName, picture, StartDate, EndDate } = req.body;
+    const { destination, description, price, picture, startDate, endDate } = req.body;
     let vacation = {};
     vacation.destination = destination,
     vacation.description = description,
-    vacation.userName = userName,
+    vacation.price = price,
     vacation.picture = picture
-    vacation.StartDate = StartDate
-    vacation.EndDate = EndDate
+    vacation.startDate = startDate
+    vacation.endDate = endDate
 
-    let vacationModel = new Comment (vacation);
+    let vacationModel = new Vacation (vacation);
     await vacationModel.save();
     res.setHeader('Access-Control-Allow-Origin','*');
     res.setHeader('Access-Control-Allow-Credentials',true);

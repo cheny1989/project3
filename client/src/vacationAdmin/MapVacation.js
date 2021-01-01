@@ -9,8 +9,8 @@ const MapVacation = ({ vacation, deleteVacation, editVacation }) => {
                     <p>Price ($): {singleVacation.price}$</p>
                     <p>Picture (URL):<br /><img src={singleVacation.picture} width="350px" height="180px" alt="img"></img></p>
                     {/* <p>Picture: {singleVacation.picture}</p> */}
-                    <p>Start Date: {singleVacation.StartDate}</p>
-                    <p>End Date: {singleVacation.EndDate}</p>
+                    <p>Start Date: {singleVacation.startDate}</p>
+                    <p>End Date: {singleVacation.endDate}</p>
                     <button className="deleteVacationStyle" onClick={() => { deleteVacation(singleVacation.id)}}>DELETE</button>
                     <button className="editVacationStyle" onClick={()=> { editVacation(singleVacation.id)}} >EDIT</button>
             </div>

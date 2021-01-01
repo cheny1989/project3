@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose")
 
-const User = require("../DB/User_Schema")
+const User = require("../DB/CreateUser")
 const route = express.Router();
 
 route.post('/', async (req, res)=>{
@@ -12,7 +12,7 @@ route.post('/', async (req, res)=>{
     user.userName = userName,
     user.password = password
 
-    let userModel = new Comment (user);
+    let userModel = new User (user);
     await userModel.save();
     res.setHeader('Access-Control-Allow-Origin','*');
     res.setHeader('Access-Control-Allow-Credentials',true);

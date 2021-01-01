@@ -7,6 +7,7 @@ class CrateVacation extends Component {
         super(props);
         this.state = {
             description: null,
+            destination: null,
             price: null,
             picture: null,
             StartDate: null,
@@ -20,6 +21,15 @@ class CrateVacation extends Component {
         })
     }
 
+    clearInput = () => {
+        $('#description').val('')
+        $('#destination').val('')
+        $('#price').val('')
+        $('#picture').val('')
+        $('#startDate').val('')
+        $('#endDate').val('')
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.crateVacation(this.state);
@@ -27,26 +37,39 @@ class CrateVacation extends Component {
         const destination = document.getElementById("destination").value;
         const price = document.getElementById("price").value;
         const picture = document.getElementById("picture").value;
-        const StartDate = document.getElementById("StartDate").value;
-        const EndDate = document.getElementById("EndDate").value;
+        const StartDate = document.getElementById("startDate").value;
+        const endDate = document.getElementById("endDate").value;
 
-
-        // Chack this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! - reset the state
         this.setState({
             description: '',
             destination: '',
             price: '',
             picture: '',
-            StartDate: '',
-            EndDate: ''
+            startDate: '',
+            endDate: ''
         })
 
-        $('#description').val('')
-        $('#destination').val('')
-        $('#price').val('')
-        $('#picture').val('')
-        $('#StartDate').val('')
-        $('#EndDate').val('')
+        this.clearInput();
+
+        var rbody = {
+            description: description,
+            destination: destination,
+            price: price,
+            picture: picture,
+            startDate: StartDate,
+            endDate: endDate
+        };
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(rbody)
+        };
+        fetch('/api/api/apivacation', requestOptions)
+            .then(r => r.json())
+            .then(res => this.setState({ res }))
     }
 
     render() {
@@ -73,18 +96,17 @@ class CrateVacation extends Component {
                         <br />
                         <input type="link" id="picture" onChange={this.handleChange} />
                         <br />
-                        <label htmlFor="StartDate">Start Date: </label>
+                        <label htmlFor="startDate">Start Date: </label>
                         <br />
-                        <input type="date" id="StartDate" onChange={this.handleChange} />
+                        <input type="date" id="startDate" onChange={this.handleChange} />
                         <br />
-                        <label htmlFor="EndDate">End Date: </label>
+                        <label htmlFor="endDate">End Date: </label>
                         <br />
-                        <input type="date" id="EndDate" onChange={this.handleChange} />
+                        <input type="date" id="endDate" onChange={this.handleChange} />
                         <br />
                         <button className="btnAddVacationStyle">ADD VACATION</button>
                     </div>
                 </form>
-
             </div>
         );
     }

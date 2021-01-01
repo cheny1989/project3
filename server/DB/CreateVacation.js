@@ -7,18 +7,18 @@ const createVacation = new mongoose.Schema({
     description: ({
         type: String, 
     }),
-    userName: ({
-        price: Number
+    price: ({
+        type: String
     }),
     picture: ({
         type: String
     }),
-    StartDate: ({
+    startDate: ({
         type: String
     }),
-    EndDate: ({
+    endDate: ({
         type: String
     })
 })
 
-module.exports = createVacation = mongoose.model("createVacation", createVacation)
+module.exports = CreateVacation = mongoose.model("createVacation", createVacation)

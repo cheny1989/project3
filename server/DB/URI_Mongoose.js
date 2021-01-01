@@ -5,8 +5,9 @@ const URI = "mongodb+srv://dbuser:dbuser123@cluster0.ooadp.mongodb.net/<dbname>?
 const connectBD = async ()=>{
    await mongoose.connect(URI, {
        useUnifiedTopology: true,
-       useNewUrlParser: true});
-   console.log("DB User connected")
+       useNewUrlParser: true
+    });
+   console.log("DB connected")
 }
 
 module.exports = connectBD;

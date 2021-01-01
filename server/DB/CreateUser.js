@@ -15,4 +15,4 @@ const createUser = new mongoose.Schema({
     })
 })
 
-module.exports = createUser = mongoose.model("createUser", createUser)
+module.exports = CreateUser = mongoose.model("createUser", createUser)
