@@ -9,9 +9,9 @@ class MainVacation extends Component {
         super(props);
         this.state = {
             vacation: [
-                { id: 1, description: "WOW1", price: "100", picture: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", StartDate: "date1", EndDate: "date1" },
-                { id: 2, description: "WOW2", price: "200", picture: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", StartDate: "date2", EndDate: "date2" },
-                { id: 3, description: "WOW3", price: "300", picture: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", StartDate: "date3", EndDate: "date3" }
+                { id: 1, destination: "New-Delhi",  description: "WOW1", price: "100", picture: "https://media.istockphoto.com/photos/humayun-tomb-new-delhi-india-picture-id505239248?k=6&m=505239248&s=612x612&w=0&h=zWaM2foZitMueZtM1XOgxb5PoOxc6QkTNHdoHvArlVo=", StartDate: "05/02/2020", EndDate: "08/02/2020" },
+                { id: 2, destination: "Jerusalem", description: "WOW2", price: "200", picture: "https://www.touristisrael.com/wp-content/uploads/210910570-4.jpg", StartDate: "13/08/2020", EndDate: "27/08/2020" },
+                { id: 3, destination: "Thailand", description: "WOW3", price: "300", picture: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", StartDate: "05/11/2021", EndDate: "07/11/2021" }
             ],
             id: 4
         }
@@ -35,14 +35,20 @@ class MainVacation extends Component {
         })
     }
 
+    editVacation=(id)=>{
+        alert(id)
+    }
+
     render() {
         return (
             <div>
                 <div className="imageBackground">
-                    <CrateVacation crateVacation={this.crateVacation} />
+                <CrateVacation crateVacation={this.crateVacation} />
                 </div>
                 <hr />
-                <MapVacation deleteVacation={this.deleteVacation} vacation={this.state.vacation} />
+                <MapVacation deleteVacation={this.deleteVacation} vacation={this.state.vacation}
+                editVacation={this.editVacation} vacation={this.state.vacation}
+                />
             </div>
         );
     }

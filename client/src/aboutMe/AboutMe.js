@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UseStyles from "../UseStyles"
 
 class AboutME extends Component {
     constructor(props) {
@@ -9,6 +10,9 @@ class AboutME extends Component {
         return (
             <div>
                 Hello My name is Chen Yaacov
+
+                {/* change to Accordion */}
+                <UseStyles />
             </div>
           );
     }

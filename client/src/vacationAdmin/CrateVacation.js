@@ -24,24 +24,30 @@ class CrateVacation extends Component {
         e.preventDefault();
         this.props.crateVacation(this.state);
         const description = document.getElementById("description").value;
+        const destination = document.getElementById("destination").value;
         const price = document.getElementById("price").value;
         const picture = document.getElementById("picture").value;
         const StartDate = document.getElementById("StartDate").value;
         const EndDate = document.getElementById("EndDate").value;
 
+
+        // Chack this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! - reset the state
+        this.setState({
+            description: '',
+            destination: '',
+            price: '',
+            picture: '',
+            StartDate: '',
+            EndDate: ''
+        })
+
         $('#description').val('')
+        $('#destination').val('')
         $('#price').val('')
         $('#picture').val('')
         $('#StartDate').val('')
         $('#EndDate').val('')
-
-        if(description.length<1 || price.length<1 || picture.length<1 || StartDate.length<1 || EndDate.length<1){
-            alert("Error")
-        }else{
-            alert("ok")
-        }
     }
-
 
     render() {
         return (
@@ -50,9 +56,14 @@ class CrateVacation extends Component {
                     <div className="createVacationStyle">
                         <div className="addVacationTitle">ADD VACATION</div>
                         <br />
+                        <label htmlFor="destination">Destination: </label>
+                        <br />
+                        <input type="text" id="destination" onChange={this.handleChange} />
+                        <br />
                         <label htmlFor="description">Description: </label>
                         <br />
-                        <input type="text" id="description" onChange={this.handleChange} />
+                        {/* <input type="text" id="description" onChange={this.handleChange} required={true} /> */}
+                        <textarea id="description" name="description" rows="5" cols="33" onChange={this.handleChange} />
                         <br />
                         <label htmlFor="price">Price: </label>
                         <br />
@@ -71,11 +82,6 @@ class CrateVacation extends Component {
                         <input type="date" id="EndDate" onChange={this.handleChange} />
                         <br />
                         <button className="btnAddVacationStyle">ADD VACATION</button>
-                        {/* {this.state.description}
-                    {this.state.price}
-                    {this.state.picture}
-                    {this.state.StartDate}
-                    {this.state.EndDate} */}
                     </div>
                 </form>
 

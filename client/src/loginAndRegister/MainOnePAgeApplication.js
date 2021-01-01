@@ -8,7 +8,7 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 
 
 
-class MainOnePAgeApplication extends Component {
+class MainOnePageApplication extends Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -25,7 +25,6 @@ class MainOnePAgeApplication extends Component {
                             <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/AboutMe">About Me</NavLink></li>
                         </ul>
-                        {/* <img src={thailand} alt="thailand" width="100%"/> */}
                         <div className="content">
                             <Route path="/Login" component={Login} />
                             <Route path="/Register" component={Register} />
@@ -39,4 +38,4 @@ class MainOnePAgeApplication extends Component {
     }
 }
 
-export default MainOnePAgeApplication;
+export default MainOnePageApplication;

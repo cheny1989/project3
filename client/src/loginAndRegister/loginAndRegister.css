@@ -109,8 +109,13 @@
   }
   
   .enjoyTitle{
-    color: #0e003f;
+    color: white;
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 600;
     padding-bottom: 15px;
+  }
+
+  .input_style{
+    background-image: url(../images/image3.png);
+    padding: 30px;
   }

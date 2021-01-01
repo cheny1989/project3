@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MainOnePAgeApplication from "../loginAndRegister/MainOnePAgeApplication";
+import MainOnePageApplication from "../loginAndRegister/MainOnePageApplication";
 
 class MainPage extends Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class MainPage extends Component {
     render() { 
         return (
             <div>
-                <MainOnePAgeApplication />
+                <MainOnePageApplication />
             </div>
           );
     }
