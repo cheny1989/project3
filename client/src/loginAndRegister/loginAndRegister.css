@@ -1,4 +1,5 @@
 
+
 .firstTitle{
     font-weight: bolder;
   }
@@ -29,13 +30,13 @@
   .content {
     background-color: #FFF;
     /* padding: 20px; */
-    /* background-image: url(../images/thailand.jpg);
-    height: 1000px; */
   }
+
   .content h2 {
     padding: 0;
     margin: 0;
   }
+  
   .content li {
     margin-bottom: 10px;
   }
@@ -110,15 +111,49 @@
     background-color: #ecad00;
     color: black;
   }
-  
-  .enjoyTitle{
-    color: white;
-    font-size: 22px;
-    font-weight: 600;
-    padding-bottom: 15px;
-  }
+.enjoyTitle{
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
 
-  .input_style{
-    background-image: url(../images/image3.png);
-    padding: 22px;
-  }
+.input_style{
+  background-image: url(../images/image6.jpg);
+  padding: 22px;
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  background-size: cover;
+}
+
+.logout{
+  background-image: url(../images/image4.jpg);
+  height: 700px;
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  background-size: cover;
+}
+
+table{
+  padding-top: 150px;
+  padding-right: 120px;
+  margin-left: auto;
+  margin-left: auto;
+}
+
+.tr_first{
+  background-color: #0e003f;
+  color: white;
+  font-size: 65px;
+  text-align: left;
+}
+
+.tr_second{
+  font-size: 25px;
+  text-align: left;
+  color: #0e003f;
+}
+
+.th_first{
+  padding: 20px 25px 20px 25px;
+}

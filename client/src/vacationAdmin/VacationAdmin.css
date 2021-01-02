@@ -28,7 +28,7 @@
   color: #0e003f;
   font-size: 22px;
   font-weight: 700;
-  padding-bottom: 15px;
+  padding-bottom: 2px;
 }
 
   .createVacationStyle{
@@ -116,6 +116,7 @@
   background-color: #0099FF;
   font-size: 14px;
   color: white;
+  border-radius: 5px;
 }
 
 .showAndHide:hover{
@@ -123,6 +124,7 @@
 }
 
 .helloAdmin{
+  font-size: 16px;
   text-align: center;
-  font-size: 18px;
+  margin-bottom: 10px;
 }

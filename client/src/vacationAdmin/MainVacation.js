@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CrateVacation from "./CrateVacation";
+import CreateVacation from "./CreateVacation";
 import MapVacation from "./MapVacation";
 import "./VacationAdmin.css";
 
@@ -21,7 +21,7 @@ class MainVacation extends Component {
         }
     }
 
-    crateVacation = (singleVacation) => {
+    createVacation = (singleVacation) => {
         const rendomNum = singleVacation.id = this.state.id++;
         console.log(rendomNum);
         let newVacation = [...this.state.vacation, singleVacation];
@@ -47,7 +47,7 @@ class MainVacation extends Component {
         return (
             <div>
                 <div className="imageBackground">
-                <CrateVacation crateVacation={this.crateVacation} />
+                <CreateVacation createVacation={this.createVacation} />
                 </div>
                 <hr />
                 <MapVacation deleteVacation={this.deleteVacation} vacation={this.state.vacation}

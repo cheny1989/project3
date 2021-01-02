@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from "jquery";
 
-class CrateVacation extends Component {
+class CreateVacation extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,7 +31,7 @@ class CrateVacation extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.crateVacation(this.state);
+        this.props.createVacation(this.state);
         const description = document.getElementById("description").value;
         const destination = document.getElementById("destination").value;
         const price = document.getElementById("price").value;
@@ -78,42 +78,44 @@ class CrateVacation extends Component {
                 $(".createVacationStyle").toggle();
             });
         }
-        
+
         return (
             <div>
-                <div className="helloAdmin">Hello Admin - only you see this page</div>  
                 <button className="showAndHide" onClick={() => showAndHide()}>Show/Hide</button>
-                
-                <form onSubmit={this.handleSubmit} className="fromStyle">
-                    <div className="createVacationStyle">
-                        <div className="addVacationTitle">ADD VACATION</div>
-                        <br />
-                        <label htmlFor="destination">Destination: </label>
-                        <br />
-                        <input type="text" id="destination" onChange={this.handleChange} />
-                        <br />
-                        <label htmlFor="description">Description: </label>
-                        <br />
-                        {/* <input type="text" id="description" onChange={this.handleChange} required={true} /> */}
-                        <textarea id="description" name="description" rows="5" cols="33" onChange={this.handleChange} />
-                        <br />
-                        <label htmlFor="price">Price: </label>
-                        <br />
-                        <input type="number" id="price" onChange={this.handleChange} />
-                        <br />
-                        <label htmlFor="picture">Picture (URL): </label>
-                        <br />
-                        <input type="link" id="picture" onChange={this.handleChange} />
-                        <br />
-                        <label htmlFor="startDate">Start Date: </label>
-                        <br />
-                        <input type="date" id="startDate" onChange={this.handleChange} />
-                        <br />
-                        <label htmlFor="endDate">End Date: </label>
-                        <br />
-                        <input type="date" id="endDate" onChange={this.handleChange} />
-                        <br />
-                        <button className="btnAddVacationStyle">ADD VACATION</button>
+                <form onSubmit={this.handleSubmit} className="formStyle">
+                    <div>
+                        <div className="helloAdmin">Hello Admin - only you see a current page</div>
+                        <div className="createVacationStyle">
+
+                            <div className="addVacationTitle">ADD VACATION ADMIN</div>
+                            <br />
+                            <label htmlFor="destination">Destination: </label>
+                            <br />
+                            <input type="text" id="destination" onChange={this.handleChange} required={this}/>
+                            <br />
+                            <label htmlFor="description">Description: </label>
+                            <br />
+                            {/* <input type="text" id="description" onChange={this.handleChange} required={true} /> */}
+                            <textarea id="description" name="description" rows="5" cols="33" onChange={this.handleChange} required={this}/>
+                            <br />
+                            <label htmlFor="price">Price: </label>
+                            <br />
+                            <input type="number" id="price" onChange={this.handleChange} required={this}/>
+                            <br />
+                            <label htmlFor="picture">Picture (URL): </label>
+                            <br />
+                            <input type="link" id="picture" onChange={this.handleChange} required={this}/>
+                            <br />
+                            <label htmlFor="startDate">Start Date: </label>
+                            <br />
+                            <input type="date" id="startDate" onChange={this.handleChange} required={this}/>
+                            <br />
+                            <label htmlFor="endDate">End Date: </label>
+                            <br />
+                            <input type="date" id="endDate" onChange={this.handleChange} required={this}/>
+                            <br />
+                            <button className="btnAddVacationStyle">ADD VACATION</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -121,4 +123,4 @@ class CrateVacation extends Component {
     }
 }
 
-export default CrateVacation;
+export default CreateVacation;
