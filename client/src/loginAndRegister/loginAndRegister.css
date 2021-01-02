@@ -12,7 +12,6 @@
   ul.header {
     background-color: #0e003f;
     padding: 0;
-    border-radius: 10px;
   }
   
   ul.header li a {
@@ -44,7 +43,7 @@
   .active {
     background-color: #0099FF;
     border: white solid 1px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
   }
   
   .widowRegisterAndLogin{

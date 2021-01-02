@@ -1,8 +1,59 @@
 
-.flex_container{
+/* .flex_container{
     display: flex;
+} */
+
+.hrStyle{
+    border: 10px solid #0e003f;
+    height: 10px;
+    background-color: #0e003f;
 }
 
 .footerStle{
-    background-color: rgb(197, 197, 197);
+    background-color: #d4d4d4;
+    color: #0e003f;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
+
+.firstTitle{
+    font-size: 19px;
+    padding-bottom: 20px;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 20px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px 5px;
+    border-radius: 50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #6a0f81;
+    color: white;
+  }
+
+  .fa-skype {
+    background: #00aff0;
+    color: white;
+  }
+  
+  

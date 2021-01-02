@@ -7,6 +7,8 @@ import AboutMe from "../aboutMe/AboutMe"
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Footer from "../footer/Footer"
 
+import { Redirect } from "react-router";
+ 
 
 
 class MainOnePageApplication extends Component {
@@ -14,6 +16,7 @@ class MainOnePageApplication extends Component {
         super(props);
         this.state = {}
     }
+
     render() {
         return (
             <div>

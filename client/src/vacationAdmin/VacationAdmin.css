@@ -121,3 +121,8 @@
 .showAndHide:hover{
   background-color: #0490ec;
 }
+
+.helloAdmin{
+  text-align: center;
+  font-size: 18px;
+}

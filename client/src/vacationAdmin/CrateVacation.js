@@ -79,10 +79,11 @@ class CrateVacation extends Component {
             });
         }
         
-
         return (
             <div>
+                <div className="helloAdmin">Hello Admin - only you see this page</div>  
                 <button className="showAndHide" onClick={() => showAndHide()}>Show/Hide</button>
+                
                 <form onSubmit={this.handleSubmit} className="fromStyle">
                     <div className="createVacationStyle">
                         <div className="addVacationTitle">ADD VACATION</div>
