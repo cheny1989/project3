@@ -157,3 +157,8 @@ table{
 .th_first{
   padding: 20px 25px 20px 25px;
 }
+
+.errorsOfValidation{
+  color: black;
+  font-size: 13px;
+}

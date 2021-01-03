@@ -1,4 +1,3 @@
-// can delete this component
 
 import React from 'react';
 
