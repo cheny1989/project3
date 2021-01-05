@@ -47,7 +47,7 @@ class MainVacation extends Component {
 
         return (
             <div>
-                <div className="imageBackground">
+                <div>
                 <CreateVacation createVacation={this.createVacation} />
                 </div>
                 <hr />

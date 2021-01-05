@@ -6,7 +6,7 @@ const MapVacation = ({ vacation, deleteVacation, editVacation }) => {
      vacation.map(singleVacation => {  
     return (
             <div key={singleVacation.id} className="vacationListStyle">
-                    <p className="destination_style">Destination: {singleVacation.destination}</p>
+                    <p className="destination_style">Destination: {singleVacation.destination.toUpperCase()}</p>
                     <p>Description: {singleVacation.description}</p>
                     <p>Price ($): {singleVacation.price}$</p>
                     <p>Picture:<br /><img src={singleVacation.picture} width="320px" height="180px" alt="img"></img></p>
