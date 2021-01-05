@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const Vacation = require("../DB/CreateVacation")
 const route = express.Router();
 
-route.post('/', async (req, res)=>{
+route.post('/post', async (req, res)=>{
     const { destination, description, price, picture, startDate, endDate } = req.body;
     let vacation = {};
     vacation.destination = destination,
@@ -20,5 +20,16 @@ route.post('/', async (req, res)=>{
     res.setHeader('Access-Control-Allow-Credentials',true);
     res.json(vacationModel)
 });
+
+route.get('/get', async (req, res)=>{
+    try{
+        const showVacation = await Vacation.find();
+        res.status(200).json(showVacation);
+        console.log(Comment);
+    } catch(err){
+        res.status(400).json({ message: err.message })
+    }
+})
+
 
 module.exports = route;

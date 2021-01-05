@@ -3,7 +3,8 @@ import "./loginAndRegister.css"
 import Login from "./Login";
 import Register from "./Register";
 import MainVacation from "../vacationAdmin/MainVacation"
-import AboutMe from "../aboutMe/AboutMe"
+// import AboutMe from "../aboutMe/AboutMe"
+import UserVacationList from "../vacationUser/UserVacationList"
 import Logout from "./Logout"
 
 import { Route, NavLink, HashRouter } from "react-router-dom";
@@ -27,14 +28,14 @@ class MainOnePageApplication extends Component {
                             <li className="buttonHeader"><NavLink to="/Login">Login</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/Register">Register</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation</NavLink></li>
-                            <li className="buttonHeader"><NavLink to="/AboutMe">About Me</NavLink></li>
+                            <li className="buttonHeader"><NavLink to="/UserVacationList">User Vacation</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/Logout">Log Out</NavLink></li>
                         </ul>
                         <div className="content">
                             <Route path="/Login" component={Login} />
                             <Route path="/Register" component={Register} />
                             <Route path="/MainVacation" component={MainVacation} />
-                            <Route path="/AboutMe" component={AboutMe} />
+                            <Route path="/UserVacationList" component={UserVacationList} />
                             <Route path="/Logout" component={Logout} />
                         </div>
                     </div>

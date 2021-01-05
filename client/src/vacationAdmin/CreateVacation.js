@@ -127,7 +127,7 @@ class CreateVacation extends Component {
                 },
                 body: JSON.stringify(rbody)
             };
-            fetch('/api/api/apivacation', requestOptions)
+            fetch('/api/apivacation/post', requestOptions)
                 .then(r => r.json())
                 .then(res => this.setState({ res }))
 

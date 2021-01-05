@@ -65,7 +65,7 @@
     background-color: #2400a8;
   }
 
-  .deleteVacationStyle{
+  .deleteVacationStyle, .follow_btn{
       background-color: #FFCC00;
       width: 120px;
       height: 30px;
@@ -73,7 +73,7 @@
       border-radius: 5px;
   }
   
-  .deleteVacationStyle:hover{
+  .deleteVacationStyle:hover, .follow_btn:hover{
     background-color: #ecad00;
   }
 
