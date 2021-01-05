@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 // import InputRegister from "./InputRegister"
 import $ from "jquery";
 
+const validateForm = (errors) => {
+    let valid = true;
+    Object.values(errors).forEach(
+        (val) => val.length > 0 && (valid = false)
+    );
+    return valid;
+}
 
 class Register extends Component {
     constructor(props) {
@@ -91,16 +98,35 @@ class Register extends Component {
             password: password,
         };
 
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(rbody)
-        };
-        fetch('/api/api/apiuser', requestOptions)
-            .then(r => r.json())
-            .then(res => this.setState({ res }))
+        
+        // const requestOptions = {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(rbody)
+        // };
+        // fetch('/api/api/apiuser', requestOptions)
+        //     .then(r => r.json())
+        //     .then(res => this.setState({ res }))
+
+        if (validateForm(this.state.errors)) {
+
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(rbody)
+            };
+            fetch('/api/api/apiuser', requestOptions)
+                .then(r => r.json())
+                .then(res => this.setState({ res }))
+
+            alert("OK - valid Form")
+        } else {
+            alert("ERROR - invalid Form. please try again")
+        }
     }
 
     render() {

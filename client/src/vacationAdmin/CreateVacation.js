@@ -77,7 +77,7 @@ class CreateVacation extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.createVacation(this.state);
+        // this.props.createVacation(this.state);
         const description = document.getElementById("description").value;
         const destination = document.getElementById("destination").value;
         const price = document.getElementById("price").value;
@@ -118,6 +118,7 @@ class CreateVacation extends Component {
 
 
         if (validateForm(this.state.errors)) {
+            this.props.createVacation(this.state);
 
             const requestOptions = {
                 method: 'POST',
@@ -132,7 +133,7 @@ class CreateVacation extends Component {
 
             alert("OK - valid Form")
         } else {
-            alert("ERROR - invalid Form")
+            alert("ERROR - invalid Form. please try again")
         }
     }
 

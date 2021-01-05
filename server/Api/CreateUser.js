@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose")
+const bcrypt = require('bcrypt');
 
 const User = require("../DB/CreateUser")
 const route = express.Router();
@@ -11,6 +12,9 @@ route.post('/', async (req, res)=>{
     user.lastName = lastName,
     user.userName = userName,
     user.password = password
+
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(user.password, salt)
 
     let userModel = new User (user);
     await userModel.save();

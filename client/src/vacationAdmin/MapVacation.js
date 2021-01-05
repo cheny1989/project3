@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 
 const MapVacation = ({ vacation, deleteVacation, editVacation }) => {
-    const vacationList = vacation.map(singleVacation => {  
+
+    const vacationList = vacation.length ? (
+     vacation.map(singleVacation => {  
     return (
             <div key={singleVacation.id} className="vacationListStyle">
                     <p className="destination_style">Destination: {singleVacation.destination}</p>
@@ -15,8 +17,9 @@ const MapVacation = ({ vacation, deleteVacation, editVacation }) => {
                     <button className="editVacationStyle" onClick={()=> { editVacation(singleVacation.id)}} >EDIT</button>
             </div>
         )
-    });
-    
+    })
+    ) : (<div className="emptyVacation">It's time to create a vacation</div>)
+
     return (
         <div className="gridVacationListStyle">
             {vacationList}
