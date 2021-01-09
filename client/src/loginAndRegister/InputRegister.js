@@ -1,9 +1,9 @@
 
-import React from 'react';
+// import React from 'react';
 
-function InputRegister(props) {
-    return <input className="current_input" type={props.type} placeholder={props.placeholder} />;
+// function InputRegister(props) {
+//     return <input className="current_input" type={props.type} placeholder={props.placeholder} />;
     
-}
+// }
 
-export default InputRegister;
+// export default InputRegister;

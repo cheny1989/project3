@@ -7,12 +7,22 @@ class UserVacationList extends Component {
         super(props);
         this.state = {
             vacation: [],
-            filterString: ''
+            filterString: '',
+            loading: false,
         }
     }
 
     componentDidMount() {
         this.fatchAllVacation();
+        this.fetchData();
+    }
+
+    fetchData=()=>{
+        this.setState({ loading: true });
+    };
+
+    stopFatch=()=>{
+        this.setState({ loading: false });
     }
 
     async fatchAllVacation() {
@@ -20,6 +30,7 @@ class UserVacationList extends Component {
             const response = await fetch('/api/apivacation/get');
             const result = await response.json();
             this.setState({ vacation: result })
+            this.stopFatch();
         } catch (err) {
             alert(err)
         }
@@ -32,10 +43,14 @@ class UserVacationList extends Component {
     render() {
 
         const filterVacation = this.state.vacation.filter(v => v.destination.indexOf(this.state.filterString) >= 0);
+        const { loading } = this.state;
 
         return (
             <div>
                 {/* <SliderImage /> */}
+                {loading && <div className="loader">Loading...</div>}
+                {!loading && <div></div>}
+
                 <br />
                 <b><label className="lableAndInputFilter">Filter by Destination</label></b>
                 <br />

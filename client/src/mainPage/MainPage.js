@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import MainOnePageApplication from "../loginAndRegister/MainOnePageApplication";
+// import MainOnePageApplication from "../loginAndRegister/MainOnePageApplication";
+import MainOnePageApplication from "./MainOnePageApplication";
 
 class MainPage extends Component {
     constructor(props) {

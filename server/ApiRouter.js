@@ -1,8 +1,7 @@
 const apiRouter = require('express').Router();
+
 // const checkAuth = require('./middlewares/checkAuth')
-
 // apiRouter.use('/apivacation', checkAuth,  require('./Api/CreateVacation'));
-
 
 // requests
 apiRouter.use('/apiuser', require('./Api/CreateUser'));

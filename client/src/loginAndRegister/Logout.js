@@ -14,7 +14,7 @@ class Logout extends Component {
                             <th className="th_first">Thank You</th>
                         </tr>
                         <tr className="tr_second">
-                            <th>Let the journey begin...</th>
+                            <th>The journey begin...</th>
                         </tr>
                     </table>
                 </div>

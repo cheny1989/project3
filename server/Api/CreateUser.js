@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose")
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
 const User = require("../DB/CreateUser")
 const route = express.Router();
 
@@ -42,32 +41,32 @@ route.get('/register', async (req, res) => {
 route.post('/login', async (req, res) => {
     const { userName, password } = req.body;
 
-        User.find({userName}).then((users)=>{
-            if(users.length === 0){
-                return res.status(400).json({
-                    message: "Username or Password failed"
-                });
-            }
+    User.find({ userName }).then((users) => {
+        if (users.length === 0) {
+            return res.status(400).json({
+                message: "Username or Password failed"
+            });
+        }
 
-            const [ user ] = users;
-            bcrypt.compare(password, user.password, (err, result)=>{
-                if(err){
-                    return res.status(400).json({ message: "Username or Password failed" });
-                }
-                if(result){
-                    const token = jwt.sign({
-                        id: user._id,
-                        userName: user.userName,
-                    },
+        const [user] = users;
+        bcrypt.compare(password, user.password, (err, result) => {
+            if (err) {
+                return res.status(400).json({ message: "Username or Password failed" });
+            }
+            if (result) {
+                const token = jwt.sign({
+                    id: user._id,
+                    userName: user.userName,
+                },
                     process.env.LOGIN_PASSWORD,
                     {
                         expiresIn: "1h" // after 1 hour - the user logout
                     });
-                    return res.status(200).json({ message: "You are now login!", token });
-                }
-                return res.status(400).json({ message: "Username or Password failed" });
-            })
+                return res.status(200).json({ message: "You are now login!", token });
+            }
+            return res.status(400).json({ message: "Username or Password failed" });
         })
+    })
 });
 
 module.exports = route;

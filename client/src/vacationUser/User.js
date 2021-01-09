@@ -7,9 +7,9 @@ class User extends Component {
         }
     }
 
-    counter=()=>{
+    counter = () => {
         let counterCurrently = 0;
-        let newCounterCurrently =  counterCurrently +1
+        let newCounterCurrently = counterCurrently + 1
         console.log(newCounterCurrently)
         alert("?")
     }
@@ -27,7 +27,7 @@ class User extends Component {
                     <p>Picture: <br /><img src={item.picture} width="320px" height="180px" alt="img"></img></p>
                     <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>
                     <p>End Date: {item.endDate.split("-").reverse().join("/")}</p>
-                    <button className="follow_btn" onClick={()=> this.counter()}>Follow</button>
+                    <button className="follow_btn" onClick={() => this.counter()}>Follow</button>
                 </div>
             </div>
         );

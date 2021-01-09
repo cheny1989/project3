@@ -13,8 +13,6 @@ class Admin extends Component {
     alert("DELETE")
     fetch('/api/apivacation/delete',
       { method: 'DELETE' });
-    // document.getElementById("clear-cookie").innerHTML = "Now the cookie is clear";
-    // window.location.reload(false);
   }
 
   render() {
