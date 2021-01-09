@@ -6,8 +6,9 @@ import MainVacation from "../vacationAdmin/MainVacation"
 // import AboutMe from "../aboutMe/AboutMe"
 import UserVacationList from "../vacationUser/UserVacationList"
 import Logout from "./Logout"
-
 import { Route, NavLink, HashRouter } from "react-router-dom";
+import { Redirect } from "react-router";
+
 import Footer from "../footer/Footer"
  
 
@@ -23,9 +24,9 @@ class MainOnePageApplication extends Component {
             <div>
                 <HashRouter>
                     <div>
-                        <div className="header"></div>
                         <ul className="header">
-                            <li className="buttonHeader"><NavLink to="/Login">Login</NavLink></li>
+                            <li className="buttonHeader"><Redirect  to="/Login">Login</Redirect ></li>
+                            <li className="buttonHeader"><NavLink  to="/Login">Login</NavLink ></li>
                             <li className="buttonHeader"><NavLink to="/Register">Register</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/UserVacationList">User Vacation</NavLink></li>
