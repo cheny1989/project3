@@ -119,7 +119,7 @@ class Register extends Component {
                 },
                 body: JSON.stringify(rbody)
             };
-            fetch('/api/apiuser/post', requestOptions)
+            fetch('/api/apiuser/register', requestOptions)
                 .then(r => r.json())
                 .then(res => this.setState({ res }))
 

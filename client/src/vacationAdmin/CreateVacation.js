@@ -105,18 +105,6 @@ class CreateVacation extends Component {
             endDate: endDate
         };
 
-        // const requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(rbody)
-        // };
-        // fetch('/api/api/apivacation', requestOptions)
-        //     .then(r => r.json())
-        //     .then(res => this.setState({ res }))
-
-
         if (validateForm(this.state.errors)) {
             this.props.createVacation(this.state);
 
@@ -137,6 +125,7 @@ class CreateVacation extends Component {
         }
     }
 
+  
     render() {
 
         function showAndHide() {
@@ -166,7 +155,6 @@ class CreateVacation extends Component {
                             <br />
                             <label htmlFor="description">Description: </label>
                             <br />
-                            {/* <input type="text" id="description" onChange={this.handleChange} required={true} /> */}
                             <textarea id="description" name="description" rows="5" cols="33" onChange={this.handleChange} required={this} noValidate />
                             {errors.description.length > 0 &&
                                 <span className="errorsOfValidation"><br />{errors.description}</span>

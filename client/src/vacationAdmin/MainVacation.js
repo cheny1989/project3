@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CreateVacation from "./CreateVacation";
 import MapVacation from "./MapVacation";
+import AdminVacationList from "./AdminVacationList"
 import "./VacationAdmin.css";
 
 
@@ -44,16 +45,16 @@ class MainVacation extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <div>
                 <CreateVacation createVacation={this.createVacation} />
                 </div>
                 <hr />
-                <MapVacation deleteVacation={this.deleteVacation} vacation={this.state.vacation}
+                {/* <MapVacation deleteVacation={this.deleteVacation} vacation={this.state.vacation}
                 editVacation={this.editVacation} vacation={this.state.vacation}
-                />
+                /> */}
+                <AdminVacationList />
             </div>
         );
     }

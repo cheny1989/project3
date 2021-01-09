@@ -1,6 +1,6 @@
 const apiRouter = require('express').Router();
 
-// post request
+// requests
 apiRouter.use('/apiuser', require('./Api/CreateUser'));
 apiRouter.use('/apivacation', require('./Api/CreateVacation'));
 

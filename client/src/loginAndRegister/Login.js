@@ -34,7 +34,7 @@ class Login extends Component {
                         id="password"
                     />
                     <br />
-                    <button onClick={this.functionOfValidation} className="button_style" type="submit">Login</button>
+                    <button className="button_style" type="submit">Login</button>
 
                     <HashRouter>
                         <br />

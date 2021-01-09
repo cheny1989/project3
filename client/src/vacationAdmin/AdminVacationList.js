@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import User from "./User"
-// import SliderImage from "./SliderImage"
+import Admin from "./Admin"
+// import MapVacation from "./ "
 
-class UserVacationList extends Component {
+class AdminVacationList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             vacation: [],
             filterString: ''
-        }
+          }
     }
 
     componentDidMount() {
@@ -24,16 +24,16 @@ class UserVacationList extends Component {
             alert(err)
         }
     }
-
+    
     filterStringChanged(e) {
         this.setState({ filterString: e.target.value });
     }
 
-    render() {
 
+    render() { 
         const filterVacation = this.state.vacation.filter(v => v.destination.indexOf(this.state.filterString) >= 0);
 
-        return (
+        return ( 
             <div>
                 {/* <SliderImage /> */}
                 <br />
@@ -45,15 +45,13 @@ class UserVacationList extends Component {
                     {filterVacation
                         .sort((s1, s2) => s1.destination - s2.destination)
                         .map(s =>
-                            <User key={s.id} item={s} />
+                            <Admin key={s.id} item={s} />
                         )
                     }
                 </div>
             </div>
-
-        );
+         );
     }
 }
-
-export default UserVacationList;
-
+ 
+export default AdminVacationList;
