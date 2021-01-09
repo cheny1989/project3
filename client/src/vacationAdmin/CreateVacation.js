@@ -133,7 +133,7 @@ class CreateVacation extends Component {
                 $(".createVacationStyle").toggle();
             });
         }
-
+        
         const { errors } = this.state;
 
         return (
@@ -145,7 +145,7 @@ class CreateVacation extends Component {
                     <div>
                         <div className="createVacationStyle">
 
-                            <div className="addVacationTitle">ADD VACATION ADMIN</div>
+                            <div className="addVacationTitle">ADD VACATION</div>
                             <br />
                             <label htmlFor="destination">Destination: </label>
                             <br />
