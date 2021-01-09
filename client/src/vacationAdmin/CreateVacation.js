@@ -138,10 +138,11 @@ class CreateVacation extends Component {
 
         return (
             <div>
-                <button className="showAndHide" onClick={() => showAndHide()}>Show/Hide</button>
+                <br />
+                <div className="helloAdmin">Hello Admin - only you see a current page</div>
+                <button className="showAndHide" onClick={() => showAndHide()}>Show/Hide window to create vacation</button>
                 <form onSubmit={this.handleSubmit} className="formStyle">
                     <div>
-                        <div className="helloAdmin">Hello Admin - only you see a current page</div>
                         <div className="createVacationStyle">
 
                             <div className="addVacationTitle">ADD VACATION ADMIN</div>
