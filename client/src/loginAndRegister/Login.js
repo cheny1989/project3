@@ -30,12 +30,12 @@ class Login extends Component {
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
 
-        // this.setState({
-        //     userName: '',
-        //     password: ''
-        // });
+        this.setState({
+            userName: '',
+            password: ''
+        });
 
-        // this.clearInput();
+        this.clearInput();
 
         var rbody = {
             userName: userName,
