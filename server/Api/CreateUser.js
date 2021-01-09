@@ -26,13 +26,12 @@ route.post('/register', async (req, res) => {
         await userModel.save();
         return res.status(200).json(userModel);
     }
-})
+});
 
 route.get('/register', async (req, res) => {
     try {
         const showUser = await User.find();
         res.status(200).json(showUser);
-        // console.log(Comment);
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
@@ -44,16 +43,14 @@ route.post('/login', async (req, res) => {
         User.find({userName}).then((users)=>{
             if(users.length === 0){
                 return res.status(400).json({
-                    message: "Auth failed 1"
+                    message: "Username or Password failed"
                 });
             }
 
             const [ user ] = users;
             bcrypt.compare(password, user.password, (err, result)=>{
                 if(err){
-                    return res.status(400).json({
-                        message: "Auth failed 2"
-                    });
+                    return res.status(400).json({ message: "Username or Password failed" });
                 }
                 if(result){
                     const token = jwt.sign({
@@ -62,18 +59,13 @@ route.post('/login', async (req, res) => {
                     },
                     process.env.LOGIN_PASSWORD,
                     {
-                        expiresIn: "1h"
+                        expiresIn: "1h" // after 1 hour - the user logout
                     });
-                    return res.status(200).json({
-                        message: "Yes! You are login!",
-                        token
-                    });
+                    return res.status(200).json({ message: "You are now login!", token });
                 }
-                return res.status(400).json({
-                    message: "Auth failed 3"
-                });
+                return res.status(400).json({ message: "Username or Password failed" });
             })
         })
-})
+});
 
 module.exports = route;

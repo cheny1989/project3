@@ -82,14 +82,14 @@ class Register extends Component {
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
 
-        this.setState({
-            firstName: '',
-            lastName: '',
-            userName: '',
-            password: ''
-        })
+        // this.setState({
+        //     firstName: '',
+        //     lastName: '',
+        //     userName: '',
+        //     password: ''
+        // })
 
-        this.clearInput();
+        // this.clearInput();
 
         var rbody = {
             firstName: firstName,
@@ -97,18 +97,6 @@ class Register extends Component {
             userName: userName,
             password: password,
         };
-
-        
-        // const requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(rbody)
-        // };
-        // fetch('/api/api/apiuser', requestOptions)
-        //     .then(r => r.json())
-        //     .then(res => this.setState({ res }))
 
         if (validateForm(this.state.errors)) {
 

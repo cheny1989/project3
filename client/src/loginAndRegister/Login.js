@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import InputRegister from "./InputRegister";
 import { Route, NavLink, HashRouter } from "react-router-dom";
-import Register from "./Register"
+import Register from "./Register";
+import $ from "jquery";
+
 
 
 class Login extends Component {
@@ -12,34 +13,66 @@ class Login extends Component {
             password: ''
         }
     }
-    
+
+    clearInput = () => {
+        $('#userName').val('')
+        $('#password').val('')
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    handleSubmit = () => {
+        const userName = document.getElementById("userName").value;
+        const password = document.getElementById("password").value;
+
+        // this.setState({
+        //     userName: '',
+        //     password: ''
+        // });
+
+        // this.clearInput();
+
+        var rbody = {
+            userName: userName,
+            password: password,
+        };
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(rbody)
+        };
+        fetch('/api/apiuser/login', requestOptions)
+            .then(r => r.json())
+            .then(res => this.setState({ res }))
+    };
+
     render() {
-     
-        
+
         return (
-            <form className="input_style">
+            <form onSubmit={this.handleSubmit} className="input_style">
                 <div className="widowRegisterAndLogin">
-                <div className="enjoyTitle">Login and Enjoy</div>
-                <label>Username</label>
-                <br />
-                    <InputRegister
-                        type="text"
-                        id="userName"
-                    />
-                <br />
-                <label>Passoword</label>
-                <br />
-                    <InputRegister
-                        type="password"
-                        id="password"
-                    />
+                    <div className="enjoyTitle">Login and Enjoy</div>
+
+                    <label htmlFor="userName">User Name: </label>
+                    <br />
+                    <input type="text" id="userName" name="userName" onChange={this.handleChange} required={true} />
+                    <br />
+                    <label htmlFor="password">Password: </label>
+                    <br />
+                    <input type="password" id="password" name="password" onChange={this.handleChange} required={true} />
                     <br />
                     <button className="button_style" type="submit">Login</button>
 
                     <HashRouter>
                         <br />
-                    <div className="notRegister"><NavLink to="/Register">Not Register? Click Here</NavLink></div>
-                    <Route path="/Register" component={Register} />
+                        <div className="notRegister"><NavLink to="/Register">Not Register? Click Here</NavLink></div>
+                        <Route path="/Register" component={Register} />
                     </ HashRouter>
                 </div>
             </form>
