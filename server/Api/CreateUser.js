@@ -3,10 +3,10 @@ const mongoose = require("mongoose")
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
 const User = require("../DB/CreateUser")
 const route = express.Router();
 
+// request - register
 route.post('/register', async (req, res) => {
     const { firstName, lastName, userName, password } = req.body;
     let user = {};
@@ -28,6 +28,7 @@ route.post('/register', async (req, res) => {
     }
 });
 
+// request - register all users
 route.get('/register', async (req, res) => {
     try {
         const showUser = await User.find();
@@ -37,6 +38,7 @@ route.get('/register', async (req, res) => {
     }
 });
 
+// request - login (get any user by username and password [before hash])
 route.post('/login', async (req, res) => {
     const { userName, password } = req.body;
 

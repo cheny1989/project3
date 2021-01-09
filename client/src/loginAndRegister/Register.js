@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import InputRegister from "./InputRegister"
 import $ from "jquery";
 
 const validateForm = (errors) => {

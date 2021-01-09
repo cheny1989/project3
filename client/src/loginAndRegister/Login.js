@@ -25,7 +25,8 @@ class Login extends Component {
         })
     }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault()
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
 

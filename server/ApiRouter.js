@@ -1,8 +1,12 @@
 const apiRouter = require('express').Router();
+// const checkAuth = require('./middlewares/checkAuth')
+
 
 // requests
+// apiRouter.use('/apiuser', checkAuth, require('./Api/CreateUser'));
+
 apiRouter.use('/apiuser', require('./Api/CreateUser'));
-apiRouter.use('/apivacation', require('./Api/CreateVacation'));
+apiRouter.use('/apivacation',  require('./Api/CreateVacation'));
 
 // URI - link to mongoose
 const URI_Mongoose = require('./DB/URI_Mongoose');

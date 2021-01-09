@@ -30,7 +30,6 @@ route.get('/get', async (req, res) => {
     try {
         const showVacation = await Vacation.find();
         res.status(200).json(showVacation);
-        // console.log(Comment);
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
