@@ -21,7 +21,7 @@
 }
 
 .vacationListStyle:hover{
-  background-color: rgba(253, 253, 253, 0.685);
+  background-color: rgba(240, 240, 240, 0.685)
 }
 
 .addVacationTitle{
@@ -72,10 +72,11 @@
       height: 30px;
       box-shadow: rgb(73, 73, 73) 1px 1px 1px 1px;
       border-radius: 5px;
+      color: black;
   }
   
   .deleteVacationStyle:hover, .follow_btn:hover{
-    background-color: #ecad00;
+    opacity: 0.8;
   }
 
   .editVacationStyle{
@@ -88,7 +89,7 @@
   }
 
   .editVacationStyle:hover{
-    background-color: #b8b8b8;
+    opacity: 0.8;
   }
 
   input::-webkit-outer-spin-button,
@@ -121,7 +122,7 @@
 }
 
 .showAndHide:hover{
-  background-color: #0490ec;
+  opacity: 0.8;
 }
 
 .helloAdmin, .helloUser{
