@@ -56,7 +56,6 @@ class UserVacationList extends Component {
                 {!loading && <div></div>}
                 <br />
                 <b><label className="lableAndInputFilter">Filter by Destination</label></b>
-                <br />
                 <input type="text" className="lableAndInputFilter" placeholder="Enter any Destination..." onChange={(event) => this.filterStringChanged(event)} />
                 <br />
                 <div className="numberOfVacations">Number of Vacations: <span className="numberOfVacations_span">{numberOfVacations}</span></div>
