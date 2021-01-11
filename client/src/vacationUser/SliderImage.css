@@ -11,3 +11,9 @@
     color: white;
     font-weight: 700;
 }
+
+.word_wrap{
+    word-wrap: break-word;
+    padding-left: 15px;
+    padding-right: 15px;
+  }

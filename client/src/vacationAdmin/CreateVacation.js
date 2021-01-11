@@ -44,8 +44,8 @@ class CreateVacation extends Component {
                 break;
             case 'description':
                 errors.description =
-                    value.length < 5 || value.length > 20
-                        ? 'Description must be 5-20 characters long!'
+                    value.length < 5 || value.length > 100
+                        ? 'Description must be 5-100 characters long!'
                         : '';
                 break;
             case 'price':
@@ -121,7 +121,7 @@ class CreateVacation extends Component {
             alert("OK - valid Form")
 
             window.location.reload(false);
-            
+
         } else {
             alert("ERROR - invalid Form. please try again")
         }

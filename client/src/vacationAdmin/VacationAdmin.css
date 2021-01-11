@@ -131,6 +131,12 @@
   margin-bottom: 10px;
 }
 
+.word_wrap{
+  word-wrap: break-word;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .emptyVacation{
 font-size: 25px;
 color: white;
@@ -161,4 +167,14 @@ padding-bottom: 5px;
   background-color: #dddddd;
   color: rgb(87, 87, 87);
   font-weight: 700;
+}
+
+.numberOfVacations{
+margin-left: 15px;
+margin-bottom: 10px;
+}
+.numberOfVacations_span{
+  color: white;
+  background-color: #0099FF;
+  padding: 3px;
 }

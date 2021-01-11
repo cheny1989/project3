@@ -22,7 +22,7 @@ class User extends Component {
             <div>
                 <div key={item.id} className="vacationListStyle">
                     <p className="destination_style">Destination: {item.destination.toUpperCase()}</p>
-                    <p>Description: {item.description}</p>
+                    <p className="word_wrap">Description: {item.description}</p>
                     <p>Price: {item.price}$</p>
                     <p>Picture: <br /><img src={item.picture} width="320px" height="180px" alt="img"></img></p>
                     <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>

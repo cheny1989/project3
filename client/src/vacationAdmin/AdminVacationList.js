@@ -44,6 +44,8 @@ class AdminVacationList extends Component {
         const filterVacation = this.state.vacation.filter(v => v.destination.indexOf(this.state.filterString) >= 0);
         const { loading } = this.state;
 
+        const numberOfVacations = Object.keys(this.state.vacation).length;
+
         return ( 
             <div>
                 {/* <SliderImage /> */}
@@ -51,13 +53,13 @@ class AdminVacationList extends Component {
                 {!loading && <div></div>}
 
                 <br />
-                <div className="yourVaacation">All Your Vacation - Admin</div>
+                <div className="yourVaacation">All Your Vacations - Admin</div>
                 <br />
 
                 <b><label className="lableAndInputFilter">Filter by Destination</label></b>
-                <br />
                 <input type="text" className="lableAndInputFilter" placeholder="Enter any Destination..." onChange={(event) => this.filterStringChanged(event)} />
-                <br />
+
+                <div className="numberOfVacations">Number of Vacations: <span className="numberOfVacations_span">{numberOfVacations}</span></div>
                 <div className="gridVacationListStyle">
                     {filterVacation
                         .sort((s1, s2) => s1.destination - s2.destination)
