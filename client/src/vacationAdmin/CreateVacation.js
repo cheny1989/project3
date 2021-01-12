@@ -85,6 +85,20 @@ class CreateVacation extends Component {
         const startDate = document.getElementById("startDate").value;
         const endDate = document.getElementById("endDate").value;
 
+        var d_start = new Date(startDate);
+        var d_end = new Date(endDate);
+        var currentDate = Date.now();
+        
+        if (d_start < currentDate) {
+          alert("Vacation Date Start is Wrong");
+          return
+        }
+      
+        if (d_start >= d_end) {
+            alert("Dates are misplaced");
+            return
+        }  
+      
         this.setState({
             description: '',
             destination: '',
