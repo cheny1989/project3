@@ -12,6 +12,7 @@ class Footer extends Component {
     clearInput = () => {
         $('#fullName').val('')
         $('#email').val('')
+        $('#subjectOfMessage').val('')
         $('#textarea').val('')
     }
 
@@ -19,11 +20,13 @@ class Footer extends Component {
         e.preventDefault();
         const fullName = document.getElementById("fullName").value;
         const email = document.getElementById("email").value;
+        const subjectOfMessage = document.getElementById("subjectOfMessage").value;
         const textarea = document.getElementById("textarea").value;
 
         this.setState({
             fullName: '',
             email: '',
+            subjectOfMessage: '',
             textarea: ''
         });
 
@@ -32,6 +35,7 @@ class Footer extends Component {
         var rbody = {
             fullName: fullName,
             email: email,
+            subjectOfMessage: subjectOfMessage,
             textarea: textarea,
         };
 
@@ -74,6 +78,8 @@ class Footer extends Component {
                     <input type="text" id="fullName" placeholder="Full Name"></input>
                     <br />
                     <input type="email" id="email" placeholder="Email"></input>
+                    <br />
+                    <input type="text" id="subjectOfMessage" placeholder="Subject"></input>
                     <br />
                     <textarea id="textarea" placeholder="What would you like to tell us?" rows="5" cols="33"></textarea>
                     <br />

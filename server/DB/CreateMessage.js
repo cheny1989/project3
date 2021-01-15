@@ -7,6 +7,9 @@ const createMessage = new mongoose.Schema({
     email:({
         type: String
     }),
+    subjectOfMessage:({
+        type: String
+    }),
     textarea:{
         type: String
     },
