@@ -1,6 +1,6 @@
 const express = require('express');
-const mongoose = require("mongoose")
-const Message = require("../DB/CreateMessage")
+const mongoose = require("mongoose");
+const Message = require("../DB/CreateMessage");
 const route = express.Router();
 const nodemailer = require("nodemailer");
 
@@ -34,7 +34,7 @@ route.post('/message', async (req, res) => {
     })
 
     var mailOption = {
-        to: 'chenyaa89@gmail.com',
+        to: 'chenyaa89@gmail.com', // change The Email Address to check it
         subject: subjectOfMessage,
         html: '<b>' + 'New Message from: ' + '</b>' + fullName + '<br>' + '<b>' + 'The message: ' + '</b>' + textarea
     }

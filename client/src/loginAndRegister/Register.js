@@ -74,7 +74,8 @@ class Register extends Component {
 
 
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault();
         // this.props.Register(this.state);
         const firstName = document.getElementById("firstName").value;
         const lastName = document.getElementById("lastName").value;
@@ -109,8 +110,12 @@ class Register extends Component {
             fetch('/api/apiuser/register', requestOptions)
                 .then(r => r.json())
                 .then(res => this.setState({ res }))
-
-            alert("OK - valid Form")
+                
+                // const showMessage = document.getElementById("showAndHideMessage").innerHTML = "The Registration was Successful";
+                // setTimeout(function () {
+                //     const hideMessage = document.getElementById("showAndHideMessage").innerHTML = "";
+                // }, 3000);
+                alert("The Registration was Successful")
         } else {
             alert("ERROR - invalid Form. please try again")
         }
@@ -153,6 +158,7 @@ class Register extends Component {
                     }
                     <br />
                     <button className="button_style" type="submit">Register</button>
+                    <div id="showAndHideMessage"></div>
                 </div>
             </form>
         )

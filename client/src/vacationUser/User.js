@@ -4,14 +4,31 @@ class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            vacation:[]
+            vacation:[],
+            counter: 1
         }
     }
     
     counter = (_id) => {
         const findId = _id;
-        console.log(findId)
-        }
+        const counter = this.state.counter++
+        const newCounter = ({findId, counter});
+        console.log(newCounter);
+
+        // var rbody = {
+        //     newCounter: newCounter,
+        // };
+        // const requestOptions = {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(rbody)
+        // };
+        // fetch('/api/apivacation/post', requestOptions)
+        //     .then(r => r.json())
+        //     .then(res => this.setState({ res }))
+        };
 
     render() {
 

@@ -1,11 +1,11 @@
 const express = require("express");
-const mongoose = require("mongoose")
-const Vacation = require("../DB/CreateVacation")
+const mongoose = require("mongoose");
+const Vacation = require("../DB/CreateVacation");
 const route = express.Router();
 const jwt = require('jsonwebtoken');
 
 
-const verifyToken = require('../middlewares/verifyToken')
+const verifyToken = require('../middlewares/verifyToken');
 
 route.post('/post', async (req, res) => {
     const { destination, description, price, picture, startDate, endDate } = req.body;
@@ -47,7 +47,6 @@ route.delete('/delete/:id', async (req, res) => {
         res.send('Success')
     });
 });
-
 
 route.put('/edit/:id', async (req, res) => {
     let edit = { _id: req.params.id }

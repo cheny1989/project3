@@ -88,14 +88,21 @@ class CreateVacation extends Component {
         var d_start = new Date(startDate);
         var d_end = new Date(endDate);
         var currentDate = Date.now();
+
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        let errorDate = dd + "/" + mm + "/" + yyyy
+
         
         if (d_start < currentDate) {
-          alert("Vacation Date Start is Wrong");
+          alert("Vacation Date Start before: " + errorDate + " is Wrong");
           return
         }
       
         if (d_start >= d_end) {
-            alert("Dates are misplaced");
+            alert("Start Date Must be later End Date. please Change it and send again");
             return
         }  
       
@@ -141,7 +148,6 @@ class CreateVacation extends Component {
         }
     }
 
-  
     render() {
 
         function showAndHide() {

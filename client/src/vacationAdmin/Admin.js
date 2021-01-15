@@ -12,24 +12,28 @@ class Admin extends Component {
   }
 
   deleteVacation = (_id) => {
+    const { item } = this.props;
+
     const findId = _id;
     console.log(findId)
 
     fetch(`/api/apivacation/delete/${_id}`,
-    {
-      method: "DELETE",
-      body: JSON.stringify({ _id: _id }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(function (result) {
-      this.setState({
+      {
+        method: "DELETE",
+        body: JSON.stringify({ _id: _id }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(function (result) {
+        this.setState({
           vacation: result
-      });
+        });
       }.bind(this))
-      window.location.reload();
-}
+
+      alert("The: " + item.destination + " Deleted")
+    window.location.reload();
+  }
 
   render() {
     const { item } = this.props;
@@ -43,7 +47,7 @@ class Admin extends Component {
           <p>Picture: <br /><img src={item.picture} width="320px" height="180px" alt="img"></img></p>
           <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>
           <p>End Date: {item.endDate.split("-").reverse().join("/")}</p>
-          <button className="deleteVacationStyle" onClick={() => { this.deleteVacation(item._id)}}>DELETE</button>
+          <button className="deleteVacationStyle" onClick={() => { this.deleteVacation(item._id) }}>DELETE</button>
           <button className="editVacationStyle">EDIT</button>
         </div>
       </div>

@@ -1,8 +1,8 @@
 const express = require("express");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require("../DB/CreateUser")
+const User = require("../DB/CreateUser");
 const route = express.Router();
 
 // const checkAuth = require("../middlewares/checkAuth")

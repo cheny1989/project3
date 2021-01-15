@@ -51,6 +51,7 @@ class Login extends Component {
         fetch('/api/apiuser/login', requestOptions)
             .then(r => r.json())
             .then(res => this.setState({ res }))
+            
     };
 
     render() {
