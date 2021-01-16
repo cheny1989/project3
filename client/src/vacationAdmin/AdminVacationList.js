@@ -35,6 +35,7 @@ class AdminVacationList extends Component {
         }
     }
     
+    
     filterStringChanged(e) {
         this.setState({ filterString: e.target.value });
     }

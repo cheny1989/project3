@@ -50,9 +50,11 @@ class Footer extends Component {
                 .then(res => res.json())
                 .then(res => this.setState({ res }))
 
-            const showMessage = document.getElementById("showAndHideMessage").innerHTML = "YOUR MESSAGE SENT";
+                alert("YOUR MESSAGE SENT")
+
+                document.getElementById("showAndHideMessage").innerHTML = "YOUR MESSAGE SENT &#10004";
             setTimeout(function () {
-                const hideMessage = document.getElementById("showAndHideMessage").innerHTML = "";
+                document.getElementById("showAndHideMessage").innerHTML = "";
             }, 3000);
 
         } else {

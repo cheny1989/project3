@@ -51,7 +51,6 @@ route.delete('/delete/:id', async (req, res) => {
 
 route.put('/edit/:id', async (req, res)=>{
     console.log(req.params.id);
-    // const { destination, description, price, picture, startDate, endDate } = req.body;
 
     Vacation.findByIdAndUpdate({_id: req.params.id},{
         $set:{
@@ -76,19 +75,18 @@ route.put('/edit/:id', async (req, res)=>{
 
 
 
-
-route.post('/test', verifyToken, (req, res) => {
-    jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
-        if (err) {
-            res.sendStatus(400)
-        } else {
-            res.json({
-                message: "Post created",
-                authData
-            })
-        }
-    })
-})
+// route.post('/test', verifyToken, (req, res) => {
+//     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
+//         if (err) {
+//             res.sendStatus(400)
+//         } else {
+//             res.json({
+//                 message: "Post created",
+//                 authData
+//             })
+//         }
+//     })
+// })
 
 // function verifyToken(req, res, next) {
 //     const bearerHerder = req.headers['authorization'];

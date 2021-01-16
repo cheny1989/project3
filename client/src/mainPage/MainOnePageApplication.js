@@ -13,8 +13,11 @@ import { Redirect } from "react-router";
 class MainOnePageApplication extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+          }
     }
+
+ 
     render() {
         return (
             <div>

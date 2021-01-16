@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const User = require("../DB/CreateUser");
 const route = express.Router();
 
-// const checkAuth = require("../middlewares/checkAuth")
 
 // request - register
 route.post('/register', async (req, res) => {
@@ -71,7 +70,19 @@ route.post('/login', async (req, res) => {
     })
 });
 
-route.get('/test', verifyToken, (req, res) => {
+function verifyToken(req, res, next) {
+    const bearerHerder = req.headers['authorization'];
+    if (typeof bearerHerder !== 'undefined') {
+        const bearer = bearerHerder.split(' ');
+        const bearerToken = bearer[1];
+        req.token = bearerToken;
+        next();
+    } else {
+        res.sendStatus(400);
+    }
+}
+
+route.post('/test', verifyToken, (req, res) => {
     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
         if (err) {
             res.sendStatus(400)
@@ -84,17 +95,6 @@ route.get('/test', verifyToken, (req, res) => {
     })
 })
 
-function verifyToken(req, res, next) {
-    const bearerHerder = req.headers['authorization'];
-    if (typeof bearerHerder !== 'undefined') {
-        const bearer = bearerHerder.split(' ');
-        const bearerToken = bearer[1];
-        req.token = bearerToken;
-        next();
-    } else {
-        res.sendStatus(400);
-    }
-}
 
 
 module.exports = route;

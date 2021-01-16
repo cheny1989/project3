@@ -75,7 +75,7 @@ class Register extends Component {
 
 
     handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         // this.props.Register(this.state);
         const firstName = document.getElementById("firstName").value;
         const lastName = document.getElementById("lastName").value;
@@ -111,11 +111,12 @@ class Register extends Component {
                 .then(r => r.json())
                 .then(res => this.setState({ res }))
                 
-                // const showMessage = document.getElementById("showAndHideMessage").innerHTML = "The Registration was Successful";
-                // setTimeout(function () {
-                //     const hideMessage = document.getElementById("showAndHideMessage").innerHTML = "";
-                // }, 3000);
                 alert("The Registration was Successful")
+                document.getElementById("showAndHideMessage").innerHTML = firstName + " " + lastName + " Have a nice day!";
+                setTimeout(function () {
+                    document.getElementById("showAndHideMessage").innerHTML = "";
+                }, 5000);
+
         } else {
             alert("ERROR - invalid Form. please try again")
         }

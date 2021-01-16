@@ -84,7 +84,6 @@ class Admin extends Component {
       let yyyy = today.getFullYear();
       let errorDate = dd + "/" + mm + "/" + yyyy
 
-
       if (d_start < currentDate) {
         alert("Vacation Date Start before: " + errorDate + " is Wrong");
         return
@@ -106,9 +105,10 @@ class Admin extends Component {
         .then(r => r.json())
         .then(res => this.setState({ res }));
 
-      alert("The " + item.destination + " Changed")
+      alert("The " + item.destination + " Changed to new values")
 
-      window.location.reload(false);
+    } else{
+      alert("The edit canceled");
     }
   };
 
@@ -144,6 +144,24 @@ class Admin extends Component {
     $('#endDateNew' + [item._id]).val(item.endDate)
   };
 
+  // pushAll=()=>{
+  //   this.oldDestination();
+  //   this.oldDescription();
+  //   this.oldPrice();
+  //   this.oldPicture();
+  //   this.oldStartDate();
+  //   this.oldStEndDate();
+  // }
+
+  notRefreshPage=(e)=>{    
+    e.preventDefault();
+    this.oldDestination();
+    this.oldDescription();
+    this.oldPrice();
+    this.oldPicture();
+    this.oldStartDate();
+    this.oldStEndDate();
+  }
 
   render() {
     const { item } = this.props;
@@ -160,7 +178,7 @@ class Admin extends Component {
     return (
       <div>
 
-        {/* delete */}
+        {/* delete vacation by id*/}
         <div key={item._id} className="vacationListStyle">
           <p className="destination_style">Destination: {item.destination.toUpperCase()}</p>
           <p className="word_wrap">Description: {item.description}</p>
@@ -169,12 +187,12 @@ class Admin extends Component {
           <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>
           <p>End Date: {item.endDate.split("-").reverse().join("/")}</p>
           <button className="deleteVacationStyle" onClick={() => { this.deleteVacation(item._id) }}>DELETE</button>
-          <button className="editVacationStyle" id={"showAndHide" + [item._id]} onClick={() => showAndHide(item._id)}>OPEN EDIT</button>
+          <button className="editVacationStyle" id={"showAndHide" + [item._id]} onClick={() => showAndHide(item._id)}>OPEN/HIDE EDIT</button>
 
-          {/* edit */}
+          {/* edit vacation by id*/}
           <div className={"titleShowAndHide" + [item._id]}>
             <div className="changeVacationTitle">Edit Vacation</div>
-            <div className="pushVacationTitle">Click <span className="currently">&#x2714;</span> to push old value of vacation</div>
+            <div className="pushVacationTitle">Click <span className="currently">&#x2714;</span> to push previous value of vacation</div>
             <hr />
             <form onSubmit={() => { this.handleSubmit(item._id) }}>
               <div key={item._id}>
@@ -215,9 +233,13 @@ class Admin extends Component {
                 <input type="date" id={"endDateNew" + [item._id]} onChange={this.handleChange} required={this} />
                 <button className="currently" onClick={() => this.oldStEndDate()}>&#x2714;</button>
                 <br />
-
+                {/* <button className="" onClick={() => this.pushAll()}>Push all input</button> */}
                 <button className="changeVacationButton">SEND EDIT</button>
               </div>
+            </form>
+
+            <form onSubmit={this.notRefreshPage}>
+            <button className="pushAll">&#10132; Push all previous inputs &#x2714;</button>
             </form>
           </div>
         </div>

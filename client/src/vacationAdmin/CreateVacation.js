@@ -141,10 +141,21 @@ class CreateVacation extends Component {
                 .then(res => this.setState({ res }))
             alert("The vacation Sent")
 
-            window.location.reload(false);
+                document.getElementById("showAndHideMessage").innerHTML = "YOUR VACATION CREATED &#10004;";
+            setTimeout(function () {
+               document.getElementById("showAndHideMessage").innerHTML = "";
+            }, 3000);
+
+            setTimeout(function () {
+                window.location.reload(false);
+            }, 1000);
 
         } else {
             alert("ERROR - invalid Form. please try again")
+                document.getElementById("showAndHideMessage").innerHTML = "ERROR - invalid Form. please try again &#10008";
+            setTimeout(function () {
+               document.getElementById("showAndHideMessage").innerHTML = "";
+            }, 3000);
         }
     }
 
@@ -206,6 +217,7 @@ class CreateVacation extends Component {
                             <input type="date" id="endDate" name="endDate" onChange={this.handleChange} required={this} noValidate />
                             <br />
                             <button className="btnAddVacationStyle">ADD VACATION</button>
+                            <div id="showAndHideMessage"></div>
                         </div>
                     </div>
                 </form>
