@@ -79,7 +79,7 @@
     opacity: 0.8;
   }
 
-  .editVacationStyle{
+  .editVacationStyle, .changeVacationButton{
       background-color: #dadada;
       color: black;
       width: 120px;
@@ -88,7 +88,7 @@
       border-radius: 5px;
   }
 
-  .editVacationStyle:hover{
+  .editVacationStyle:hover, .changeVacationButton:hover{
     opacity: 0.8;
   }
 
@@ -173,8 +173,19 @@ padding-bottom: 5px;
 margin-left: 15px;
 margin-bottom: 10px;
 }
+
 .numberOfVacations_span{
   color: white;
   background-color: #0099FF;
   padding: 3px;
+}
+
+.changeVacationTitle{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background-color: #0e003f;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  border-radius: 5px;
 }
