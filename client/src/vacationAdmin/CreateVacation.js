@@ -139,7 +139,7 @@ class CreateVacation extends Component {
             fetch('/api/apivacation/post', requestOptions)
                 .then(r => r.json())
                 .then(res => this.setState({ res }))
-            alert("OK - valid Form")
+            alert("The vacation Sent")
 
             window.location.reload(false);
 

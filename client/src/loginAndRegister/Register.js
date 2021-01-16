@@ -75,7 +75,7 @@ class Register extends Component {
 
 
     handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         // this.props.Register(this.state);
         const firstName = document.getElementById("firstName").value;
         const lastName = document.getElementById("lastName").value;

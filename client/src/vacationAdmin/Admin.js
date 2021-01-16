@@ -31,8 +31,68 @@ class Admin extends Component {
         });
       }.bind(this))
 
-      alert("The: " + item.destination + " Deleted")
+    alert("The: " + item.destination + " Deleted")
     window.location.reload();
+  }
+
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  };
+
+
+  handleSubmit = (_id) => {
+    const findId = _id;
+    console.log(findId);
+
+    const description = document.getElementById("descriptionNew").value;
+    const destination = document.getElementById("destinationNew").value;
+    const price = document.getElementById("priceNew").value;
+    const picture = document.getElementById("pictureNew").value;
+    const startDate = document.getElementById("startDateNew").value;
+    const endDate = document.getElementById("endDateNew").value;
+
+    var rbody = {
+      description: description,
+      destination: destination,
+      price: price,
+      picture: picture,
+      startDate: startDate,
+      endDate: endDate
+  };
+
+    console.log({ rbody: rbody })
+
+    fetch(`/api/apivacation/edit/${_id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify( rbody ),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(r => r.json())
+      .then(res => this.setState({ res }));
+
+
+    /////////////////////////// *****************
+
+    // const requestOptions = {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({ _id: rbody }),
+    // };
+    // fetch(`/api/apivacation/edit/${_id}`, requestOptions)
+    //   .then(function (result) {
+    //     this.setState({
+    //       vacation: result
+    //     });
+    //   }.bind(this))
+
   }
 
   render() {
@@ -48,7 +108,26 @@ class Admin extends Component {
           <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>
           <p>End Date: {item.endDate.split("-").reverse().join("/")}</p>
           <button className="deleteVacationStyle" onClick={() => { this.deleteVacation(item._id) }}>DELETE</button>
-          <button className="editVacationStyle">EDIT</button>
+          {/* <button className="editVacationStyle" onClick={() => { this.editVacation(item._id) }}>EDIT</button> */}
+          <button className="editVacationStyle">OPEN EDIT</button>
+
+
+          <p>EDIT</p>
+          <form onSubmit={() => { this.handleSubmit(item._id) }}>
+            <div key={item._id}>
+              <input type="text" value={item._id} onChange={this.handleChange} />
+              <input type="text" id="destinationNew" onChange={this.handleChange} />
+              <input type="text" id="descriptionNew" onChange={this.handleChange} />
+              <input type="number" id="priceNew" onChange={this.handleChange} />
+              <input type="text" id="pictureNew" onChange={this.handleChange} />
+              <input type="date" id="startDateNew" onChange={this.handleChange} />
+              <input type="date" id="endDateNew" onChange={this.handleChange} />
+              <br />
+              <button>SEND EDIT</button>
+            </div>
+          </form>
+
+
         </div>
       </div>
     );

@@ -13,8 +13,8 @@ route.post('/post', async (req, res) => {
         vacation.destination = destination,
         vacation.description = description,
         vacation.price = price,
-        vacation.picture = picture
-        vacation.startDate = startDate
+        vacation.picture = picture,
+        vacation.startDate = startDate,
         vacation.endDate = endDate
 
     try {
@@ -48,15 +48,43 @@ route.delete('/delete/:id', async (req, res) => {
     });
 });
 
-route.put('/edit/:id', async (req, res) => {
-    let edit = { _id: req.params.id }
-    Vacation.update(edit, function (err) {
-        if (err) {
-            console.log(err);
+// route.put('/edit/:id', async (req, res) => {
+//     let edit = { _id: req.params.id }
+//     Vacation.update(edit, function (err) {
+//         if (err) {
+//             console.log(err);
+//         }
+//         res.send('Success')
+//     });
+// });
+
+route.put('/edit/:id', async (req, res)=>{
+    console.log(req.params.id);
+    // const { destination, description, price, picture, startDate, endDate } = req.body;
+
+    Vacation.findByIdAndUpdate({_id: req.params.id},{
+        $set:{
+            destination: req.body.destination,
+            description: req.body.description,
+            price: req.body.price,
+            picture: req.body.picture,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate
         }
-        res.send('Success')
-    });
-});
+    })
+    .then(result =>{
+        res.status(200).json({updated_vacation: result})
+    })
+    .catch(err=>{
+        console.log(err);
+        res.status(400).json({error: err
+        })
+    })
+})
+
+
+
+
 
 route.post('/test', verifyToken, (req, res) => {
     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {

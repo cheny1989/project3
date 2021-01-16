@@ -16,7 +16,7 @@ class User extends Component {
         console.log(newCounter);
 
         // var rbody = {
-        //     newCounter: newCounter,
+        //     findId: findId,
         // };
         // const requestOptions = {
         //     method: 'POST',
