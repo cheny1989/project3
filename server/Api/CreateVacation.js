@@ -48,15 +48,6 @@ route.delete('/delete/:id', async (req, res) => {
     });
 });
 
-// route.put('/edit/:id', async (req, res) => {
-//     let edit = { _id: req.params.id }
-//     Vacation.update(edit, function (err) {
-//         if (err) {
-//             console.log(err);
-//         }
-//         res.send('Success')
-//     });
-// });
 
 route.put('/edit/:id', async (req, res)=>{
     console.log(req.params.id);
