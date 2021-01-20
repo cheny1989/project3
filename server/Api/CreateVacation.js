@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Vacation = require("../DB/CreateVacation");
 const route = express.Router();
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 
 
 const verifyToken = require('../middlewares/verifyToken');
@@ -72,32 +72,5 @@ route.put('/edit/:id', async (req, res)=>{
     })
 })
 
-
-
-
-// route.post('/test', verifyToken, (req, res) => {
-//     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
-//         if (err) {
-//             res.sendStatus(400)
-//         } else {
-//             res.json({
-//                 message: "Post created",
-//                 authData
-//             })
-//         }
-//     })
-// })
-
-// function verifyToken(req, res, next) {
-//     const bearerHerder = req.headers['authorization'];
-//     if (typeof bearerHerder !== 'undefined') {
-//         const bearer = bearerHerder.split(' ');
-//         const bearerToken = bearer[1];
-//         req.token = bearerToken;
-//         next();
-//     } else {
-//         res.sendStatus(400);
-//     }
-// }
 
 module.exports = route;

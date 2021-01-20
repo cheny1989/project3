@@ -3,12 +3,15 @@ import CreateVacation from "./CreateVacation";
 // import MapVacation from "./MapVacation";
 import AdminVacationList from "./AdminVacationList"
 import "./VacationAdmin.css";
+// import {Redirect} from "react-router";
+
 
 
 class MainVacation extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            user:[],
             vacation: [
             ],
             id: 1
@@ -33,11 +36,12 @@ class MainVacation extends Component {
         })
     }
 
-    editVacation=(id)=>{
-        alert(id)
-    }
-
     render() {
+        // const {user} = this.props;
+        // if (!user) {
+		// 	return <Redirect to="/login"/>
+		// }
+
         return (
             <div>
                 <div>

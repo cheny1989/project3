@@ -26,7 +26,10 @@ route.post('/message', async (req, res) => {
         res.status(400).json({ message: err.message })
     }
     var transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false, // true for 587, false for other ports
+        requireTLS: true,
         auth: {
             user: `${process.env.EMAIL}`,
             pass: `${process.env.PASSWORD}`

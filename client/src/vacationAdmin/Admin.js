@@ -183,10 +183,11 @@ class Admin extends Component {
           <p className="destination_style">Destination: {item.destination.toUpperCase()}</p>
           <p className="word_wrap">Description: {item.description}</p>
           <p>Price: {item.price}$</p>
-          <p>Picture: <br /><img src={item.picture} width="320px" height="180px" alt="img"></img></p>
+          <p>Picture: <br /><img src={item.picture} width="95%" height="100%" alt="img"></img></p>
           <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>
           <p>End Date: {item.endDate.split("-").reverse().join("/")}</p>
           <button className="deleteVacationStyle" onClick={() => { this.deleteVacation(item._id) }}>DELETE</button>
+          {/* <br /> */}
           <button className="editVacationStyle" id={"showAndHide" + [item._id]} onClick={() => showAndHide(item._id)}>OPEN/HIDE EDIT</button>
 
           {/* edit vacation by id*/}
@@ -196,41 +197,41 @@ class Admin extends Component {
             <hr />
             <form onSubmit={() => { this.handleSubmit(item._id) }}>
               <div key={item._id}>
-                <input type="text" value={item._id} onChange={this.handleChange} disabled={true} />
+                <input type="text" className="newInputEdit" value={item._id} onChange={this.handleChange} disabled={true} />
                 <br />
                 <label>Destination:</label>
                 <br />
-                <input type="text" id={"destinationNew" + [item._id]} onChange={this.handleChange} required={this} placeholder="Destination..." />
+                <input type="text" className="newInputEdit" id={"destinationNew" + [item._id]} onChange={this.handleChange} required={this} placeholder="Destination..." />
                 <button className="currently" onClick={() => this.oldDestination()}>&#x2714;</button>
 
                 <br />
                 <label>Description:</label>
                 <br />
-                <input type="text" id={"descriptionNew" + [item._id]} onChange={this.handleChange} required={this} placeholder="Description..." />
+                <input type="text" className="newInputEdit" id={"descriptionNew" + [item._id]} onChange={this.handleChange} required={this} placeholder="Description..." />
                 <button className="currently" onClick={() => this.oldDescription()}>&#x2714;</button>
 
                 <br />
                 <label>Price:</label>
                 <br />
-                <input type="number" id={"priceNew" + [item._id]} onChange={this.handleChange} required={this} placeholder="Price..." />
+                <input type="number" className="newInputEdit" id={"priceNew" + [item._id]} onChange={this.handleChange} required={this} placeholder="Price..." />
                 <button className="currently" onClick={() => this.oldPrice()}>&#x2714;</button>
 
                 <br />
                 <label>Picture (URL):</label>
                 <br />
-                <input type="text" id={"pictureNew" + [item._id]} onChange={this.handleChange} required={this} placeholder="Picture..." />
+                <input type="text" className="newInputEdit" id={"pictureNew" + [item._id]} onChange={this.handleChange} required={this} placeholder="Picture..." />
                 <button className="currently" onClick={() => this.oldPicture()}>&#x2714;</button>
 
                 <br />
                 <label>Start Date:</label>
                 <br />
-                <input type="date" id={"startDateNew" + [item._id]} onChange={this.handleChange} required={this} />
+                <input type="date" className="newInputEdit" id={"startDateNew" + [item._id]} onChange={this.handleChange} required={this} />
                 <button className="currently" onClick={() => this.oldStartDate()}>&#x2714;</button>
 
                 <br />
                 <label>End Date:</label>
                 <br />
-                <input type="date" id={"endDateNew" + [item._id]} onChange={this.handleChange} required={this} />
+                <input type="date" className="newInputEdit" id={"endDateNew" + [item._id]} onChange={this.handleChange} required={this} />
                 <button className="currently" onClick={() => this.oldStEndDate()}>&#x2714;</button>
                 <br />
                 {/* <button className="" onClick={() => this.pushAll()}>Push all input</button> */}

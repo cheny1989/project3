@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
 import $ from "jquery";
-
+import LoginItem from "./LoginItem";
+// import {Redirect} from "react-router";
 
 
 class Login extends Component {
@@ -10,9 +11,13 @@ class Login extends Component {
         super(props);
         this.state = {
             userName: '',
-            password: ''
+            password: '',
+            user: []
         }
     }
+
+    // https://www.youtube.com/watch?v=mbsmsi7l3r4
+    
 
     clearInput = () => {
         $('#userName').val('')
@@ -49,12 +54,13 @@ class Login extends Component {
             body: JSON.stringify(rbody)
         };
         fetch('/api/apiuser/login', requestOptions)
-            .then(r => r.json())
+            .then(res => res.json())
             .then(res => this.setState({ res }))
-            
     };
 
     render() {
+
+        const filterComment = this.state.user;
 
         return (
             <form onSubmit={this.handleSubmit} className="input_style">
@@ -76,6 +82,14 @@ class Login extends Component {
                         <div className="notRegister"><NavLink to="/Register">Not Register? Click Here</NavLink></div>
                         <Route path="/Register" component={Register} />
                     </ HashRouter>
+                </div>
+
+                <div>
+                    {filterComment
+                        .map(s =>
+                            <LoginItem key={s.id} item={s} />
+                        )
+                    }
                 </div>
             </form>
         )

@@ -71,10 +71,10 @@ class Footer extends Component {
                         <div className="firstTitle">Enjoy Your Vacation</div>
                         <hr />
                         <div>
-                            <a href="https://www.facebook.com/#" className="fa fa-facebook"></a>
-                            <a href="https://www.youtube.com/" className="fa fa-youtube"></a>
-                            <a href="https://www.instagram.com/" className="fa fa-instagram"></a>
-                            <a href="https://www.skype.com/" className="fa fa-skype"></a>
+                            <a href="https://www.facebook.com/#" className="fa fa-facebook" target="_blank"></a>
+                            <a href="https://www.youtube.com/" className="fa fa-youtube" target="_blank"></a>
+                            <a href="https://www.instagram.com/" className="fa fa-instagram" target="_blank"></a>
+                            <a href="https://www.skype.com/" className="fa fa-skype" target="_blank"></a>
                         </div>
                         <div>know that whatever you need to know is revealed to you in the perfect time and space sequence</div>
                     </div>

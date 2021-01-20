@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Admin from "./Admin"
+import Admin from "./Admin";
+import User from "../numberUsers/User"
 // import MapVacation from "./ "
 
 class AdminVacationList extends Component {
@@ -60,6 +61,7 @@ class AdminVacationList extends Component {
                 <b><label className="lableAndInputFilter">Filter by Destination</label></b>
                 <input type="text" className="lableAndInputFilter" placeholder="Enter any Destination..." onChange={(event) => this.filterStringChanged(event)} />
 
+                <User />
                 <div className="numberOfVacations">Number of Vacations: <span className="numberOfVacations_span">{numberOfVacations}</span></div>
                 <div className="gridVacationListStyle">
                     {filterVacation

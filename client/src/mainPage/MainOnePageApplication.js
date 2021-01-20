@@ -14,18 +14,42 @@ class MainOnePageApplication extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          }
+            user: []
+        }
     }
 
- 
+    // componentDidMount = () => {
+    //     this.fatchALlUser();
+    // }
+
+    // async fatchALlUser() {
+    //     try {
+    //         const response = await fetch('/api/apiuser/loginnew');
+    //         const result = await response.json();
+    //         this.setState({ user: result })
+    //     } catch (err) {
+    //         alert(err)
+    //     }
+    // };
+
+
     render() {
+
+        // const { item } = this.props;
+        // console.log(item)
+        // const path = window.location.pathname;
+
         return (
             <div>
                 <HashRouter>
                     <div>
+                        {/* {!item && !path.endsWith('/login') && !path.endsWith('/logout') && !path.endsWith('/register') &&
+                            <Redirect to="/login" />
+                        } */}
+
                         <ul className="header">
-                            <li className="buttonHeader"><Redirect  to="/Login">Login</Redirect ></li>
-                            <li className="buttonHeader"><NavLink  to="/Login">Login</NavLink ></li>
+                            <li className="buttonHeader"><Redirect to="/Login">Login</Redirect ></li>
+                            <li className="buttonHeader"><NavLink to="/Login">Login</NavLink ></li>
                             <li className="buttonHeader"><NavLink to="/Register">Register</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/UserVacationList">User Vacation</NavLink></li>
