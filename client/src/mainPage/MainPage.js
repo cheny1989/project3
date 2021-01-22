@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import LoginItem from "./LoginItem"
 import MainOnePageApplication from "./MainOnePageApplication";
 
 class MainPage extends Component {

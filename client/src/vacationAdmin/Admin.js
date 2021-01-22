@@ -175,6 +175,15 @@ class Admin extends Component {
       });
     }
 
+    function showAndHide2(_id) {
+      const findId = _id;
+      console.log(findId);
+
+      $("#showAndHide2" + [item._id]).click(function () {
+        $(".titleShowAndHide" + [item._id]).toggle();
+      });
+    }
+
     return (
       <div>
 
@@ -242,6 +251,7 @@ class Admin extends Component {
             <form onSubmit={this.notRefreshPage}>
             <button className="pushAll">&#10132; Push all previous inputs &#x2714;</button>
             </form>
+            <button className="showAndHide2" id={"showAndHide2" + [item._id]}  onClick={() => showAndHide2(item._id)}>&#10008;</button>
           </div>
         </div>
       </div>

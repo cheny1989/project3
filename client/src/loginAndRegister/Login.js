@@ -3,8 +3,6 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
 import $ from "jquery";
 import LoginItem from "./LoginItem";
-// import {Redirect} from "react-router";
-
 
 class Login extends Component {
     constructor(props) {
@@ -15,8 +13,6 @@ class Login extends Component {
             user: []
         }
     }
-
-    // https://www.youtube.com/watch?v=mbsmsi7l3r4
     
 
     clearInput = () => {

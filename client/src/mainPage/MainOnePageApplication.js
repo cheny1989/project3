@@ -3,10 +3,10 @@ import "../loginAndRegister/loginAndRegister.css"
 import Login from "../loginAndRegister/Login";
 import Register from "../loginAndRegister/Register";
 import MainVacation from "../vacationAdmin/MainVacation"
-// import AboutMe from "../aboutMe/AboutMe"
 import UserVacationList from "../vacationUser/UserVacationList";
 import Logout from "../loginAndRegister/Logout";
 import Footer from "../footer/Footer";
+// import VacationWebSocket from "./VacationWebSocket"
 
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import { Redirect } from "react-router";
@@ -18,35 +18,13 @@ class MainOnePageApplication extends Component {
         }
     }
 
-    // componentDidMount = () => {
-    //     this.fatchALlUser();
-    // }
-
-    // async fatchALlUser() {
-    //     try {
-    //         const response = await fetch('/api/apiuser/loginnew');
-    //         const result = await response.json();
-    //         this.setState({ user: result })
-    //     } catch (err) {
-    //         alert(err)
-    //     }
-    // };
-
 
     render() {
-
-        // const { item } = this.props;
-        // console.log(item)
-        // const path = window.location.pathname;
 
         return (
             <div>
                 <HashRouter>
                     <div>
-                        {/* {!item && !path.endsWith('/login') && !path.endsWith('/logout') && !path.endsWith('/register') &&
-                            <Redirect to="/login" />
-                        } */}
-
                         <ul className="header">
                             <li className="buttonHeader"><Redirect to="/Login">Login</Redirect ></li>
                             <li className="buttonHeader"><NavLink to="/Login">Login</NavLink ></li>
@@ -54,6 +32,7 @@ class MainOnePageApplication extends Component {
                             <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/UserVacationList">User Vacation</NavLink></li>
                             <li className="buttonHeader"><NavLink to="/Logout">Log Out</NavLink></li>
+                            {/* <li className="buttonHeader"><NavLink to="/VacationWebSocket"></NavLink></li> */}
                         </ul>
                         <div className="content">
                             <Route path="/Login" component={Login} />
@@ -61,6 +40,7 @@ class MainOnePageApplication extends Component {
                             <Route path="/MainVacation" component={MainVacation} />
                             <Route path="/UserVacationList" component={UserVacationList} />
                             <Route path="/Logout" component={Logout} />
+                            {/* <Route path="/VacationWebSocket" component={VacationWebSocket} /> */}
                         </div>
                     </div>
                 </HashRouter>
