@@ -5,7 +5,7 @@ const route = express.Router();
 // const jwt = require('jsonwebtoken');
 
 
-const verifyToken = require('../middlewares/verifyToken');
+// const verifyToken = require("../middlewares/verifyToken")
 
 route.post('/post', async (req, res) => {
     const { destination, description, price, picture, startDate, endDate } = req.body;
@@ -22,18 +22,18 @@ route.post('/post', async (req, res) => {
         await vacationModel.save();
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Credentials', true);
-        res.status(200).json(vacationModel)
+        return res.status(200).json(vacationModel)
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        return res.status(400).json({ message: err.message })
     }
 });
 
 route.get('/get', async (req, res) => {
     try {
         const showVacation = await Vacation.find();
-        res.status(200).json(showVacation);
+        return res.status(200).json(showVacation);
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        return res.status(400).json({ message: err.message })
     }
 });
 
@@ -44,7 +44,7 @@ route.delete('/delete/:id', async (req, res) => {
         if (err) {
             console.log(err);
         }
-        res.send('Success')
+        return res.send('Success')
     });
 });
 
@@ -63,11 +63,11 @@ route.put('/edit/:id', async (req, res)=>{
         }
     })
     .then(result =>{
-        res.status(200).json({updated_vacation: result})
+        return res.status(200).json({updated_vacation: result})
     })
     .catch(err=>{
         console.log(err);
-        res.status(400).json({error: err
+        return res.status(400).json({error: err
         })
     })
 })

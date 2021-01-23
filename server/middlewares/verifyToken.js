@@ -1,16 +1,16 @@
-// // const jwt = require('jsonwebtoken');
 
-// const verifyToken = (req, res, next) => {
-//     const bearerHerder = req.headers['authorization'];
-//     if (typeof bearerHerder !== 'undefined') {
-//         const bearer = bearerHerder.split(' ');
-//         const bearerToken = bearer[1];
-//         req.token = bearerToken;
+// const verifyToken=(req, res, next)=> {
+//     const bearerHeader = req.headers['authorization'];
+//     console.log("bearerHeader-----" + bearerHeader)
+//     if (typeof bearerHeader !== 'undefined') {
+//         const beraer  = bearerHeader.split(' ');
+//         const bererToken = beraer[1];
+//         req.token = bererToken;
 //         next();
 //     } else {
-//         res.sendStatus(400);
+//         return res.status(400);
 //     }
-// };
-
+// }
 // module.exports = verifyToken; 
+
 

@@ -8,22 +8,9 @@ class LoginItem extends Component {
           }
     }
 
-    componentDidMount = () => {
-      this.fatchALlUser();
-  }
-
-  async fatchALlUser() {
-      try {
-          const response = await fetch('/api/apiuser/loginnew');
-          const result = await response.json();
-          this.setState({ user: result })
-      } catch (err) {
-          alert(err)
-      }
-  };
-
     render() { 
         const { item } = this.props;
+        console.log(item)
 
         return (
             <div key={item.id}>

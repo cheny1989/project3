@@ -3,6 +3,7 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
 import $ from "jquery";
 import LoginItem from "./LoginItem";
+// import { token } from 'morgan';
 
 class Login extends Component {
     constructor(props) {
@@ -13,7 +14,39 @@ class Login extends Component {
             user: []
         }
     }
+
+    // https://auth0.com/docs/quickstart/spa/react/02-calling-an-api#get-an-access-token
     
+    componentDidMount = () => {
+        this.fatchALlUser();
+    }
+  
+    async fatchALlUser() {
+        const tokenNew = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDVmM2FjZjVkNjQ5MmRkMGM1NjBlNyIsInVzZXJOYW1lIjoiY2hlbjE5ODkiLCJpYXQiOjE2MTE0MTczOTUsImV4cCI6MTYxMTQyMDk5NX0.yYJHFSE1r8zHKrow5vT5FviCtYhfHDHx9o802tf67qo'
+        try {
+            const response = await fetch('/api/apiuser/test', {
+                headers:{
+                    Authorization: `Bearer ${tokenNew}`,
+                }
+            });
+            const result = await response.json();
+            this.setState({ user: result });
+        } catch (err) {
+            console.log("ERROR " + err)
+        }
+    };
+
+    // async fatchALlUser() {
+    //     const tokenNew = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDVmM2FjZjVkNjQ5MmRkMGM1NjBlNyIsInVzZXJOYW1lIjoiY2hlbjE5ODkiLCJpYXQiOjE2MTE0MTczOTUsImV4cCI6MTYxMTQyMDk5NX0.yYJHFSE1r8zHKrow5vT5FviCtYhfHDHx9o802tf67qo'
+    //     const response = await fetch('/api/apiuser/test', {
+    //         headers:{
+    //             Authorization: `Bearer ${tokenNew}`,
+    //         }
+    //     })
+    //     console.log(response)
+    // };
+    
+
 
     clearInput = () => {
         $('#userName').val('')
@@ -31,10 +64,10 @@ class Login extends Component {
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
 
-        this.setState({
-            userName: '',
-            password: ''
-        });
+        // this.setState({
+        //     userName: '',
+        //     password: ''
+        // });
 
         this.clearInput();
 
@@ -56,7 +89,9 @@ class Login extends Component {
 
     render() {
 
-        const filterComment = this.state.user;
+        // const filterComment = this.state.user;
+        const { user } = this.state
+        console.log(user)
 
         return (
             <form onSubmit={this.handleSubmit} className="input_style">
@@ -81,11 +116,11 @@ class Login extends Component {
                 </div>
 
                 <div>
-                    {filterComment
+                    {/* {filterComment
                         .map(s =>
                             <LoginItem key={s.id} item={s} />
                         )
-                    }
+                    } */}
                 </div>
             </form>
         )

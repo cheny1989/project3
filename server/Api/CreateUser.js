@@ -6,6 +6,8 @@ const User = require("../DB/CreateUser");
 const { token } = require("morgan");
 const route = express.Router();
 
+// const verifyToken = require("../middlewares/verifyToken")
+
 
 // to logout request
 const refreshTokens = [];
@@ -14,7 +16,7 @@ const refreshTokens = [];
 route.post('/register', async (req, res) => {
     const { firstName, lastName, userName, password } = req.body;
     let user = {};
-        user.firstName = firstName,
+    user.firstName = firstName,
         user.lastName = lastName,
         user.userName = userName,
         user.password = password
@@ -76,55 +78,71 @@ route.post('/login', async (req, res) => {
 // chen *********************************************************************
 // function verifyToken(req, res, next) {
 //     const bererHerder = req.headers['authorization'];
+//     console.log("bererHerder-----" + bererHerder)
 //     if (typeof bererHerder !== 'undefined') {
 //         const beraer  = bererHerder.split(' ');
 //         const bererToken = beraer[1];
 //         req.token = bererToken;
 //         next();
 //     } else {
-//         res.status(400);
+//         return res.status(400);
 //     }
 // }
 
 // route.get('/test', verifyToken, (req, res) => {
 //     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
 //         if (err) {
-//             res.status(400)
+//             return res.status(400).json({ message: "ERROR TOKEN" });
 //         } else {
-//             res.json({ message: "VerifyToken created", authData })
+//             return res.status(200).json({ message: "VerifyToken created", authData })
 //         }
 //     })
 // })
 
 
-// new *************************************
+// new *********************************************************************
 function verifyToken(req, res, next) {
-    const authHeader = req.headers['authorization']
+    const authHeader = req.headers['authorization'];
+    console.log("authHeader-----" + authHeader)
+
     const token = authHeader && authHeader.split(' ')[1]
+    console.log("token -----" + token)
+
     console.log(token)
     if (token == null) {
-        return res.sendStatus(401);
+        return res.sendStatus(401).json({ message: "ERROR TOKEN" });
     }
     jwt.verify(token, process.env.LOGIN_PASSWORD, (err, user) => {
         if (err) {
-            return res.sendStatus(403);
+            return res.sendStatus(403).json({ message: "ERROR TOKEN" });
         }
         req.user = user;
         next();
+        return
     });
 }
 
-route.get("/loginnew", verifyToken, (req, res) => {
-    const userName = req.body.userName;
-    const user = { user: userName };
+route.get('/test', verifyToken, async (req, res) => {
     try {
-        jwt.sign(user, process.env.LOGIN_PASSWORD, (err, token) => {
-            res.json({ message: "VerifyToken created!", token: token });
-        });
+        res.send(req.user)
+        console.log(req.user)
+        // console.log(req.user.userName)
     } catch (err) {
-        return res.sendStatus(403);
+        res.json({ error: err })
     }
-});
+})
+
+// route.get("/loginnew", verifyToken, (req, res) => {
+//     const userName = req.body.userName;
+//     const user = { user: userName };
+//     try {
+//         jwt.sign(user, process.env.LOGIN_PASSWORD, (err, token) => {
+//             return res.status(200).json({ message: "VerifyToken created!", token: token });
+//         });
+//     } catch (err) {
+//         return res.sendStatus(403).json({ message: "ERROR TOKEN" });
+//     }
+// });
 
 // ***************************************************************************
 

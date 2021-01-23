@@ -18,7 +18,6 @@ class MainOnePageApplication extends Component {
         }
     }
 
-
     render() {
 
         return (
