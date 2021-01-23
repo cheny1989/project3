@@ -18,7 +18,29 @@ class MainOnePageApplication extends Component {
         }
     }
 
+    componentDidMount = () => {
+        this.fatchALlUser();
+    }
+  
+    async fatchALlUser() {
+        const tokenNew = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDVmM2FjZjVkNjQ5MmRkMGM1NjBlNyIsInVzZXJOYW1lIjoiY2hlbjE5ODkiLCJpYXQiOjE2MTE0MTczOTUsImV4cCI6MTYxMTQyMDk5NX0.yYJHFSE1r8zHKrow5vT5FviCtYhfHDHx9o802tf67qo'
+        try {
+            const response = await fetch('/api/apiuser/test', {
+                headers:{
+                    Authorization: `Bearer ${tokenNew}`,
+                }
+            });
+            const result = await response.json();
+            this.setState({ user: result });
+        } catch (err) {
+            console.log("ERROR " + err)
+        }
+    };
+
     render() {
+
+        const { user } = this.state
+        console.log(user)
 
         return (
             <div>
@@ -28,9 +50,18 @@ class MainOnePageApplication extends Component {
                             <li className="buttonHeader"><Redirect to="/Login">Login</Redirect ></li>
                             <li className="buttonHeader"><NavLink to="/Login">Login</NavLink ></li>
                             <li className="buttonHeader"><NavLink to="/Register">Register</NavLink></li>
+                            
+                            {user && 
                             <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation</NavLink></li>
+                            }
+
+                            {user &&
                             <li className="buttonHeader"><NavLink to="/UserVacationList">User Vacation</NavLink></li>
+                            }
+
+                            {user &&
                             <li className="buttonHeader"><NavLink to="/Logout">Log Out</NavLink></li>
+                            }
                             {/* <li className="buttonHeader"><NavLink to="/VacationWebSocket"></NavLink></li> */}
                         </ul>
                         <div className="content">
