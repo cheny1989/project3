@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from "jquery";
+import { io } from 'socket.io-client';
 
 const validateForm = (errors) => {
     let valid = true;
@@ -24,10 +25,29 @@ class CreateVacation extends Component {
                 description: '',
                 price: '',
                 picture: '',
-            }
+            },
+            userVacation: '',
+            vacations: [],
         }
     }
 
+    // ****** websocket - client ******
+    webSokcetClient =()=> {
+        this.socket = io();
+        this.socket.on('SET_VACATIION', (userVacation) => {
+            this.setState({
+                userVacation
+            })
+        });
+
+        this.socket.on('CREATE_VACATIION', (vacationObject) => {
+            this.setState({
+                vacations: [...this.state.vacations, vacationObject]
+            });
+        })
+    }
+
+    // ****** handleChange - validation to vacation ******
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
@@ -66,6 +86,7 @@ class CreateVacation extends Component {
         this.setState({ errors, [name]: value });
     }
 
+    // ****** clear inputs after sent ******
     clearInput = () => {
         $('#description').val('')
         $('#destination').val('')
@@ -75,6 +96,7 @@ class CreateVacation extends Component {
         $('#endDate').val('')
     }
 
+    // ****** send vacation - to DB (post request) ******
     handleSubmit = (e) => {
         e.preventDefault();
         // this.props.createVacation(this.state);
@@ -149,6 +171,8 @@ class CreateVacation extends Component {
             setTimeout(function () {
                 window.location.reload(false);
             }, 1000);
+
+            this.webSokcetClient();
 
         } else {
             alert("ERROR - invalid Form. please try again")

@@ -3,14 +3,11 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require("../DB/CreateUser");
-const { token } = require("morgan");
+// const { token } = require("morgan");
 const route = express.Router();
 
 // const verifyToken = require("../middlewares/verifyToken")
 
-
-// to logout request
-const refreshTokens = [];
 
 // request - register
 route.post('/register', async (req, res) => {
@@ -67,7 +64,10 @@ route.post('/login', async (req, res) => {
                     {
                         expiresIn: "1h" // after 1 hour - the user logout
                     });
-                return res.status(200).json({ message: "You are now login!", token });
+                res.status(200).json({ message: "You are now login!", token: token });
+                console.log({user:userName});
+                console.log({token:token});
+                return;
             }
             return res.status(400).json({ message: "Username or Password failed" });
         })
@@ -76,63 +76,68 @@ route.post('/login', async (req, res) => {
 
 
 // chen *********************************************************************
-// function verifyToken(req, res, next) {
-//     const bererHerder = req.headers['authorization'];
-//     console.log("bererHerder-----" + bererHerder)
-//     if (typeof bererHerder !== 'undefined') {
-//         const beraer  = bererHerder.split(' ');
-//         const bererToken = beraer[1];
-//         req.token = bererToken;
-//         next();
-//     } else {
-//         return res.status(400);
-//     }
-// }
+function verifyToken(req, res, next) {
+    const berearHerder = req.headers['authorization'];
+    console.log("bererHerder-----" + berearHerder)
+    if (typeof berearHerder !== 'undefined') {
+        const beraer  = berearHerder.split(' ');
+        const bererToken = beraer[1];
+        req.token = bererToken;
+        next();
+    } else {
+        return res.status(400);
+    }
+}
 
-// route.get('/test', verifyToken, (req, res) => {
-//     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
-//         if (err) {
-//             return res.status(400).json({ message: "ERROR TOKEN" });
-//         } else {
-//             return res.status(200).json({ message: "VerifyToken created", authData })
-//         }
-//     })
-// })
+route.get('/test', verifyToken, (req, res) => {
+    jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
+        if (err) {
+            res.send(req.user)
+            console.log(req.user)
+            return res.status(400).json({ message: "ERROR TOKEN" });
+        } else {
+            return res.status(200).json({ message: "VerifyToken created", authData, token:req.token })
+        }
+    })
+})
 
 
 // new *********************************************************************
-function verifyToken(req, res, next) {
-    const authHeader = req.headers['authorization'];
-    console.log("authHeader-----" + authHeader)
+// function verifyToken(req, res, next) {
+//     const authHeader = req.headers['authorization'];
+//     console.log("authHeader-----" + authHeader)
 
-    const token = authHeader && authHeader.split(' ')[1]
-    console.log("token -----" + token)
+//     const token = authHeader && authHeader.split(' ')[1]
+//     console.log("token -----" + token)
 
-    console.log(token)
-    if (token == null) {
-        return res.sendStatus(401).json({ message: "ERROR TOKEN" });
-    }
-    jwt.verify(token, process.env.LOGIN_PASSWORD, (err, user) => {
-        if (err) {
-            return res.sendStatus(403).json({ message: "ERROR TOKEN" });
-        }
-        req.user = user;
-        next();
-        return
-    });
-}
+//     console.log(token)
+//     if (token == null) {
+//         return res.sendStatus(401).json({ message: "ERROR TOKEN" });
+//     }
+//     jwt.verify(token, process.env.LOGIN_PASSWORD, (err, user) => {
+//         if (err) {
+//             return res.sendStatus(403).json({ message: "ERROR TOKEN" });
+//         }
+//         req.user = user;
+//         next();
+//         return
+//     });
+// }
 
-route.get('/test', verifyToken, async (req, res) => {
-    try {
-        res.send(req.user)
-        console.log(req.user)
-        // console.log(req.user.userName)
-    } catch (err) {
-        res.json({ error: err })
-    }
-})
+// route.get('/test', verifyToken, async (req, res) => {
+//     try {
+//         res.json(req.user)
+//         console.log(req.user)
+//     } catch (err) {
+//         res.json({ error: err })
+//     }
+// })
 
-// route.get("/loginnew", verifyToken, (req, res) => {
+
+
+// *********************************************************************
+
+// route.get("/test", verifyToken, (req, res) => {
 //     const userName = req.body.userName;
 //     const user = { user: userName };
 //     try {
@@ -146,13 +151,23 @@ route.get('/test', verifyToken, async (req, res) => {
 
 // ***************************************************************************
 
+// route.delete('/logout', async (req, res) => {
+//     refreshTokens = await refreshTokens.filter(token => token !== req.body.token);
+//     try {
+//         res.status(204).json({ message: "You are logout!" })
+//     } catch (err) {
+//         res.status(400).json({ err: "ERROR LOGOUT" })
+//     }
+// });
+
 route.delete('/logout', async (req, res) => {
-    refreshTokens = await refreshTokens.filter(token => token !== req.body.token);
-    try {
-        res.status(204).json({ message: "You are logout!" })
-    } catch (err) {
-        res.status(400).json({ err: "ERROR LOGOUT" })
-    }
+    jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
+        if (err) {
+            return res.status(400).json({ message: "ERROR DELETED" });
+        } else {
+            return res.status(200).json({ message: "DELETED created", authData })
+        }
+    })
 });
 
 

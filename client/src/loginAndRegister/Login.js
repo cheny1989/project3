@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
 import $ from "jquery";
-import LoginItem from "./LoginItem";
-// import { token } from 'morgan';
+// import MainOnePageApplication from "../mainPage/MainOnePageApplication";
+// import Test from "../mainPage/Test"
 
 class Login extends Component {
     constructor(props) {
@@ -15,37 +15,6 @@ class Login extends Component {
         }
     }
 
-    // https://auth0.com/docs/quickstart/spa/react/02-calling-an-api#get-an-access-token
-    
-    componentDidMount = () => {
-        this.fatchALlUser();
-    }
-  
-    async fatchALlUser() {
-        const tokenNew = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDVmM2FjZjVkNjQ5MmRkMGM1NjBlNyIsInVzZXJOYW1lIjoiY2hlbjE5ODkiLCJpYXQiOjE2MTE0MTczOTUsImV4cCI6MTYxMTQyMDk5NX0.yYJHFSE1r8zHKrow5vT5FviCtYhfHDHx9o802tf67qo'
-        try {
-            const response = await fetch('/api/apiuser/test', {
-                headers:{
-                    Authorization: `Bearer ${tokenNew}`,
-                }
-            });
-            const result = await response.json();
-            this.setState({ user: result });
-        } catch (err) {
-            console.log("ERROR " + err)
-        }
-    };
-
-    // async fatchALlUser() {
-    //     const tokenNew = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDVmM2FjZjVkNjQ5MmRkMGM1NjBlNyIsInVzZXJOYW1lIjoiY2hlbjE5ODkiLCJpYXQiOjE2MTE0MTczOTUsImV4cCI6MTYxMTQyMDk5NX0.yYJHFSE1r8zHKrow5vT5FviCtYhfHDHx9o802tf67qo'
-    //     const response = await fetch('/api/apiuser/test', {
-    //         headers:{
-    //             Authorization: `Bearer ${tokenNew}`,
-    //         }
-    //     })
-    //     console.log(response)
-    // };
-    
 
 
     clearInput = () => {
@@ -64,11 +33,6 @@ class Login extends Component {
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
 
-        // this.setState({
-        //     userName: '',
-        //     password: ''
-        // });
-
         this.clearInput();
 
         var rbody = {
@@ -85,14 +49,22 @@ class Login extends Component {
         fetch('/api/apiuser/login', requestOptions)
             .then(res => res.json())
             .then(res => this.setState({ res }))
+            .then(() => console.log({ userName }))
+
+        // const filterUser = this.state.user;
+        // return (
+        //     <div>
+        //         {filterUser
+        //             .map(s =>
+        //                 <MainOnePageApplication key={s.id} item={s} />
+        //             )
+        //         }
+        //     </div>
+        // )
     };
 
+
     render() {
-
-        // const filterComment = this.state.user;
-        const { user } = this.state
-        console.log(user)
-
         return (
             <form onSubmit={this.handleSubmit} className="input_style">
                 <div className="widowRegisterAndLogin">
@@ -113,14 +85,6 @@ class Login extends Component {
                         <div className="notRegister"><NavLink to="/Register">Not Register? Click Here</NavLink></div>
                         <Route path="/Register" component={Register} />
                     </ HashRouter>
-                </div>
-
-                <div>
-                    {/* {filterComment
-                        .map(s =>
-                            <LoginItem key={s.id} item={s} />
-                        )
-                    } */}
                 </div>
             </form>
         )

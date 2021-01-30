@@ -1,16 +1,99 @@
 
 body {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0;
-  /* font-family: sans-serif; */
   font-family: 'Kelly Slab', cursive;
 }
 
+
+/* chat css */
 input:focus, textarea:focus {
   background-color: #d7fcff;
   border: #797979 solid 2px;
+}
+
+.rootChat{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(235, 252, 252)
+}
+
+.chat{
+  width: 100%;
+  max-width: 500px;
+  height: 550px;
+  margin: 0 auto ;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+.messages{
+  height: calc(100% - 50px);
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.create-message{
+height: 50px;
+display: flex;
+}
+
+.css-input{
+  height: 48px;
+  line-height: 50px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 15px 0 0 15px; 
+  width: 85%;
+  padding: 0 15px;
+}
+
+.css-submit{
+  width: 15%;
+  background-color: #3e85d1;
+  color: white;
+  border: none;
+  border-radius: 0 15px 15px 0 ; 
+  font-size: 15px;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+}
+
+.css-submit:hover{
+  background-color: #2a70bb;
+}
+
+.message{
+  background-color: rgb(231, 231, 231);
+  color: #333;
+  border-radius: 0 15px 0 15px;
+  padding:  10px;
+  margin-bottom: 10px;
+}
+
+.message-user{
+  font-weight: bold;
+}
+
+.message.message-me{
+  background-color: #3e85d1;
+  color: white;
+  border-radius: 10px 0 10px 10px;
+}
+
+.chat-title{
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #0e003f;
+  padding: 5px;
+  color: white;
+  border-radius: 20px 20px 0px 0px;
 }

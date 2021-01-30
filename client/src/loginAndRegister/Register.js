@@ -82,14 +82,14 @@ class Register extends Component {
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
 
-        // this.setState({
-        //     firstName: '',
-        //     lastName: '',
-        //     userName: '',
-        //     password: ''
-        // })
+        this.setState({
+            firstName: '',
+            lastName: '',
+            userName: '',
+            password: ''
+        })
 
-        // this.clearInput();
+        this.clearInput();
 
         var rbody = {
             firstName: firstName,
