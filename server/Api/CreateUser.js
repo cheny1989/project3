@@ -6,7 +6,7 @@ const User = require("../DB/CreateUser");
 // const { token } = require("morgan");
 const route = express.Router();
 
-const verifyToken = require("../middlewares/verifyToken")
+const verifyToken = require("../middlewares/verifyToken");
 
 
 // request - register
@@ -49,7 +49,6 @@ route.post('/login', async (req, res) => {
         if (users.length === 0) {
             return res.status(400).json({ message: "Username or Password failed" });
         }
-
         const [user] = users;
         bcrypt.compare(password, user.password, (err, result) => {
             if (err) {
@@ -74,8 +73,8 @@ route.post('/login', async (req, res) => {
     })
 });
 
-
-route.get('/token', verifyToken, (req, res) => {
+// token and verifyToken
+route.post('/token', verifyToken, (req, res) => {
     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
         if (err) {
             res.send(req.user)
@@ -85,8 +84,7 @@ route.get('/token', verifyToken, (req, res) => {
             return res.status(200).json({ message: "VerifyToken created", authData, token: req.token })
         }
     })
-})
-
+});
 
 route.delete('/logout', async (req, res) => {
     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
@@ -97,7 +95,5 @@ route.delete('/logout', async (req, res) => {
         }
     })
 });
-
-
 
 module.exports = route;

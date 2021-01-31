@@ -10,6 +10,7 @@ import MainChat from "../chat/MainChat";
 
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import { Redirect } from "react-router";
+// import { response } from 'express';
 
 
 class MainOnePageApplication extends Component {
@@ -17,49 +18,64 @@ class MainOnePageApplication extends Component {
         super(props);
         this.state = {
             user: [],
-            token: '',
+            // token: '',
             sendRedirect: null,
+            login: false,
+            store: null
         }
     }
 
     componentDidMount = () => {
-        this.fatchALlUser();
+        // this.fatchALlUsers();
+        // this.login();
     }
 
-    async fatchALlUser() {
+    // async fatchALlUsers() {
+    //     const tokenNew = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDVmM2FjZjVkNjQ5MmRkMGM1NjBlNyIsInVzZXJOYW1lIjoiY2hlbjE5ODkiLCJpYXQiOjE2MTIwOTkwNDMsImV4cCI6MTYxMjEwMjY0M30.8RjWf8F2WzF79KqE3KwsdM-g8CVBazqjHwl29V-gIfg'
+    //     // const tokenNew = this.state.token;
+    //     try {
+    //         const response = await fetch('/api/apiuser/token', {
+    //             headers: {
+    //                 Authorization: `Bearer ${tokenNew}`,
+    //             }
+    //         });
+    //         const result = await response.json();
+    //         this.setState({ user: result });
+    //         console.log({ user: result });
+    //         console.log({ user: result.token });
+    //         const token = result.token
+    //         console.log(token);
+    //         this.setState({ user: result.token })
 
-        const tokenNew = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDVmM2FjZjVkNjQ5MmRkMGM1NjBlNyIsInVzZXJOYW1lIjoiY2hlbjE5ODkiLCJpYXQiOjE2MTIwNzMzMjAsImV4cCI6MTYxMjA3NjkyMH0.ppBxPD2RNGrRfMzQlwV1DjXumLnnI5XtNJta6C41UqE'
-        // const tokenNew = this.state.token;
-        try {
-            const response = await fetch('/api/apiuser/token', {
-                headers: {
-                    Authorization: `Bearer ${tokenNew}`,
-                }
-            });
-            const result = await response.json();
-            this.setState({ user: result });
-            console.log({ user: result });
-            console.log({ user: result.token });
-            const token = result.token
-            console.log(token);
+    //     } catch (err) {
+    //         console.log("ERROR " + err)
+    //     }
+    // };
 
-            this.setState({ user: result.token })
-
-        } catch (err) {
-            console.log("ERROR " + err)
-        }
-    };
-
+        // login(){
+        //     fetch("/api/apiuser/login",{
+        //         method: "POST",
+        //         body:JSON.stringify(this.state)
+        //     }).then((response)=>{
+        //         response.json().then((result)=>{
+        //             console.warn("result", result);
+        //             localStorage.setItem("login", JSON.stringify({
+        //                 login: true,
+        //                 token:result.token
+        //             }))
+        //             this.setState({login: true})
+        //         })
+        //     })
+        // }
 
     render() {
 
 
-        // const response = ""
+        // const response = "";
         const response = this.state.user;
         console.log("response: " + response)
 
-
-        // if (response) {
+        // if (response=== null) {
         //     const redirect = <Redirect to={this.state.sendRedirect} />
         //     this.setState({ sendRedirect: null });
         //     return redirect;

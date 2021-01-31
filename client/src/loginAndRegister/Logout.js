@@ -5,6 +5,24 @@ class Logout extends Component {
         super(props);
         this.state = {}
     }
+
+    componentDidMount(){
+        this.logout();
+    }
+
+    logout=()=>{
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify()
+        };
+        fetch('/api/apiuser/logout', requestOptions)
+            .then(r => r.json())
+            .then(res => this.setState({ res }))
+    }
+
     render() {
         return (
             <div>

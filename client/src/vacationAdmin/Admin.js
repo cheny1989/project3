@@ -15,6 +15,10 @@ class Admin extends Component {
     $(".titleShowAndHide" + [item._id]).css({ "display": "none" });
   }
 
+  refreshPAge=()=>{
+    window.location.reload(false);
+  }
+
   deleteVacation = (_id) => {
     const { item } = this.props;
 
@@ -103,9 +107,10 @@ class Admin extends Component {
           }
         })
         .then(r => r.json())
-        .then(res => this.setState({ res }));
+        .then(res => this.setState({ res }))
+        .then(r =>this.refreshPAge(r))
 
-      alert("The " + item.destination + " Changed to new values")
+      alert("The " + item.destination + " Changed to new values");
 
     } else {
       alert("The edit canceled");

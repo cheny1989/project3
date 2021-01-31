@@ -1,15 +1,14 @@
 const verifyToken = (req, res, next) => {
-    const berearHerder = req.headers['authorization'];
-    console.log("bererHerder-----" + berearHerder)
-    if (typeof berearHerder !== 'undefined') {
-        const beraer = berearHerder.split(' ');
-        const bererToken = beraer[1];
-        req.token = bererToken;
+    const beraerHeader = req.headers['authorization'];
+    console.log("bererHerder-----" + beraerHeader)
+    if (typeof beraerHeader !== 'undefined') {
+        const beraer = beraerHeader.split(' ');
+        const beraerToken = beraer[1];
+        req.token = beraerToken;
         next();
     } else {
         return res.status(400);
     }
 }
 module.exports = verifyToken;
-
-
+ 
