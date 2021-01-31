@@ -4,15 +4,15 @@ class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            vacation:[],
+            vacation: [],
             counter: 1
         }
     }
-    
+
     counter = (_id) => {
         const findId = _id;
         const counter = this.state.counter++
-        const newCounter = ({findId, counter});
+        const newCounter = ({ findId, counter });
         console.log(newCounter);
 
         // var rbody = {
@@ -28,7 +28,7 @@ class User extends Component {
         // fetch('/api/apivacation/post', requestOptions)
         //     .then(r => r.json())
         //     .then(res => this.setState({ res }))
-        };
+    };
 
     render() {
 

@@ -17,11 +17,11 @@ class UserVacationList extends Component {
         this.fetchData();
     }
 
-    fetchData=()=>{
+    fetchData = () => {
         this.setState({ loading: true });
     };
 
-    stopFatch=()=>{
+    stopFatch = () => {
         this.setState({ loading: false });
     }
 

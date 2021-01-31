@@ -21,12 +21,6 @@ module.exports.initialize = (server) => {
         socket.on('SEND_VACATIION', (vacationObject) => {
             ws.io.sockets.emit('CREATE_VACATIION', vacationObject);
         });
-
-        // socket.on('disconnected', () => {
-        //     ws.io.sockets.emit('CREATE_MESSAGE', {
-        //         content: `${userVacation} disconnected`
-        //     });
-        // });
     });
 }
 module.exports.io = () => ws.io;

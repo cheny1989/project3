@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
 
 const createMessage = new mongoose.Schema({
-    fullName:({
+    fullName: ({
         type: String
     }),
-    email:({
+    email: ({
         type: String
     }),
-    subjectOfMessage:({
+    subjectOfMessage: ({
         type: String
     }),
-    textarea:{
+    textarea: {
         type: String
     },
 })

@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Logout extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
-    render() { 
+    render() {
         return (
             <div>
                 <div className="logout">
@@ -19,8 +19,8 @@ class Logout extends Component {
                     </table>
                 </div>
             </div>
-          );
+        );
     }
 }
- 
+
 export default Logout;

@@ -110,12 +110,12 @@ class Register extends Component {
             fetch('/api/apiuser/register', requestOptions)
                 .then(r => r.json())
                 .then(res => this.setState({ res }))
-                
-                alert("The Registration was Successful")
-                document.getElementById("showAndHideMessage").innerHTML = firstName + " " + lastName + " Have a nice day!";
-                setTimeout(function () {
-                    document.getElementById("showAndHideMessage").innerHTML = "";
-                }, 5000);
+
+            alert("The Registration was Successful")
+            document.getElementById("showAndHideMessage").innerHTML = firstName + " " + lastName + " Have a nice day!";
+            setTimeout(function () {
+                document.getElementById("showAndHideMessage").innerHTML = "";
+            }, 5000);
 
         } else {
             alert("ERROR - invalid Form. please try again")

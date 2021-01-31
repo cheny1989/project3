@@ -5,26 +5,26 @@ class CreateMessages extends Component {
         super();
         this.state = {
             messageContant: '',
-          }
+        }
     }
-    render() { 
+    render() {
         return (
             <form className="create-message" onSubmit={this.handleSubmit}>
-                <input className="css-input" type="text" value={this.state.messageContant} onChange={this.handlerChangeMessaerConternt} placeholder="Enter Message..."/>
-                <input className="css-submit" type ="submit" value="SEND" />
+                <input className="css-input" type="text" value={this.state.messageContant} onChange={this.handlerChangeMessaerConternt} placeholder="Enter Message..." />
+                <input className="css-submit" type="submit" value="SEND" />
             </form>
-          );
+        );
     }
 
-    handlerChangeMessaerConternt =(e)=>{
+    handlerChangeMessaerConternt = (e) => {
         this.setState({
             messageContant: e.target.value
         });
     }
 
-    handleSubmit = (e)=>{
+    handleSubmit = (e) => {
         e.preventDefault();
-        
+
         const message = {
             content: this.state.messageContant
         }
@@ -36,5 +36,5 @@ class CreateMessages extends Component {
         this.props.handlerCreateMessage(message);
     }
 }
- 
+
 export default CreateMessages;

@@ -4,11 +4,11 @@ class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user:[]
-          }
+            user: []
+        }
     }
 
-       componentDidMount = () => {
+    componentDidMount = () => {
         this.fatchALlUser();
     }
 
@@ -22,7 +22,7 @@ class User extends Component {
         }
     };
 
-    render() { 
+    render() {
 
         const numberOfVacations = Object.keys(this.state.user).length;
 
@@ -30,8 +30,8 @@ class User extends Component {
             <div>
                 <div className="numberOfVacations">Number of Users that Signed up: <span className="numberOfVacations_span">{numberOfVacations}</span></div>
             </div>
-          );
+        );
     }
 }
- 
+
 export default User;

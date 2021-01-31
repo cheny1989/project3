@@ -9,11 +9,11 @@ route.post('/message', async (req, res) => {
     const { fullName, email, textarea, subjectOfMessage, html } = req.body;
 
     let message = {};
-        message.fullName = fullName,
+    message.fullName = fullName,
         message.email = email,
         message.subjectOfMessage = subjectOfMessage,
         message.textarea = textarea
-        // message.html = html
+    // message.html = html
 
     try {
         let messageModel = new Message(message);
@@ -21,7 +21,7 @@ route.post('/message', async (req, res) => {
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Credentials', true);
         res.status(200).json(messageModel)
-       
+
     } catch (err) {
         res.status(400).json({ message: err.message })
     }

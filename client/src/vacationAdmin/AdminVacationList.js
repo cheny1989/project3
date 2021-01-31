@@ -9,7 +9,7 @@ class AdminVacationList extends Component {
         this.state = {
             vacation: [],
             filterString: ''
-          }
+        }
     }
 
     componentDidMount() {
@@ -17,11 +17,11 @@ class AdminVacationList extends Component {
         this.fetchData();
     }
 
-    fetchData=()=>{
+    fetchData = () => {
         this.setState({ loading: true });
     };
 
-    stopFatch=()=>{
+    stopFatch = () => {
         this.setState({ loading: false });
     }
 
@@ -35,20 +35,20 @@ class AdminVacationList extends Component {
             alert(err)
         }
     }
-    
-    
+
+
     filterStringChanged(e) {
         this.setState({ filterString: e.target.value });
     }
 
 
-    render() { 
+    render() {
         const filterVacation = this.state.vacation.filter(v => v.destination.indexOf(this.state.filterString) >= 0);
         const { loading } = this.state;
 
         const numberOfVacations = Object.keys(this.state.vacation).length;
 
-        return ( 
+        return (
             <div>
                 {/* <SliderImage /> */}
                 {loading && <div className="loader">Loading...</div>}
@@ -72,8 +72,8 @@ class AdminVacationList extends Component {
                     }
                 </div>
             </div>
-         );
+        );
     }
 }
- 
+
 export default AdminVacationList;

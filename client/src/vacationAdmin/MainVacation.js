@@ -11,7 +11,7 @@ class MainVacation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user:[],
+            user: [],
             vacation: [
             ],
             id: 1
@@ -39,13 +39,13 @@ class MainVacation extends Component {
     render() {
         // const {user} = this.props;
         // if (!user) {
-		// 	return <Redirect to="/login"/>
-		// }
+        // 	return <Redirect to="/login"/>
+        // }
 
         return (
             <div>
                 <div>
-                <CreateVacation createVacation={this.createVacation} />
+                    <CreateVacation createVacation={this.createVacation} />
                 </div>
                 <hr />
                 {/* <MapVacation deleteVacation={this.deleteVacation} vacation={this.state.vacation}

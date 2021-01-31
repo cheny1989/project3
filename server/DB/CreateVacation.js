@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const createVacation = new mongoose.Schema({
-    destination:({
+    destination: ({
         type: String
     }),
     description: ({
-        type: String, 
+        type: String,
     }),
     price: ({
         type: String

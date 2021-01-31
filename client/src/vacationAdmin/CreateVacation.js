@@ -32,7 +32,7 @@ class CreateVacation extends Component {
     }
 
     // ****** websocket - client ******
-    webSokcetClient =()=> {
+    webSokcetClient = () => {
         this.socket = io();
         this.socket.on('SET_VACATIION', (userVacation) => {
             this.setState({
@@ -117,17 +117,17 @@ class CreateVacation extends Component {
         let yyyy = today.getFullYear();
         let errorDate = dd + "/" + mm + "/" + yyyy
 
-        
+
         if (d_start < currentDate) {
-          alert("Vacation Date Start before: " + errorDate + " is Wrong");
-          return
+            alert("Vacation Date Start before: " + errorDate + " is Wrong");
+            return
         }
-      
+
         if (d_start >= d_end) {
             alert("Start Date Must be later End Date. please Change it and send again");
             return
-        }  
-      
+        }
+
         this.setState({
             description: '',
             destination: '',
@@ -163,9 +163,9 @@ class CreateVacation extends Component {
                 .then(res => this.setState({ res }))
             alert("The vacation Sent")
 
-                document.getElementById("showAndHideMessage").innerHTML = "YOUR VACATION CREATED &#10004;";
+            document.getElementById("showAndHideMessage").innerHTML = "YOUR VACATION CREATED &#10004;";
             setTimeout(function () {
-               document.getElementById("showAndHideMessage").innerHTML = "";
+                document.getElementById("showAndHideMessage").innerHTML = "";
             }, 3000);
 
             setTimeout(function () {
@@ -176,9 +176,9 @@ class CreateVacation extends Component {
 
         } else {
             alert("ERROR - invalid Form. please try again")
-                document.getElementById("showAndHideMessage").innerHTML = "ERROR - invalid Form. please try again &#10008";
+            document.getElementById("showAndHideMessage").innerHTML = "ERROR - invalid Form. please try again &#10008";
             setTimeout(function () {
-               document.getElementById("showAndHideMessage").innerHTML = "";
+                document.getElementById("showAndHideMessage").innerHTML = "";
             }, 3000);
         }
     }
@@ -190,7 +190,7 @@ class CreateVacation extends Component {
                 $(".createVacationStyle").toggle();
             });
         }
-        
+
         const { errors } = this.state;
 
         return (

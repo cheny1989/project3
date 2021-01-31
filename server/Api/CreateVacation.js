@@ -10,7 +10,7 @@ const route = express.Router();
 route.post('/post', async (req, res) => {
     const { destination, description, price, picture, startDate, endDate } = req.body;
     let vacation = {};
-        vacation.destination = destination,
+    vacation.destination = destination,
         vacation.description = description,
         vacation.price = price,
         vacation.picture = picture,
@@ -49,11 +49,11 @@ route.delete('/delete/:id', async (req, res) => {
 });
 
 
-route.put('/edit/:id', async (req, res)=>{
+route.put('/edit/:id', async (req, res) => {
     console.log(req.params.id);
 
-    Vacation.findByIdAndUpdate({_id: req.params.id},{
-        $set:{
+    Vacation.findByIdAndUpdate({ _id: req.params.id }, {
+        $set: {
             destination: req.body.destination,
             description: req.body.description,
             price: req.body.price,
@@ -62,14 +62,15 @@ route.put('/edit/:id', async (req, res)=>{
             endDate: req.body.endDate
         }
     })
-    .then(result =>{
-        return res.status(200).json({updated_vacation: result})
-    })
-    .catch(err=>{
-        console.log(err);
-        return res.status(400).json({error: err
+        .then(result => {
+            return res.status(200).json({ updated_vacation: result })
         })
-    })
+        .catch(err => {
+            console.log(err);
+            return res.status(400).json({
+                error: err
+            })
+        })
 })
 
 

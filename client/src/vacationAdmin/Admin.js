@@ -107,7 +107,7 @@ class Admin extends Component {
 
       alert("The " + item.destination + " Changed to new values")
 
-    } else{
+    } else {
       alert("The edit canceled");
     }
   };
@@ -153,7 +153,7 @@ class Admin extends Component {
   //   this.oldStEndDate();
   // }
 
-  notRefreshPage=(e)=>{    
+  notRefreshPage = (e) => {
     e.preventDefault();
     this.oldDestination();
     this.oldDescription();
@@ -249,9 +249,9 @@ class Admin extends Component {
             </form>
 
             <form onSubmit={this.notRefreshPage}>
-            <button className="pushAll">&#10132; Push all previous inputs &#x2714;</button>
+              <button className="pushAll">&#10132; Push all previous inputs &#x2714;</button>
             </form>
-            <button className="showAndHide2" id={"showAndHide2" + [item._id]}  onClick={() => showAndHide2(item._id)}>&#10008;</button>
+            <button className="showAndHide2" id={"showAndHide2" + [item._id]} onClick={() => showAndHide2(item._id)}>&#10008;</button>
           </div>
         </div>
       </div>

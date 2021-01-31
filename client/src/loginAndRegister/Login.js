@@ -50,17 +50,6 @@ class Login extends Component {
             .then(res => res.json())
             .then(res => this.setState({ res }))
             .then(() => console.log({ userName }))
-
-        // const filterUser = this.state.user;
-        // return (
-        //     <div>
-        //         {filterUser
-        //             .map(s =>
-        //                 <MainOnePageApplication key={s.id} item={s} />
-        //             )
-        //         }
-        //     </div>
-        // )
     };
 
 
