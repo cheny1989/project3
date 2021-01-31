@@ -1,11 +1,22 @@
 # React.js + Node.js App
 
-This project was built to save time while creating a new project using React.js and Node.js. After cloning the project go to the project directory and run the following scripts:
+project num 3 - React.js, Node.js, mMngodb:
 
 - `npm install`
 - `cd client`
 - `npm install`
 - `cd ..`
+- `cd server`
+- `npm install`
+- `cd ..`
 
-Then to start the client and the server (in development mode), run the following script:
-- `npm run dev`
+to run appliation:
+- `cd client`
+- `npm start`
+
+- `cd server`
+- `npm start`
+
+to run a project - It is necessary to add your IP address at mongod and expose .env file (username and password to DB).
+
+
