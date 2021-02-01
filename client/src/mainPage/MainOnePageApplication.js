@@ -25,49 +25,6 @@ class MainOnePageApplication extends Component {
         }
     }
 
-    componentDidMount = () => {
-        // this.fatchALlUsers();
-        // this.login();
-    }
-
-    // async fatchALlUsers() {
-    //     const tokenNew = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDVmM2FjZjVkNjQ5MmRkMGM1NjBlNyIsInVzZXJOYW1lIjoiY2hlbjE5ODkiLCJpYXQiOjE2MTIwOTkwNDMsImV4cCI6MTYxMjEwMjY0M30.8RjWf8F2WzF79KqE3KwsdM-g8CVBazqjHwl29V-gIfg'
-    //     // const tokenNew = this.state.token;
-    //     try {
-    //         const response = await fetch('/api/apiuser/token', {
-    //             headers: {
-    //                 Authorization: `Bearer ${tokenNew}`,
-    //             }
-    //         });
-    //         const result = await response.json();
-    //         this.setState({ user: result });
-    //         console.log({ user: result });
-    //         console.log({ user: result.token });
-    //         const token = result.token
-    //         console.log(token);
-    //         this.setState({ user: result.token })
-
-    //     } catch (err) {
-    //         console.log("ERROR " + err)
-    //     }
-    // };
-
-        // login(){
-        //     fetch("/api/apiuser/login",{
-        //         method: "POST",
-        //         body:JSON.stringify(this.state)
-        //     }).then((response)=>{
-        //         response.json().then((result)=>{
-        //             console.warn("result", result);
-        //             localStorage.setItem("login", JSON.stringify({
-        //                 login: true,
-        //                 token:result.token
-        //             }))
-        //             this.setState({login: true})
-        //         })
-        //     })
-        // }
-
     render() {
 
 

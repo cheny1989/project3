@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
-import $, { timers } from "jquery";
+import $ from "jquery";
 // import { use } from '../../../server/ApiRouter';
 // import MainOnePageApplication from "../mainPage/MainOnePageApplication";
 // import Test from "../mainPage/Test"
@@ -105,9 +105,8 @@ class Login extends Component {
 
     token() {
         let token = "Beraer " + this.state.store.token;
-        // let token = "Beraer " + this.state.store.token
         console.log(token)
-        
+
         fetch("/api/apiuser/token", {
             method: "POST",
             headers: {
@@ -159,7 +158,6 @@ class Login extends Component {
                                 </div>
                         }
                     </div>
-
                 </div>
             </form>
         )

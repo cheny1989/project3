@@ -86,14 +86,25 @@ route.post('/token', verifyToken, (req, res) => {
     })
 });
 
-route.delete('/logout', async (req, res) => {
-    jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
-        if (err) {
-            return res.status(400).json({ message: "ERROR DELETED" });
-        } else {
-            return res.status(200).json({ message: "DELETED created", authData })
+// route.delete('/logout', async (req, res) => {
+//     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
+//         if (err) {
+//             return res.status(400).json({ message: "ERROR DELETED" });
+//         } else {
+//             return res.status(200).json({ message: "DELETED created", authData })
+//         }
+//     })
+// });
+
+route.get('/logout', function(req,res){
+    req.user.deleteToken(req.token,(err,user)=>{
+        if(err){
+            return res.status(400).json({ err: "ERROR" });
+        } else{
+            return res.status(200).json({ message: "DELETED" });
         }
-    })
-});
+    });
+
+}); 
 
 module.exports = route;
