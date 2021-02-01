@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
-import $ from "jquery";
+import $, { timers } from "jquery";
 // import { use } from '../../../server/ApiRouter';
 // import MainOnePageApplication from "../mainPage/MainOnePageApplication";
 // import Test from "../mainPage/Test"
+
 
 // https://www.youtube.com/watch?v=I3PC8pV1SBM
 
@@ -16,11 +17,10 @@ class Login extends Component {
             password: '',
             user: [],
             login: false,
-            store: null
+            store: null,
+            // token: ''
         }
     }
-
-
 
     clearInput = () => {
         $('#userName').val('')
@@ -87,32 +87,33 @@ class Login extends Component {
                     login: true,
                     store: result.token,
                     userName: userName,
-                    password: password
+                    password: password,
+                    token: result.token
                 }))
                 this.storeCollectore();
                 const Onlytoken = (result.token)
                 console.log(Onlytoken)
                 this.token();
-
-                const findToken = this.test(Onlytoken);
+                this.getUserName();
             })
         })
     }
 
-    test(Onlytoken){
-        console.log(Onlytoken)
+    getUserName = () => {
+        console.log("userName: " + this.state.userName);
     }
 
     token() {
-        let token = "Beraer " + this.test();
+        let token = "Beraer " + this.state.store.token;
         // let token = "Beraer " + this.state.store.token
+
         console.log(token)
         
         fetch("/api/apiuser/token", {
             method: "POST",
-            // headers: {
-            //     'Authorization': token
-            // },
+            headers: {
+                'Authorization': token
+            },
             body: JSON.stringify(this.state)
         }).then((response) => {
             response.json().then((result) => {
@@ -159,7 +160,7 @@ class Login extends Component {
                                 </div>
                         }
                     </div>
-                    
+
                 </div>
             </form>
         )
