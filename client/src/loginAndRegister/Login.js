@@ -106,7 +106,6 @@ class Login extends Component {
     token() {
         let token = "Beraer " + this.state.store.token;
         // let token = "Beraer " + this.state.store.token
-
         console.log(token)
         
         fetch("/api/apiuser/token", {
