@@ -23,6 +23,8 @@ class Logout extends Component {
             .then(res => this.setState({ res }))
     }
 
+    
+
     render() {
         return (
             <div>

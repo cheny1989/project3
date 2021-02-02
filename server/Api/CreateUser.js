@@ -21,13 +21,18 @@ route.post('/register', async (req, res) => {
     let findUser = await User.findOne({ userName: req.body.userName });
 
     if (findUser) {
-        return res.status(400).send('That user already exisits!');
+        res.status(400).json('That user already exisits! please Choose different username');
+        console.log({message: "That user already exisits! please Choose different username", userName });
+        return;
+
     } else {
         const salt = await bcrypt.genSalt(10);
         user.password = await bcrypt.hash(user.password, salt)
         let userModel = new User(user);
         await userModel.save();
-        return res.status(200).json(userModel);
+        res.status(200).json('Created New User!');
+        console.log({message: "Created New User!", userModel });
+        return;
     }
 });
 
@@ -47,12 +52,18 @@ route.post('/login', async (req, res) => {
 
     User.find({ userName }).then((users) => {
         if (users.length === 0) {
-            return res.status(400).json({ message: "Username or Password failed" });
+            // return res.status(400).json({ message: "Username or Password failed" });
+            res.status(400).json('Username or Password failed');
+            console.log({message: "Username or Password failed" });
+            return;
         }
         const [user] = users;
         bcrypt.compare(password, user.password, (err, result) => {
             if (err) {
-                return res.status(400).json({ message: "Username or Password failed" });
+                // return res.status(400).json({ message: "Username or Password failed" });
+                res.status(400).json('Username or Password failed');
+                console.log({message: "Username or Password failed" });
+                return;
             }
             if (result) {
                 const token = jwt.sign({
@@ -64,6 +75,7 @@ route.post('/login', async (req, res) => {
                         expiresIn: "1h" // after 1 hour - the user logout
                     });
                 res.status(200).json({ message: "You are now login!", token: token });
+                console.log({message: "You are now login!" });
                 console.log({ user: userName });
                 console.log({ token: token });
                 return;

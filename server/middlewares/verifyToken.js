@@ -1,5 +1,4 @@
 const verifyToken = (req, res, next) => {
-    // const beraerHeader = req['authorization'];
     const beraerHeader = req.headers['authorization'];
     console.log("bererHerder-----" + beraerHeader)
     if (typeof beraerHeader !== 'undefined') {

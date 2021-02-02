@@ -19,9 +19,7 @@ class MainOnePageApplication extends Component {
         this.state = {
             user: [],
             // token: '',
-            sendRedirect: null,
-            login: false,
-            store: null
+            sendRedirect: null
         }
     }
 
@@ -30,16 +28,17 @@ class MainOnePageApplication extends Component {
 
         // const response = "";
         const response = this.state.user;
-        console.log("response: " + response)
+        console.log("response SPA: " + response)
 
-        // if (response=== null) {
-        //     const redirect = <Redirect to={this.state.sendRedirect} />
-        //     this.setState({ sendRedirect: null });
-        //     return redirect;
-        // }
+        if (response=== null) {
+            const redirect = <Redirect to={this.state.sendRedirect} />
+            this.setState({ sendRedirect: null });
+            return redirect;
+        }
 
         return (
             <div>
+                {/* <Login /> */}
                 <HashRouter>
                     <div>
                         <ul className="header">

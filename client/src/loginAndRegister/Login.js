@@ -33,36 +33,6 @@ class Login extends Component {
         })
     }
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     const userName = document.getElementById("userName").value;
-    //     const password = document.getElementById("password").value;
-
-    //     this.clearInput();
-
-    //     var rbody = {
-    //         userName: userName,
-    //         password: password,
-    //     };
-    //     const requestOptions = {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(rbody)
-    //     };
-    //     fetch('/api/apiuser/login', requestOptions)
-    //         .then(res => res.json())
-    //         .then(res => this.setState({ res }))
-    //         .then(() => console.log({ userName }))
-    // };
-
-    componentDidMount() {
-        // this.storeCollectore();
-        // this.token();
-    }
-
-
     storeCollectore() {
         let store = JSON.parse(localStorage.getItem('login'));
         if (store && store.login) {
@@ -80,7 +50,8 @@ class Login extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state)
-        }).then((response) => {
+        })
+        .then((response) => {
             response.json().then((result) => {
                 console.log("result", result);
                 localStorage.setItem("login", JSON.stringify({
@@ -103,17 +74,17 @@ class Login extends Component {
         console.log("userName: " + this.state.userName);
     }
 
-    token() {
+    token=()=> {
         let token = "Beraer " + this.state.store.token;
         console.log(token)
-
         fetch("/api/apiuser/token", {
             method: "POST",
             headers: {
                 'Authorization': token
             },
             body: JSON.stringify(this.state)
-        }).then((response) => {
+        })
+        .then((response) => {
             response.json().then((result) => {
                 this.setState({
                     response: result

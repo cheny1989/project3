@@ -108,14 +108,21 @@ class Register extends Component {
                 body: JSON.stringify(rbody)
             };
             fetch('/api/apiuser/register', requestOptions)
-                .then(r => r.json())
-                .then(res => this.setState({ res }))
+                .then((response) => {
+                    response.json().then((result) => {
+                        console.log("result: ", result + " " + userName);
+                        const resultUserName = userName + " " + result;
+                        alert(resultUserName);
+                        console.log(resultUserName);
 
-            alert("The Registration was Successful")
-            document.getElementById("showAndHideMessage").innerHTML = firstName + " " + lastName + " Have a nice day!";
-            setTimeout(function () {
-                document.getElementById("showAndHideMessage").innerHTML = "";
-            }, 5000);
+                        document.getElementById("showAndHideMessage").innerHTML = resultUserName;
+                        setTimeout(function () {
+                            document.getElementById("showAndHideMessage").innerHTML = "";
+                        }, 5000);
+
+                    });
+                })
+                .then(res => this.setState({ res }))
 
         } else {
             alert("ERROR - invalid Form. please try again")
