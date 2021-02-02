@@ -60,21 +60,36 @@ class Login extends Component {
                     console.log(resultUserName);
 
                     if(resultUserName === "Username or Password failed"){
-                        document.getElementById("showAndHideMessage").innerHTML = "Username or Password failed";
-                        setTimeout(function () {
-                            document.getElementById("showAndHideMessage").innerHTML = "";
-                        }, 5000);
+                        const USERNAME_OR_PASSWORD_FAILED =  document.getElementById("showAndHideMessage");
+                        USERNAME_OR_PASSWORD_FAILED.innerHTML = "Username or Password failed";
+                        USERNAME_OR_PASSWORD_FAILED.style.background = "red";
+                        USERNAME_OR_PASSWORD_FAILED.style.paddingTop = "5px";
+                        USERNAME_OR_PASSWORD_FAILED.style.paddingBottom = "5px";
+                        USERNAME_OR_PASSWORD_FAILED.style.marginTop = "20px";
+                        // setTimeout(function () {
+                        //     document.getElementById("showAndHideMessage").innerHTML = "";
+                        // }, 5000);
 
                     }else if (resultUserName === "You are now login!"){
-                        document.getElementById("showAndHideMessage").innerHTML = "You are now login!";
-                        setTimeout(function () {
-                            document.getElementById("showAndHideMessage").innerHTML = "";
-                        }, 5000);
+                        const LOGIN = document.getElementById("showAndHideMessage");
+                        LOGIN.innerHTML = "You are now login!";
+                        LOGIN.style.background = "#00cc00";
+                        LOGIN.style.paddingTop = "5px";
+                        LOGIN.style.paddingBottom = "5px";
+                        LOGIN.style.marginTop = "20px";
+                        // setTimeout(function () {
+                        //     document.getElementById("showAndHideMessage").innerHTML = "";
+                        // }, 5000);
                     }else{
-                        document.getElementById("showAndHideMessage").innerHTML = "Username not exists, Plsease Register";
-                        setTimeout(function () {
-                            document.getElementById("showAndHideMessage").innerHTML = "";
-                        }, 5000);
+                        const NOT_EXISTS = document.getElementById("showAndHideMessage");
+                        NOT_EXISTS.innerHTML = "Username or Password failed";
+                        NOT_EXISTS.style.background = "red";
+                        NOT_EXISTS.style.paddingTop = "5px";
+                        NOT_EXISTS.style.paddingBottom = "5px";
+                        NOT_EXISTS.style.marginTop = "20px";
+                        // setTimeout(function () {
+                        //     document.getElementById("showAndHideMessage").innerHTML = "";
+                        // }, 5000);
                     }
 
                     localStorage.setItem("login", JSON.stringify({
