@@ -112,7 +112,7 @@ class Register extends Component {
                     response.json().then((result) => {
                         console.log("result: ", result + " " + userName);
                         const resultUserName = userName + " " + result;
-                        alert(resultUserName);
+                        // alert(resultUserName);
                         console.log(resultUserName);
 
                         document.getElementById("showAndHideMessage").innerHTML = resultUserName;

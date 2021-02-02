@@ -56,8 +56,26 @@ class Login extends Component {
                     console.log("result", result);
 
                     const resultUserName = result.message;
-                    alert(resultUserName);
+                    // alert(resultUserName);
                     console.log(resultUserName);
+
+                    if(resultUserName === "Username or Password failed"){
+                        document.getElementById("showAndHideMessage").innerHTML = "Username or Password failed";
+                        setTimeout(function () {
+                            document.getElementById("showAndHideMessage").innerHTML = "";
+                        }, 5000);
+
+                    }else if (resultUserName === "You are now login!"){
+                        document.getElementById("showAndHideMessage").innerHTML = "You are now login!";
+                        setTimeout(function () {
+                            document.getElementById("showAndHideMessage").innerHTML = "";
+                        }, 5000);
+                    }else{
+                        document.getElementById("showAndHideMessage").innerHTML = "Username not exists, Plsease Register";
+                        setTimeout(function () {
+                            document.getElementById("showAndHideMessage").innerHTML = "";
+                        }, 5000);
+                    }
 
                     localStorage.setItem("login", JSON.stringify({
                         login: true,
@@ -121,19 +139,7 @@ class Login extends Component {
                         <div className="notRegister"><NavLink to="/Register">Not Register? Click Here</NavLink></div>
                         <Route path="/Register" component={Register} />
                     </ HashRouter>
-
-                    <div>
-                        {
-                            !this.state.login ?
-                                <div>
-                                    {/* <h1>HELLO</h1> */}
-                                </div>
-                                :
-                                <div>
-                                    <div className="helloAfterLogin">Hello {this.state.userName}</div>
-                                </div>
-                        }
-                    </div>
+                    <div id="showAndHideMessage"></div>
                 </div>
             </form>
         )
