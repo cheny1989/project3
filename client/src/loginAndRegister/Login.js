@@ -51,30 +51,35 @@ class Login extends Component {
             },
             body: JSON.stringify(this.state)
         })
-        .then((response) => {
-            response.json().then((result) => {
-                console.log("result", result);
-                localStorage.setItem("login", JSON.stringify({
-                    login: true,
-                    store: result.token,
-                    userName: userName,
-                    password: password,
-                    token: result.token
-                }))
-                this.storeCollectore();
-                const Onlytoken = (result.token)
-                console.log(Onlytoken)
-                this.token();
-                this.getUserName();
+            .then((response) => {
+                response.json().then((result) => {
+                    console.log("result", result);
+
+                    const resultUserName = result.message;
+                    alert(resultUserName);
+                    console.log(resultUserName);
+
+                    localStorage.setItem("login", JSON.stringify({
+                        login: true,
+                        store: result.token,
+                        userName: userName,
+                        password: password,
+                        token: result.token
+                    }))
+                    this.storeCollectore();
+                    const Onlytoken = (result.token)
+                    console.log(Onlytoken)
+                    this.token();
+                    this.getUserName();
+                })
             })
-        })
     }
 
     getUserName = () => {
         console.log("userName: " + this.state.userName);
     }
 
-    token=()=> {
+    token = () => {
         let token = "Beraer " + this.state.store.token;
         console.log(token)
         fetch("/api/apiuser/token", {
@@ -84,14 +89,14 @@ class Login extends Component {
             },
             body: JSON.stringify(this.state)
         })
-        .then((response) => {
-            response.json().then((result) => {
-                this.setState({
-                    response: result
+            .then((response) => {
+                response.json().then((result) => {
+                    this.setState({
+                        response: result
+                    })
+                    console.log("result", result);
                 })
-                console.log("result", result);
             })
-        })
     }
 
 
