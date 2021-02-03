@@ -111,14 +111,24 @@ class Register extends Component {
                 .then((response) => {
                     response.json().then((result) => {
                         console.log("result: ", result + " " + userName);
-                        const resultUserName = userName + " " + result;
+                        // const resultUserName = userName + " " + result;
+                        const resultUserNameExists = result;
                         // alert(resultUserName);
-                        console.log(resultUserName);
+                        // console.log(resultUserName);
 
-                        document.getElementById("showAndHideMessage").innerHTML = resultUserName;
-                        setTimeout(function () {
-                            document.getElementById("showAndHideMessage").innerHTML = "";
-                        }, 5000);
+                        if(resultUserNameExists === "That user already exisits! please Choose different username"){
+                            const USERNAME_OR_PASSWORD_FAILED =  document.getElementById("showAndHideMessage");
+                            USERNAME_OR_PASSWORD_FAILED.innerHTML = "That user already exisits! please Choose different username";
+                            USERNAME_OR_PASSWORD_FAILED.style.background = "red";
+                            USERNAME_OR_PASSWORD_FAILED.style.paddingTop = "5px";
+                            USERNAME_OR_PASSWORD_FAILED.style.paddingBottom = "5px";
+                            USERNAME_OR_PASSWORD_FAILED.style.marginTop = "20px";
+                        }
+
+                        // document.getElementById("showAndHideMessage").innerHTML = resultUserName;
+                        // setTimeout(function () {
+                        //     document.getElementById("showAndHideMessage").innerHTML = "";
+                        // }, 5000);
 
                     });
                 })
@@ -151,7 +161,7 @@ class Register extends Component {
                         <span className="errorsOfValidation"><br />{errors.lastName}</span>
                     }
                     <br />
-                    <label htmlFor="userName">User Name: </label>
+                    <label htmlFor="userName">Username: </label>
                     <br />
                     <input type="text" id="userName" name="userName" onChange={this.handleChange} required={true} noValidate />
                     {errors.userName.length > 0 &&

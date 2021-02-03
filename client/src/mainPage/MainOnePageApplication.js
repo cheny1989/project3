@@ -18,27 +18,28 @@ class MainOnePageApplication extends Component {
         super(props);
         this.state = {
             user: [],
-            // token: '',
             sendRedirect: null
         }
     }
 
+
+
     render() {
 
-
-        // const response = "";
         const response = this.state.user;
-        console.log("response SPA: " + response)
+        console.log("response SPA: " + response);
 
-        if (response=== null) {
-            const redirect = <Redirect to={this.state.sendRedirect} />
-            this.setState({ sendRedirect: null });
-            return redirect;
-        }
+        const { filterUser } = this.props;
+        console.log("filterUserPROPS: " + filterUser);
+
+        // if (response=== null) {
+        //     const redirect = <Redirect to={this.state.sendRedirect} />
+        //     this.setState({ sendRedirect: null });
+        //     return redirect;
+        // }
 
         return (
             <div>
-                {/* <Login /> */}
                 <HashRouter>
                     <div>
                         <ul className="header">

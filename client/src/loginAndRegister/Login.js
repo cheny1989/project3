@@ -3,7 +3,7 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
 import $ from "jquery";
 // import { use } from '../../../server/ApiRouter';
-// import MainOnePageApplication from "../mainPage/MainOnePageApplication";
+import MainOnePageApplication from "../mainPage/MainOnePageApplication";
 // import Test from "../mainPage/Test"
 
 
@@ -56,11 +56,10 @@ class Login extends Component {
                     console.log("result", result);
 
                     const resultUserName = result.message;
-                    // alert(resultUserName);
                     console.log(resultUserName);
 
-                    if(resultUserName === "Username or Password failed"){
-                        const USERNAME_OR_PASSWORD_FAILED =  document.getElementById("showAndHideMessage");
+                    if (resultUserName === "Username or Password failed") {
+                        const USERNAME_OR_PASSWORD_FAILED = document.getElementById("showAndHideMessage");
                         USERNAME_OR_PASSWORD_FAILED.innerHTML = "Username or Password failed";
                         USERNAME_OR_PASSWORD_FAILED.style.background = "red";
                         USERNAME_OR_PASSWORD_FAILED.style.paddingTop = "5px";
@@ -70,7 +69,7 @@ class Login extends Component {
                         //     document.getElementById("showAndHideMessage").innerHTML = "";
                         // }, 5000);
 
-                    }else if (resultUserName === "You are now login!"){
+                    } else if (resultUserName === "You are now login!") {
                         const LOGIN = document.getElementById("showAndHideMessage");
                         LOGIN.innerHTML = "You are now login!";
                         LOGIN.style.background = "#00cc00";
@@ -80,7 +79,7 @@ class Login extends Component {
                         // setTimeout(function () {
                         //     document.getElementById("showAndHideMessage").innerHTML = "";
                         // }, 5000);
-                    }else{
+                    } else {
                         const NOT_EXISTS = document.getElementById("showAndHideMessage");
                         NOT_EXISTS.innerHTML = "Username or Password failed";
                         NOT_EXISTS.style.background = "red";
@@ -103,17 +102,15 @@ class Login extends Component {
                     const Onlytoken = (result.token)
                     console.log(Onlytoken)
                     this.token();
-                    this.getUserName();
                 })
             })
     }
 
-    getUserName = () => {
-        console.log("userName: " + this.state.userName);
-    }
-
     token = () => {
         let token = "Beraer " + this.state.store.token;
+        if (token === "Beraer " + undefined) {
+            console.log("Error")
+        }
         console.log(token)
         fetch("/api/apiuser/token", {
             method: "POST",
@@ -128,6 +125,19 @@ class Login extends Component {
                         response: result
                     })
                     console.log("result", result);
+
+                    const returnUserName = result.message;
+                    console.log(returnUserName)
+                    if (returnUserName) {
+
+                        const filterUser = this.state.userName;
+                        console.log("filterUser: " + filterUser)
+                        // return (
+                        //     <div>
+                        //          <MainOnePageApplication filterUser={filterUser} />
+                        //     </div>
+                        // )
+                    }
                 })
             })
     }
@@ -139,7 +149,7 @@ class Login extends Component {
                 <div className="widowRegisterAndLogin">
                     <div className="enjoyTitle">Login and Enjoy</div>
 
-                    <label htmlFor="userName">User Name: </label>
+                    <label htmlFor="userName">Username: </label>
                     <br />
                     <input type="text" id="userName" name="userName" onChange={this.handleChange} required={true} />
                     <br />
