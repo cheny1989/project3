@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
 import $ from "jquery";
-// import { use } from '../../../server/ApiRouter';
 import MainOnePageApplication from "../mainPage/MainOnePageApplication";
-// import Test from "../mainPage/Test"
 
 
 // https://www.youtube.com/watch?v=I3PC8pV1SBM
@@ -125,25 +123,24 @@ class Login extends Component {
                         response: result
                     })
                     console.log("result", result);
+                    console.log({ result: result.authData });
 
                     const returnUserName = result.message;
                     console.log(returnUserName)
                     if (returnUserName) {
 
-                        const filterUser = this.state.userName;
-                        console.log("filterUser: " + filterUser)
-                        // return (
-                        //     <div>
-                        //          <MainOnePageApplication filterUser={filterUser} />
-                        //     </div>
-                        // )
+                        const findUserName = result.authData.userName
+                        console.log("findUserName: " + findUserName)
+                        // {filterUser.map(s =><MainOnePageApplication key={s.id} item={s} />)}
                     }
                 })
             })
     }
 
 
+
     render() {
+
         return (
             <form onSubmit={this.handleSubmit} className="input_style">
                 <div className="widowRegisterAndLogin">

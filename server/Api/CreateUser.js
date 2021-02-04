@@ -72,7 +72,7 @@ route.post('/login', async (req, res) => {
                 },
                     process.env.LOGIN_PASSWORD,
                     {
-                        expiresIn: "1h" // after 1 hour - the user logout
+                        expiresIn: "30m" // after 30 min - the user logout
                     });
                 res.status(200).json({ message: "You are now login!", token: token });
                 console.log({message: "You are now login!" });
@@ -98,15 +98,6 @@ route.post('/token', verifyToken, (req, res) => {
     })
 });
 
-// route.delete('/logout', async (req, res) => {
-//     jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
-//         if (err) {
-//             return res.status(400).json({ message: "ERROR DELETED" });
-//         } else {
-//             return res.status(200).json({ message: "DELETED created", authData })
-//         }
-//     })
-// });
 
 route.get('/logout', function(req,res){
     req.user.deleteToken(req.token,(err,user)=>{

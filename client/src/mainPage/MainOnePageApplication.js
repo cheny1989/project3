@@ -23,14 +23,10 @@ class MainOnePageApplication extends Component {
     }
 
 
-
     render() {
 
         const response = this.state.user;
-        console.log("response SPA: " + response);
-
-        const { filterUser } = this.props;
-        console.log("filterUserPROPS: " + filterUser);
+        // const { response } = this.props
 
         // if (response=== null) {
         //     const redirect = <Redirect to={this.state.sendRedirect} />

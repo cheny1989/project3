@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from "jquery";
 import { io } from 'socket.io-client';
+import ShowDate from "../showDate/ShowDate"
 
 const validateForm = (errors) => {
     let valid = true;
@@ -196,6 +197,7 @@ class CreateVacation extends Component {
         return (
             <div>
                 <br />
+                <ShowDate />
                 <div className="helloAdmin">Hello Admin - only you see a current page</div>
                 <button className="showAndHide" onClick={() => showAndHide()}>Show/Hide window to create vacation</button>
                 <form onSubmit={this.handleSubmit} className="formStyle">
