@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
 import $ from "jquery";
-import MainOnePageApplication from "../mainPage/MainOnePageApplication";
+// import Test from "../mainPage/Test"
 
 
 // https://www.youtube.com/watch?v=I3PC8pV1SBM
@@ -14,9 +14,9 @@ class Login extends Component {
             userName: '',
             password: '',
             user: [],
+            userToekn: [],
             login: false,
             store: null,
-            // token: ''
         }
     }
 
@@ -42,6 +42,7 @@ class Login extends Component {
         e.preventDefault()
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
+
         fetch("/api/apiuser/login", {
             method: "POST",
             headers: {
@@ -63,20 +64,15 @@ class Login extends Component {
                         USERNAME_OR_PASSWORD_FAILED.style.paddingTop = "5px";
                         USERNAME_OR_PASSWORD_FAILED.style.paddingBottom = "5px";
                         USERNAME_OR_PASSWORD_FAILED.style.marginTop = "20px";
-                        // setTimeout(function () {
-                        //     document.getElementById("showAndHideMessage").innerHTML = "";
-                        // }, 5000);
 
-                    } else if (resultUserName === "You are now login!") {
+                    } else if (resultUserName === "You are now logged!") {
                         const LOGIN = document.getElementById("showAndHideMessage");
-                        LOGIN.innerHTML = "You are now login!";
+                        LOGIN.innerHTML = "You are now logged!";
                         LOGIN.style.background = "#00cc00";
                         LOGIN.style.paddingTop = "5px";
                         LOGIN.style.paddingBottom = "5px";
                         LOGIN.style.marginTop = "20px";
-                        // setTimeout(function () {
-                        //     document.getElementById("showAndHideMessage").innerHTML = "";
-                        // }, 5000);
+
                     } else {
                         const NOT_EXISTS = document.getElementById("showAndHideMessage");
                         NOT_EXISTS.innerHTML = "Username or Password failed";
@@ -84,9 +80,6 @@ class Login extends Component {
                         NOT_EXISTS.style.paddingTop = "5px";
                         NOT_EXISTS.style.paddingBottom = "5px";
                         NOT_EXISTS.style.marginTop = "20px";
-                        // setTimeout(function () {
-                        //     document.getElementById("showAndHideMessage").innerHTML = "";
-                        // }, 5000);
                     }
 
                     localStorage.setItem("login", JSON.stringify({
@@ -97,8 +90,8 @@ class Login extends Component {
                         token: result.token
                     }))
                     this.storeCollectore();
-                    const Onlytoken = (result.token)
-                    console.log(Onlytoken)
+                    const Onlytoken = (result.token);
+                    console.log(Onlytoken);
                     this.token();
                 })
             })
@@ -107,7 +100,7 @@ class Login extends Component {
     token = () => {
         let token = "Beraer " + this.state.store.token;
         if (token === "Beraer " + undefined) {
-            console.log("Error")
+            console.log("Error - Login");
         }
         console.log(token)
         fetch("/api/apiuser/token", {
@@ -128,15 +121,25 @@ class Login extends Component {
                     const returnUserName = result.message;
                     console.log(returnUserName)
                     if (returnUserName) {
-
                         const findUserName = result.authData.userName
-                        console.log("findUserName: " + findUserName)
-                        // {filterUser.map(s =><MainOnePageApplication key={s.id} item={s} />)}
+                        console.log("findUserName: " + findUserName);
+
+                        this.setState({
+                            user: [findUserName]
+                        });
+
+                        const sec = this.state.user;
+                        console.log("sec: " + sec);
+
+                        
+                        const count = this.state.user.push();
+                        console.log(count);
+                        console.log(this.state.user);
+                
                     }
                 })
             })
     }
-
 
 
     render() {

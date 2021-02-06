@@ -26,11 +26,15 @@ class Register extends Component {
         }
     }
 
-    clearInput = () => {
+    clearAllInputs = () => {
         $('#firstName').val('')
         $('#lastName').val('')
         $('#userName').val('')
         $('#password').val('')
+    }
+
+    clearInputUserName = () => {
+        $('#userName').val('')
     }
 
     handleChange = (e) => {
@@ -82,14 +86,12 @@ class Register extends Component {
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
 
-        this.setState({
-            firstName: '',
-            lastName: '',
-            userName: '',
-            password: ''
-        })
-
-        this.clearInput();
+        // this.setState({
+        //     firstName: '',
+        //     lastName: '',
+        //     userName: '',
+        //     password: ''
+        // })
 
         var rbody = {
             firstName: firstName,
@@ -123,6 +125,17 @@ class Register extends Component {
                             USERNAME_OR_PASSWORD_FAILED.style.paddingTop = "5px";
                             USERNAME_OR_PASSWORD_FAILED.style.paddingBottom = "5px";
                             USERNAME_OR_PASSWORD_FAILED.style.marginTop = "20px";
+
+                            this.clearInputUserName();
+                        }else{
+                            const SUCCESS_REGISTER =  document.getElementById("showAndHideMessage");
+                            SUCCESS_REGISTER.innerHTML = "Success Register! " + userName;
+                            SUCCESS_REGISTER.style.background = "#00cc00";
+                            SUCCESS_REGISTER.style.paddingTop = "5px";
+                            SUCCESS_REGISTER.style.paddingBottom = "5px";
+                            SUCCESS_REGISTER.style.marginTop = "20px";
+
+                            this.clearAllInputs();
                         }
 
                         // document.getElementById("showAndHideMessage").innerHTML = resultUserName;

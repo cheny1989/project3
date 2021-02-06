@@ -6,11 +6,11 @@ class Logout extends Component {
         this.state = {}
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.logout();
     }
 
-    logout=()=>{
+    logout = () => {
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -19,11 +19,15 @@ class Logout extends Component {
             body: JSON.stringify()
         };
         fetch('/api/apiuser/logout', requestOptions)
-            .then(r => r.json())
+            .then((response) => {
+                response.json().then((result) => {
+                    console.log("result: ", result);
+                });
+            })
             .then(res => this.setState({ res }))
     }
 
-    
+
 
     render() {
         return (

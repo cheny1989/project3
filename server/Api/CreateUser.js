@@ -7,6 +7,7 @@ const User = require("../DB/CreateUser");
 const route = express.Router();
 
 const verifyToken = require("../middlewares/verifyToken");
+const { findByIdAndRemove } = require("../DB/CreateUser");
 
 
 // request - register
@@ -74,7 +75,7 @@ route.post('/login', async (req, res) => {
                     {
                         expiresIn: "30m" // after 30 min - the user logout
                     });
-                res.status(200).json({ message: "You are now login!", token: token });
+                res.status(200).json({ message: "You are now logged!", token: token });
                 console.log({message: "You are now login!" });
                 console.log({ user: userName });
                 console.log({ token: token });
@@ -98,13 +99,14 @@ route.post('/token', verifyToken, (req, res) => {
     })
 });
 
-
-route.get('/logout', function(req,res){
-    req.user.deleteToken(req.token,(err,user)=>{
+route.post('/logout', (req,res)=>{
+    User.findByIdAndRemove(req.token,(err,user)=>{
         if(err){
             return res.status(400).json({ err: "ERROR" });
         } else{
-            return res.status(200).json({ message: "DELETED" });
+            res.status(200).json({ message: "LOGOUT", user: req.user });
+            console.log({ message: user });
+            return 
         }
     });
 

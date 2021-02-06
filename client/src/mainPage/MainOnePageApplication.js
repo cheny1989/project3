@@ -10,32 +10,33 @@ import MainChat from "../chat/MainChat";
 
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import { Redirect } from "react-router";
-// import { response } from 'express';
+
+// import $ from "jquery";
 
 
 class MainOnePageApplication extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: [],
-            sendRedirect: null
+            user: '',
+        };
+    }
+    
+    clickme = () => {
+        const userName = document.getElementById("userName").value;
+        
+        if (userName.length > 1) {
+            this.setState({
+                user: userName
+            })
         }
     }
 
-
     render() {
-
-        const response = this.state.user;
-        // const { response } = this.props
-
-        // if (response=== null) {
-        //     const redirect = <Redirect to={this.state.sendRedirect} />
-        //     this.setState({ sendRedirect: null });
-        //     return redirect;
-        // }
 
         return (
             <div>
+                <button onClick={() => this.clickme()}>CLICK</button>
                 <HashRouter>
                     <div>
                         <ul className="header">
@@ -43,19 +44,23 @@ class MainOnePageApplication extends Component {
                             <li className="buttonHeader"><NavLink to="/Login">Login</NavLink ></li>
                             <li className="buttonHeader"><NavLink to="/Register">Register</NavLink></li>
 
-                            {response &&
+                            {this.state.user.length < 1 ?
+                                <></> :
                                 <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation</NavLink></li>
                             }
 
-                            {response &&
-                                <li className="buttonHeader"><NavLink to="/UserVacationList">User Vacation</NavLink></li>
+                            {this.state.user.length < 1 ?
+                                <></> :
+                                <li className="buttonHeader"><NavLink to="/UserVacationList">View all Vacation</NavLink></li>
                             }
 
-                            {response &&
+                            {this.state.user.length < 1 ?
+                                <></> :
                                 <li className="buttonHeader"><NavLink to="/Logout">Log Out</NavLink></li>
                             }
 
-                            {response &&
+                            {this.state.user.length < 1 ?
+                                <></> :
                                 <li className="buttonHeader"><NavLink to="/MainChat">Main Chat</NavLink></li>
                             }
                         </ul>
@@ -64,19 +69,23 @@ class MainOnePageApplication extends Component {
                             <Route path="/Login" component={Login} />
                             <Route path="/Register" component={Register} />
 
-                            {response &&
+                            {this.state.user.length < 1 ?
+                                <></> :
                                 <Route path="/MainVacation" component={MainVacation} />
                             }
 
-                            {response &&
+                            {this.state.user.length < 1 ?
+                                <></> :
                                 <Route path="/UserVacationList" component={UserVacationList} />
                             }
 
-                            {response &&
+                            {this.state.user.length < 1 ?
+                                <></> :
                                 <Route path="/Logout" component={Logout} />
                             }
 
-                            {response &&
+                            {this.state.user.length < 1 ?
+                                <></> :
                                 <Route path="/MainChat" component={MainChat} />
                             }
                         </div>
