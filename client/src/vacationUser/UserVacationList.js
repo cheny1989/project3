@@ -48,7 +48,7 @@ class UserVacationList extends Component {
         return (
             <div>
                 <br />
-                <div className="helloUser">Enjoy Every Moment</div>
+                <div className="helloUser">Welcome - Enjoy Every Moment</div>
                 <hr />
                 {/* <SliderImage /> */}
                 {loading && <div className="loader">Loading...</div>}

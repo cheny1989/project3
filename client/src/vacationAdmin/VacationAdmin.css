@@ -148,12 +148,6 @@
   opacity: 0.8;
 }
 
-.helloAdmin, .helloUser{
-  font-size: 16px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
 .word_wrap{
   word-wrap: break-word;
   padding-left: 15px;
@@ -297,4 +291,18 @@ margin-bottom: 10px;
 
 .numberOfFallowersBtn:hover{
   background-color: rgb(212, 212, 212);
+}
+
+.viewChart{
+  text-align: center;
+  background-color: #0e003f;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.helloUser{
+  text-align: center;
 }

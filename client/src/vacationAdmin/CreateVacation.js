@@ -201,7 +201,6 @@ class CreateVacation extends Component {
             <div>
                 <br />
                 <ShowDate />
-                <div className="helloAdmin">Hello Admin - only you see a current page</div>
                 <button className="showAndHide" onClick={() => showAndHide()}>Show/Hide window to create vacation</button>
                 <form onSubmit={this.handleSubmit} className="formStyle">
                     <div>
@@ -246,7 +245,7 @@ class CreateVacation extends Component {
                             <input type="date" id="endDate" name="endDate" onChange={this.handleChange} required={this} noValidate />
                             <br />
 
-                            <label htmlFor="endDate" >Number Of Follows: (currently) </label>
+                            <label htmlFor="endDate" >Number Of Followers: (currently) </label>
                             <br />                            
                             <input type="number" id="numberFollow" name="numberFollow" value="0" onChange={this.handleChange} disabled={true} />
                             <br />

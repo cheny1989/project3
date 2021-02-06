@@ -43,10 +43,6 @@ class AdminVacationList extends Component {
     }
 
     showChart = () => {
-        const filterDestination = this.state.vacation;
-        const filterFollowers = this.state.vacation.filter(v => v.numberFollow >= 5);
-        console.log(filterDestination)
-        console.log(filterFollowers)
 
         const newFilterDestination = this.state.vacation.map((vacation) => ("" + vacation.destination));
         console.log(newFilterDestination)
@@ -61,7 +57,7 @@ class AdminVacationList extends Component {
                 datasets: [{
                     label: "Number of followers",
                     data: newFilterFolloers,
-                    backgroundColor: "#0099ff"
+                    backgroundColor: "#0099ff",
                 }]
             }
         })
@@ -78,16 +74,17 @@ class AdminVacationList extends Component {
             <div>
                 {loading && <div className="loader">Loading...</div>}
                 {!loading && <div></div>}
-
+            
                 <br />
                 <div className="yourVaacation">All Your Vacations - Admin</div>
                 <br />
 
                 <b><label className="lableAndInputFilter">Filter by Destination</label></b>
                 <input type="text" className="lableAndInputFilter" placeholder="Enter any Destination..." onChange={(event) => this.filterStringChanged(event)} />
-
                 <User />
                 <div className="numberOfVacations">Number of Vacations: <span className="numberOfVacations_span">{numberOfVacations}</span></div>
+               
+                <div className="viewChart">&#128407; View a chart to check the number of followers &#128407;</div>
                 <div className="gridVacationListStyle">
                     {filterVacation
                         .sort((s1, s2) => s1.destination - s2.destination)
@@ -98,8 +95,8 @@ class AdminVacationList extends Component {
                 </div>
 
                 <div>
-                    <div className="numberOfFallowers">Number of Followers</div>
-                    <button className="numberOfFallowersBtn" onClick={() => this.showChart()}>SHOW CHART</button>
+                    <div className="numberOfFallowers">&#128402; Number of Followers &#128402;</div>
+                    <button className="numberOfFallowersBtn" onClick={() => this.showChart()}>CLICK TO SHOW CHART</button>
                     <br />
                     <canvas ref={this.canvasRef} />
                 </div>

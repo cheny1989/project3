@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import CreateVacation from "./CreateVacation";
-// import MapVacation from "./MapVacation";
 import AdminVacationList from "./AdminVacationList"
 import "./VacationAdmin.css";
-// import {Redirect} from "react-router";
-
-
 
 class MainVacation extends Component {
     constructor(props) {
@@ -37,10 +33,6 @@ class MainVacation extends Component {
     }
 
     render() {
-        // const {user} = this.props;
-        // if (!user) {
-        // 	return <Redirect to="/login"/>
-        // }
 
         return (
             <div>
@@ -48,9 +40,6 @@ class MainVacation extends Component {
                     <CreateVacation createVacation={this.createVacation} />
                 </div>
                 <hr />
-                {/* <MapVacation deleteVacation={this.deleteVacation} vacation={this.state.vacation}
-                editVacation={this.editVacation} vacation={this.state.vacation}
-                /> */}
                 <AdminVacationList />
             </div>
         );

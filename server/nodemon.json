@@ -1,0 +1,10 @@
+{
+    "env":{
+        "MONGO_USERNAME": "dbuser",
+        "MONGO_PASSWORD": "dbuser123",
+        "LOGIN_PASSWORD": "chen1989",
+
+        "EMAIL": "chen31608@gmail.com",
+        "PASSWORD": "chenyaacov1989"
+    }
+}
