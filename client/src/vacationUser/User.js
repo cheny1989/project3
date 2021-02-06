@@ -10,23 +10,81 @@ class User extends Component {
     }
 
     counter = (_id) => {
+        const { item } = this.props;
         const findId = _id;
-        const counter = this.state.counter ++
-        const newCounter = ({ findId, counter });
-        console.log(newCounter);
+        const counter = item.numberFollow;
+        console.log(counter)
+        const newCounter = item.numberFollow ++
+        const sum = ({ findId, newCounter });
+        console.log(sum);
+
+        const description = item.destination;
+        const destination = item.description;
+        const price = item.price;
+        const picture = item.picture;
+        const startDate = item.startDate;
+        const endDate = item.endDate;
+        const numberFollow = item.numberFollow
+    
+        var rbody = {
+            description: description,
+            destination: destination,
+            price: price,
+            picture: picture,
+            startDate: startDate,
+            endDate: endDate,
+            numberFollow: numberFollow
+          };
+          fetch(`/api/apivacation/edit/${_id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(rbody),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(r => r.json())
+        .then(res => this.setState({ res }))
     };
 
     Uncounter=(_id)=>{
+        const { item } = this.props;
         const findId = _id;
-        const counter = this.state.counter --
-        const newCounter = ({ findId, counter });
-        console.log(newCounter);
+        const counter = item.numberFollow;
+        const newCounter = item.numberFollow --
+        const sum = ({ findId, newCounter });
+        console.log(sum);
         if(counter <= 0){
-            this.setState({
-                counter: 0
-            })
+            item.numberFollow = 0
         }
-    }
+        const description = item.destination;
+        const destination = item.description;
+        const price = item.price;
+        const picture = item.picture;
+        const startDate = item.startDate;
+        const endDate = item.endDate;
+        const numberFollow = item.numberFollow
+    
+        var rbody = {
+            description: description,
+            destination: destination,
+            price: price,
+            picture: picture,
+            startDate: startDate,
+            endDate: endDate,
+            numberFollow: numberFollow
+          };
+          fetch(`/api/apivacation/edit/${_id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(rbody),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(r => r.json())
+        .then(res => this.setState({ res }))
+    };
 
     render() {
 

@@ -156,15 +156,6 @@ class Admin extends Component {
     $('#numberFollow' + [item._id]).val(item.numberFollow)
   }
 
-  // pushAll=()=>{
-  //   this.oldDestination();
-  //   this.oldDescription();
-  //   this.oldPrice();
-  //   this.oldPicture();
-  //   this.oldStartDate();
-  //   this.oldStEndDate();
-  // }
-
   notRefreshPageAndPushAll = (e) => {
     e.preventDefault();
     this.oldDestination();
