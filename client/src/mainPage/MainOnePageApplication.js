@@ -18,25 +18,25 @@ class MainOnePageApplication extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: '',
+            user: 'aaaaa',
         };
     }
     
-    clickme = () => {
-        const userName = document.getElementById("userName").value;
+    // clickme = () => {
+    //     const userName = document.getElementById("userName").value;
         
-        if (userName.length > 1) {
-            this.setState({
-                user: userName
-            })
-        }
-    }
+    //     if (userName.length > 1) {
+    //         this.setState({
+    //             user: userName
+    //         })
+    //     }
+    // }
 
     render() {
 
         return (
             <div>
-                <button onClick={() => this.clickme()}>CLICK</button>
+                {/* <button onClick={() => this.clickme()}>CLICK</button> */}
                 <HashRouter>
                     <div>
                         <ul className="header">

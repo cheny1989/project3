@@ -18,6 +18,9 @@ const createVacation = new mongoose.Schema({
     }),
     endDate: ({
         type: String
+    }),
+    numberFollow: ({
+        type: Number
     })
 })
 

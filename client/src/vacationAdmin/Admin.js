@@ -68,6 +68,7 @@ class Admin extends Component {
       const picture = document.getElementById("pictureNew" + [item._id]).value;
       const startDate = document.getElementById("startDateNew" + [item._id]).value;
       const endDate = document.getElementById("endDateNew" + [item._id]).value;
+      const numberFollow = document.getElementById("numberFollow" + [item._id]).value;
 
       var rbody = {
         description: description,
@@ -75,7 +76,8 @@ class Admin extends Component {
         price: price,
         picture: picture,
         startDate: startDate,
-        endDate: endDate
+        endDate: endDate,
+        numberFollow: numberFollow
       };
 
       var d_start = new Date(startDate);
@@ -149,6 +151,11 @@ class Admin extends Component {
     $('#endDateNew' + [item._id]).val(item.endDate)
   };
 
+  oldNumberFollow = ()=>{
+    const { item } = this.props;
+    $('#numberFollow' + [item._id]).val(item.numberFollow)
+  }
+
   // pushAll=()=>{
   //   this.oldDestination();
   //   this.oldDescription();
@@ -158,7 +165,7 @@ class Admin extends Component {
   //   this.oldStEndDate();
   // }
 
-  notRefreshPage = (e) => {
+  notRefreshPageAndPushAll = (e) => {
     e.preventDefault();
     this.oldDestination();
     this.oldDescription();
@@ -166,6 +173,7 @@ class Admin extends Component {
     this.oldPicture();
     this.oldStartDate();
     this.oldStEndDate();
+    this.oldNumberFollow();
   }
 
   render() {
@@ -195,14 +203,17 @@ class Admin extends Component {
         {/* delete vacation by id*/}
         <div key={item._id} className="vacationListStyle">
           <p className="destination_style">Destination: {item.destination.toUpperCase()}</p>
+          <p>{item.price > 300 ? <></>:<p className="goodPrice">Good Price! &#128525;</p>}</p>
           <p className="word_wrap">Description: {item.description}</p>
           <p>Price: {item.price}$</p>
           <p>Picture: <br /><img src={item.picture} width="95%" height="100%" alt="img"></img></p>
           <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>
           <p>End Date: {item.endDate.split("-").reverse().join("/")}</p>
+          <p>Number of Followers: {item.numberFollow} &#x261D;</p>
           <button className="deleteVacationStyle" onClick={() => { this.deleteVacation(item._id) }}>DELETE</button>
           {/* <br /> */}
           <button className="editVacationStyle" id={"showAndHide" + [item._id]} onClick={() => showAndHide(item._id)}>OPEN/HIDE EDIT</button>
+
 
           {/* edit vacation by id*/}
           <div className={"titleShowAndHide" + [item._id]}>
@@ -247,13 +258,20 @@ class Admin extends Component {
                 <br />
                 <input type="date" className="newInputEdit" id={"endDateNew" + [item._id]} onChange={this.handleChange} required={this} />
                 <button className="currently" onClick={() => this.oldStEndDate()}>&#x2714;</button>
+
                 <br />
+                <label>Number Of Follows:</label>
+                <br />
+                <input type="number" className="newInputEdit" id={"numberFollow" + [item._id]} onChange={this.handleChange} required={this} />
+                <button className="currently" onClick={() => this.oldNumberFollow()}>&#x2714;</button>
+
+
                 {/* <button className="" onClick={() => this.pushAll()}>Push all input</button> */}
                 <button className="changeVacationButton">SEND EDIT</button>
               </div>
             </form>
 
-            <form onSubmit={this.notRefreshPage}>
+            <form onSubmit={this.notRefreshPageAndPushAll}>
               <button className="pushAll">&#10132; Push all previous inputs &#x2714;</button>
             </form>
             <button className="showAndHide2" id={"showAndHide2" + [item._id]} onClick={() => showAndHide2(item._id)}>&#10008;</button>

@@ -107,6 +107,7 @@ class CreateVacation extends Component {
         const picture = document.getElementById("picture").value;
         const startDate = document.getElementById("startDate").value;
         const endDate = document.getElementById("endDate").value;
+        const numberFollow = document.getElementById("numberFollow").value;
 
         var d_start = new Date(startDate);
         var d_end = new Date(endDate);
@@ -135,7 +136,8 @@ class CreateVacation extends Component {
             price: '',
             picture: '',
             startDate: '',
-            endDate: ''
+            endDate: '',
+            numberFollow: ''
         })
 
         this.clearInput();
@@ -146,7 +148,8 @@ class CreateVacation extends Component {
             price: price,
             picture: picture,
             startDate: startDate,
-            endDate: endDate
+            endDate: endDate,
+            numberFollow: numberFollow
         };
 
         if (validateForm(this.state.errors)) {
@@ -241,6 +244,11 @@ class CreateVacation extends Component {
                             <label htmlFor="endDate">End Date: </label>
                             <br />
                             <input type="date" id="endDate" name="endDate" onChange={this.handleChange} required={this} noValidate />
+                            <br />
+
+                            <label htmlFor="endDate" >Number Of Follows: (currently) </label>
+                            <br />                            
+                            <input type="number" id="numberFollow" name="numberFollow" value="0" onChange={this.handleChange} disabled={true} />
                             <br />
                             <button className="btnAddVacationStyle">ADD VACATION</button>
                             <div id="showAndHideMessage"></div>

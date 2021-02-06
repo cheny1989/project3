@@ -8,14 +8,15 @@ const route = express.Router();
 // const verifyToken = require("../middlewares/verifyToken")
 
 route.post('/post', async (req, res) => {
-    const { destination, description, price, picture, startDate, endDate } = req.body;
+    const { destination, description, price, picture, startDate, endDate, numberFollow } = req.body;
     let vacation = {};
     vacation.destination = destination,
         vacation.description = description,
         vacation.price = price,
         vacation.picture = picture,
         vacation.startDate = startDate,
-        vacation.endDate = endDate
+        vacation.endDate = endDate,
+        vacation.numberFollow = numberFollow
 
     try {
         let vacationModel = new Vacation(vacation);
@@ -59,7 +60,8 @@ route.put('/edit/:id', async (req, res) => {
             price: req.body.price,
             picture: req.body.picture,
             startDate: req.body.startDate,
-            endDate: req.body.endDate
+            endDate: req.body.endDate,
+            numberFollow: req.body.numberFollow
         }
     })
         .then(result => {

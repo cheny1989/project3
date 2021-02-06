@@ -79,6 +79,19 @@
     opacity: 0.8;
   }
 
+  .unfollow_btn{
+    background-color: #cacaca;
+    width: 40%;
+    height: 30px;
+    box-shadow: rgb(73, 73, 73) 1px 1px 1px 1px;
+    border-radius: 5px;
+    color: black;
+  }
+
+  .unfollow_btn:hover{
+    opacity: 0.8;
+  } 
+
   .editVacationStyle{
       background-color: #dadada;
       color: black;
@@ -234,4 +247,15 @@ margin-bottom: 10px;
 
 .showAndHide2:hover{
   opacity: 0.8;
+}
+
+.goodPrice{
+  background-color: #77ff4e;
+  border-radius: 15px;
+  border: black solid 1px;
+  width: 40%;
+  text-align: center;
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
