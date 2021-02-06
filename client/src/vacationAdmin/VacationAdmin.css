@@ -274,3 +274,27 @@ margin-bottom: 10px;
   padding-bottom: 5px;
   border-radius: 2px;
 }
+
+.numberOfFallowers{
+  background-color: #0e003f;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.numberOfFallowersBtn{
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  width: 20%;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.numberOfFallowersBtn:hover{
+  background-color: rgb(212, 212, 212);
+}

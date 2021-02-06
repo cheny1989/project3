@@ -7,7 +7,6 @@ import UserVacationList from "../vacationUser/UserVacationList";
 import Logout from "../loginAndRegister/Logout";
 import Footer from "../footer/Footer";
 import MainChat from "../chat/MainChat";
-import ChartFollowers from "../chart/ChartFollowers"
 
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import { Redirect } from "react-router";
@@ -65,10 +64,6 @@ class MainOnePageApplication extends Component {
                                 <li className="buttonHeader"><NavLink to="/MainChat">Main Chat</NavLink></li>
                             }
 
-                            {this.state.user.length < 1 ?
-                                <></> :
-                                <li className="buttonHeader"><NavLink to="/ChartFollowers">Chart</NavLink></li>
-                            }
                         </ul>
 
                         <div className="content">
@@ -95,10 +90,6 @@ class MainOnePageApplication extends Component {
                                 <Route path="/MainChat" component={MainChat} />
                             }
 
-                            {this.state.user.length < 1 ?
-                                <></> :
-                                <Route path="/ChartFollowers" component={ChartFollowers} />
-                            }
                         </div>
                     </div>
                 </HashRouter>

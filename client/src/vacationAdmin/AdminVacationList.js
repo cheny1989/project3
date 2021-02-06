@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Admin from "./Admin";
-import User from "../numberUsers/User"
-// import MapVacation from "./ "
+import User from "../numberUsers/User";
+import { Chart } from "chart.js";
 
 class AdminVacationList extends Component {
     constructor(props) {
@@ -10,6 +10,7 @@ class AdminVacationList extends Component {
             vacation: [],
             filterString: ''
         }
+        this.canvasRef = React.createRef();
     }
 
     componentDidMount() {
@@ -41,6 +42,31 @@ class AdminVacationList extends Component {
         this.setState({ filterString: e.target.value });
     }
 
+    showChart = () => {
+        const filterDestination = this.state.vacation;
+        const filterFollowers = this.state.vacation.filter(v => v.numberFollow >= 5);
+        console.log(filterDestination)
+        console.log(filterFollowers)
+
+        const newFilterDestination = this.state.vacation.map((vacation) => ("" + vacation.destination));
+        console.log(newFilterDestination)
+
+        const newFilterFolloers = this.state.vacation.map((vacation) => ("" + vacation.numberFollow));
+        console.log(newFilterFolloers)
+
+        this.myChart = new Chart(this.canvasRef.current, {
+            type: 'bar',
+            data: {
+                labels: newFilterDestination,
+                datasets: [{
+                    label: "Number of followers",
+                    data: newFilterFolloers,
+                    backgroundColor: "#0099ff"
+                }]
+            }
+        })
+    }
+
 
     render() {
         const filterVacation = this.state.vacation.filter(v => v.destination.indexOf(this.state.filterString) >= 0);
@@ -50,7 +76,6 @@ class AdminVacationList extends Component {
 
         return (
             <div>
-                {/* <SliderImage /> */}
                 {loading && <div className="loader">Loading...</div>}
                 {!loading && <div></div>}
 
@@ -71,6 +96,14 @@ class AdminVacationList extends Component {
                         )
                     }
                 </div>
+
+                <div>
+                    <div className="numberOfFallowers">Number of Followers</div>
+                    <button className="numberOfFallowersBtn" onClick={() => this.showChart()}>SHOW CHART</button>
+                    <br />
+                    <canvas ref={this.canvasRef} />
+                </div>
+
             </div>
         );
     }
