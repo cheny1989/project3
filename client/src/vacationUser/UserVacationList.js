@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import User from "./User"
-// import SliderImage from "./SliderImage"
+import ChartFollowers from "../chart/ChartFollowers"
 
 class UserVacationList extends Component {
     constructor(props) {
@@ -64,6 +64,12 @@ class UserVacationList extends Component {
                         .sort((s1, s2) => s1.destination - s2.destination)
                         .map(s =>
                             <User key={s.id} item={s} />
+                        )
+                    }
+
+                        {filterVacation
+                        .map(s =>
+                            <ChartFollowers key={s.id} item={s} />
                         )
                     }
                 </div>

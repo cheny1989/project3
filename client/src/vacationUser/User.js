@@ -93,14 +93,15 @@ class User extends Component {
         return (
             <div>
                 <div key={item._id} className="vacationListStyle">
-                    <p className="destination_style">Destination: {item.destination.toUpperCase()}</p>
+                    <p className="destination_style">{item.destination.toUpperCase()}</p>
                     <p>{item.price > 300 ? <></>:<p className="goodPrice">Good Price! &#128525;</p>}</p>
+                    <p>{item.numberFollow < 5 ? <></>:<p className="hotDestination">Hot Destination &#128165;</p>}</p>
                     <p className="word_wrap">Description: {item.description}</p>
                     <p>Price: {item.price}$</p>
                     <p>Picture: <br /><img src={item.picture} width="95%" height="100%" alt="img"></img></p>
                     <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>
                     <p>End Date: {item.endDate.split("-").reverse().join("/")}</p>
-                    <p>Number of Followers: {item.numberFollow} &#x261D;</p>
+                    <p className="numberOfFollow">Number of Followers: {item.numberFollow} &#x261D;</p>
                     <button className="follow_btn" onClick={() => this.counter(item._id)}>Follow &#128150;</button>
                     <button className="unfollow_btn" onClick={() => this.Uncounter(item._id)}>Unfollow &#128148;</button>
                 </div>

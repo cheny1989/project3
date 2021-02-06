@@ -79,6 +79,15 @@
     opacity: 0.8;
   }
 
+  .editVacationStyle{
+      background-color: #dadada;
+      color: black;
+      width: 40%;
+      height: 30px;
+      box-shadow: rgb(73, 73, 73) 1px 1px 1px 1px;
+      border-radius: 5px;
+  }
+
   .unfollow_btn{
     background-color: #cacaca;
     width: 40%;
@@ -91,16 +100,7 @@
   .unfollow_btn:hover{
     opacity: 0.8;
   } 
-
-  .editVacationStyle{
-      background-color: #dadada;
-      color: black;
-      width: 40%;
-      height: 30px;
-      box-shadow: rgb(73, 73, 73) 1px 1px 1px 1px;
-      border-radius: 5px;
-  }
-
+  
   .changeVacationButton{
     color: white;
     width: 140px;
@@ -249,8 +249,7 @@ margin-bottom: 10px;
   opacity: 0.8;
 }
 
-.goodPrice{
-  background-color: #77ff4e;
+.goodPrice, .hotDestination{
   border-radius: 15px;
   border: black solid 1px;
   width: 40%;
@@ -258,4 +257,20 @@ margin-bottom: 10px;
   margin: auto;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.goodPrice{
+  background-color: #77ff4e;
+}
+
+.hotDestination{
+  background-color: rgb(253, 182, 76);
+}
+
+.numberOfFollow{
+  background-color: brown;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 2px;
 }
