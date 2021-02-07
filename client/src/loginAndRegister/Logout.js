@@ -27,7 +27,11 @@ class Logout extends Component {
                     console.log("result: ", result);
                 });
             })
-            .then(res => this.setState({ res }))
+            .then(res => this.setState({ res }));
+
+            setTimeout(function () {
+                window.location.reload(false);
+        }, 3000);
     }
 
     render() {

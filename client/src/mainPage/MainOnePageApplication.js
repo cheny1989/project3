@@ -16,27 +16,16 @@ class MainOnePageApplication extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: 'test',
+            user: 'user',
         };
     }
 
     // https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
 
-    // clickme = () => {
-    //     const userName = document.getElementById("userName").value;
-        
-    //     if (userName.length > 1) {
-    //         this.setState({
-    //             user: userName
-    //         })
-    //     }
-    // }
-
     render() {
 
         return (
             <div>
-                {/* <button onClick={() => this.clickme()}>CLICK</button> */}
                 <HashRouter>
                     <div>
                         <ul className="header">

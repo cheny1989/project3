@@ -138,11 +138,6 @@ class Register extends Component {
                             this.clearAllInputs();
                         }
 
-                        // document.getElementById("showAndHideMessage").innerHTML = resultUserName;
-                        // setTimeout(function () {
-                        //     document.getElementById("showAndHideMessage").innerHTML = "";
-                        // }, 5000);
-
                     });
                 })
                 .then(res => this.setState({ res }))
@@ -188,7 +183,7 @@ class Register extends Component {
                         <span className="errorsOfValidation"><br />{errors.password}</span>
                     }
                     <br />
-                    <button className="button_style" type="submit">Register</button>
+                    <button className="button_style" type="submit">Register &#128402;</button>
                     <div id="showAndHideMessage"></div>
                 </div>
             </form>

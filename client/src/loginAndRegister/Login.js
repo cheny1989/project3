@@ -5,8 +5,6 @@ import $ from "jquery";
 // import MainOnePageApplication from "../mainPage/MainOnePageApplication"
 
 
-// https://www.youtube.com/watch?v=I3PC8pV1SBM
-
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -131,11 +129,11 @@ class Login extends Component {
                         const sec = this.state.user;
                         console.log("sec: " + sec);
 
-                        
+
                         const count = this.state.user.push();
                         console.log(count);
                         console.log(this.state.user);
-                
+
                     }
                 })
             })
@@ -144,30 +142,31 @@ class Login extends Component {
 
     render() {
 
-
         return (
-            <form onSubmit={this.handleSubmit} className="input_style">
-                <div className="widowRegisterAndLogin">
-                    <div className="enjoyTitle">Login and Enjoy</div>
+            <div>
+                <form onSubmit={this.handleSubmit} className="input_style">
+                    <div className="widowRegisterAndLogin">
+                        <div className="enjoyTitle">Login and Enjoy</div>
 
-                    <label htmlFor="userName">Username: </label>
-                    <br />
-                    <input type="text" id="userName" name="userName" onChange={this.handleChange} required={true} />
-                    <br />
-                    <label htmlFor="password">Password: </label>
-                    <br />
-                    <input type="password" id="password" name="password" onChange={this.handleChange} required={true} />
-                    <br />
-                    <button className="button_style" type="submit">Login</button>
-
-                    <HashRouter>
+                        <label htmlFor="userName">Username: </label>
                         <br />
-                        <div className="notRegister"><NavLink to="/Register">Not Register? Click Here</NavLink></div>
-                        <Route path="/Register" component={Register} />
-                    </ HashRouter>
-                    <div id="showAndHideMessage"></div>
-                </div>
-            </form>
+                        <input type="text" id="userName" name="userName" onChange={this.handleChange} required={true} />
+                        <br />
+                        <label htmlFor="password">Password: </label>
+                        <br />
+                        <input type="password" id="password" name="password" onChange={this.handleChange} required={true} />
+                        <br />
+                        <button className="button_style" type="submit">Login</button>
+
+                        <HashRouter>
+                            <br />
+                            <div className="notRegister"><NavLink to="/Register">Not Register? Click Here</NavLink></div>
+                            <Route path="/Register" component={Register} />
+                        </ HashRouter>
+                        <div id="showAndHideMessage"></div>
+                    </div>
+                </form>
+            </div>
         )
     }
 }
