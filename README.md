@@ -3,9 +3,12 @@
 פרויקט יישלח בכל זאת עם הסיסמאות.
 Open a new Terminal.
 Split a terminal.
+
 cd client  > npm install.
 cd server > npm install.
-change a username and password in URI_Mongoose.js file: const URI = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.ooadp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+
+change a username and password in URI_Mongoose.js file: const URI =
+`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.ooadp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
 
 Enter Any string or password in Api/CreateUser.js file > line : jwt.verify(req.token, process.env.LOGIN_PASSWORD, (err, authData) => {
 In Api/CreateMessage.js file – Enter any Email address "to:": to: 'chenyaa89@gmail.com', // change The Email Address to check it

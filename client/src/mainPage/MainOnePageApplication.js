@@ -20,8 +20,6 @@ class MainOnePageApplication extends Component {
         };
     }
 
-    // https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
-
     render() {
 
         return (
