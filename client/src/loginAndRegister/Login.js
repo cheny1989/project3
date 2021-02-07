@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import Register from "./Register";
 import $ from "jquery";
-// import Test from "../mainPage/Test"
+// import MainOnePageApplication from "../mainPage/MainOnePageApplication"
 
 
 // https://www.youtube.com/watch?v=I3PC8pV1SBM
@@ -143,6 +143,7 @@ class Login extends Component {
 
 
     render() {
+
 
         return (
             <form onSubmit={this.handleSubmit} className="input_style">

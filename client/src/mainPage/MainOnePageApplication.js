@@ -11,8 +11,6 @@ import MainChat from "../chat/MainChat";
 import { Route, NavLink, HashRouter } from "react-router-dom";
 import { Redirect } from "react-router";
 
-// import $ from "jquery";
-
 
 class MainOnePageApplication extends Component {
     constructor(props) {
@@ -21,6 +19,8 @@ class MainOnePageApplication extends Component {
             user: 'test',
         };
     }
+
+    // https://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children
 
     // clickme = () => {
     //     const userName = document.getElementById("userName").value;

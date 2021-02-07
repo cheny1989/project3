@@ -21,7 +21,10 @@
 }
 
 .vacationListStyle:hover{
-  background-color: rgba(240, 240, 240, 0.685)
+  background-color: rgba(255, 255, 255, 0.685);
+  -ms-transform: scale(1.01); /* IE 9 */
+  -webkit-transform: scale(1.01); /* Safari 3-8 */
+  transform: scale(1.01);
 }
 
 .addVacationTitle{
