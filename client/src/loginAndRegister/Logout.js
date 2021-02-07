@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Login from "../loginAndRegister/Login";
+import { Route, NavLink, HashRouter } from "react-router-dom";
+
 
 class Logout extends Component {
     constructor(props) {
@@ -27,12 +30,16 @@ class Logout extends Component {
             .then(res => this.setState({ res }))
     }
 
-
-
     render() {
         return (
             <div>
                 <div className="logout">
+                <HashRouter>
+                    <br />
+                    <div className="backToLoginPage"><NavLink to="/Login">Back to Login Page</NavLink></div>
+                    <Route path="/Login" component={Login} />
+                </ HashRouter>
+                
                     <table>
                         <tr className="tr_first">
                             <th className="th_first">Thank You</th>

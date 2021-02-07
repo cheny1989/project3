@@ -97,7 +97,7 @@ class User extends Component {
                     <p>{item.price > 300 ? <></>:<p className="goodPrice">Good Price! &#128525;</p>}</p>
                     <p>{item.numberFollow < 5 ? <></>:<p className="hotDestination">Hot Destination &#128165;</p>}</p>
                     <p className="word_wrap">Description: {item.description}</p>
-                    <p>Price: {item.price}$</p>
+                    <p className="priceStyle">Price: {item.price}$</p>
                     <p><img src={item.picture} width="95%" height="100%" alt="img"></img></p>
                     <p>Start Date: {item.startDate.split("-").reverse().join("/")}</p>
                     <p>End Date: {item.endDate.split("-").reverse().join("/")}</p>

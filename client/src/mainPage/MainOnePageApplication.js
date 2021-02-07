@@ -21,7 +21,7 @@ class MainOnePageApplication extends Component {
             user: 'test',
         };
     }
-    
+
     // clickme = () => {
     //     const userName = document.getElementById("userName").value;
         
@@ -46,7 +46,7 @@ class MainOnePageApplication extends Component {
 
                             {this.state.user.length < 1 ?
                                 <></> :
-                                <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation</NavLink></li>
+                                <li className="buttonHeader"><NavLink to="/MainVacation">Create Vacation / Show Chart</NavLink></li>
                             }
 
                             {this.state.user.length < 1 ?
@@ -56,14 +56,13 @@ class MainOnePageApplication extends Component {
 
                             {this.state.user.length < 1 ?
                                 <></> :
-                                <li className="buttonHeader"><NavLink to="/Logout">Log Out</NavLink></li>
+                                <li className="buttonHeader"><NavLink to="/MainChat">Main Chat</NavLink></li>
                             }
 
                             {this.state.user.length < 1 ?
                                 <></> :
-                                <li className="buttonHeader"><NavLink to="/MainChat">Main Chat</NavLink></li>
+                                <li className="buttonHeader"><NavLink to="/Logout">Log Out</NavLink></li>
                             }
-
                         </ul>
 
                         <div className="content">
@@ -82,14 +81,14 @@ class MainOnePageApplication extends Component {
 
                             {this.state.user.length < 1 ?
                                 <></> :
-                                <Route path="/Logout" component={Logout} />
+                                <Route path="/MainChat" component={MainChat} />
                             }
 
                             {this.state.user.length < 1 ?
                                 <></> :
-                                <Route path="/MainChat" component={MainChat} />
+                                <Route path="/Logout" component={Logout} />
                             }
-
+                            
                         </div>
                     </div>
                 </HashRouter>

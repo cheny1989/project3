@@ -246,7 +246,7 @@ margin-bottom: 10px;
 .goodPrice, .hotDestination{
   border-radius: 15px;
   border: black solid 1px;
-  width: 40%;
+  width: 50%;
   text-align: center;
   margin: auto;
   padding-top: 5px;
@@ -267,6 +267,7 @@ margin-bottom: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 2px;
+  margin-bottom: 25px;
 }
 
 .numberOfFallowers{
@@ -305,4 +306,10 @@ margin-bottom: 10px;
 
 .helloUser{
   text-align: center;
+}
+
+.priceStyle{
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
